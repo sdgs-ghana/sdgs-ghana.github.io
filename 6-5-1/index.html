@@ -1,0 +1,3196 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.forEach%2CString.prototype.includes%2CURLSearchParams%2CCustomEvent%2CArray.prototype.includes%2CArray.prototype.filter%2CArray.prototype.some%2CArray.prototype.find%2CArray.prototype.reduce%2CObject.assign%2CArray.isArray%2CObject.values%2CObject.entries%2CArray.from%2CSet%2CArray.prototype.findIndex"></script>
+<script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.15.0/js/canvas-to-blob.min.js"></script>
+
+        <script>
+// This is where we initialise any global variables, namespaced in "opensdg".
+var opensdg = {
+
+  // A base URL for asynchronous calls to SDG data.
+  remoteDataBaseUrl: 'https://sdg-ghana.github.io/data/en',
+
+  chartConfigAlterations: [],
+  // A hook which can be used to modify the configuration for Chart.js.
+  chartConfigAlter: function(callback) {
+    this.chartConfigAlterations.push(callback);
+  },
+
+  tableConfigAlterations: [],
+  // A hook which can be used to modify the configuration for Datatables.
+  tableConfigAlter: function(callback) {
+    this.tableConfigAlterations.push(callback);
+  },
+
+  // A hook which can be replaced to alter whether/how the values that are
+  // displayed on indicator tables/graphs get rounded.
+  dataRounding: function(value) {
+    // Alterations go here.
+    return value;
+  },
+
+  // A hook which can be used to alter the data before it is displayed on charts/tables.
+  dataDisplayAlterations: [],
+  dataDisplayAlter: function(callback) {
+    this.dataDisplayAlterations.push(callback);
+  },
+
+  language: 'en',
+};
+
+// For backwards compatibility, some of these might need to be global.
+// @TODO: Remove these eventually.
+var remoteDataBaseUrl = opensdg.remoteDataBaseUrl;
+
+</script>
+
+        <script>
+// JavaScript container for translation data.
+var translations = {
+  //Javascript version of the "t" filter from jekyll-open-sdg-plugins.
+  t: function(key) {
+
+    if (!key || typeof key !== 'string') {
+      return '';
+    }
+
+    // The majority of uses of this function are to translate disaggregation
+    // data. To spare data providers of needing to enter "data." in front of
+    // their disaggregation data, we specifically look for that here.
+    if (typeof this.data === 'object' && this.data !== null && this.data[key]) {
+      return this.data[key];
+    }
+
+    var originalKey = key;
+    var drilled = this;
+    var levelsDrilled = 0;
+    var levels = key.split('.');
+
+    for (var level in levels) {
+      // If we have drilled down to soon, abort.
+      if (typeof drilled !== 'object') {
+        break;
+      }
+
+      if (levels[level] in drilled) {
+        drilled = drilled[levels[level]];
+        levelsDrilled += 1;
+      }
+    }
+
+    // If we didn't drill the right number of levels, return the original string.
+    if (levels.length != levelsDrilled) {
+      return originalKey;
+    }
+
+    // Otherwise we must have drilled all the way.
+    return drilled;
+  },
+};
+</script>
+
+        <!-- Basic Page Needs
+        ================================================== -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- Mobile Specific Metas
+        ================================================== -->
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Title and meta description
+        ================================================== -->
+
+        
+    <title>
+        
+        Indicator 6.5.1 -
+        
+        Degree of integrated water resources management - Indicators For The Sustainable Development Goals
+    </title>
+
+
+
+        <meta name="description" content="">
+        <meta property="og:description" content="">
+        
+        <meta name="robots" content="noindex, nofollow">
+        
+        <link rel="canonical" href="/">
+
+        <!--[if IE 9]>
+        <script src="/assets/js/lib/classList.js"></script>
+        <![endif]-->
+
+        
+
+
+
+
+<link rel="shortcut icon" type="image/ico" href="/assets/img/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="/assets/img/favicons/favicon.png">
+
+
+        
+        
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="">
+        
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
+        <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20220922124716">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+          crossorigin=""/>
+        <link rel="stylesheet" href="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.control.min.css"  crossorigin=""/>
+        <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
+        <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20220922124716">
+        
+
+        
+
+    </head>
+<body class="language-en
+layout-indicator
+">
+<!-- <div class="container"> -->
+
+
+
+<script>translations['header'] = {"alpha":"Alpha","default_contrast":"Default contrast","disable_high_contrast":"Disable high contrast","disclaimer":"This is a development website. We welcome your <a href=\"mailto:%email_address\">feedback</a>.","enable_high_contrast":"Enable high contrast","high_contrast":"High contrast","skip_link":"Skip to main content","tag_line":"17 Goals to Transform our World","toggle_menu":"Menu toggle. Click to expand or collapse the menu.","toggle_search":"Search toggle. Click to expand or collapse the search bar."};</script>
+
+<a class="sr-only sr-only-focusable" id="skiplink" href="#main-content" tabindex="0">Skip to main content</a>
+<div id="disclaimer">
+  
+<div class="container">
+  <div class="disclaimer-alert">
+    <strong class="phase-tag">Alpha</strong>
+    
+    This is a development website. We welcome your <a href="mailto:sdg.secretariat@statsghana.gov.gh">feedback</a>.
+    
+  </div>
+</div>
+
+</div>
+
+<header role="banner" class="header-default">
+  <div class="container">
+
+    <div class="logo-and-mobile-widgets">
+      <a class="navbar-brand" href="/" id="home">
+    <img src="/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
+</a>
+      <div class="mobile-widgets">
+    <ul id='accessibility-nav' class='contrast-switcher'>
+        
+
+    <li class="nav-link contrast contrast-default contrast-type-default">
+        <a title="Disable high contrast"
+           aria-label="Disable high contrast"
+           data-contrast-switch-to="default"
+           href="javascript:void(0)"
+           data-on="click"
+data-event-category="Accessibility"
+data-event-action="Change contrast setting"
+data-event-label="default"
+
+        >A</a>
+    </li>
+    <li class="nav-link contrast contrast-high contrast-type-default">
+        <a title="Enable high contrast"
+           aria-label="Enable high contrast"
+           data-contrast-switch-to="high"
+           href="javascript:void(0)"
+           data-on="click"
+data-event-category="Accessibility"
+data-event-action="Change contrast setting"
+data-event-label="high"
+
+        >A</a>
+    </li>
+
+
+    </ul></div>
+    </div>
+
+    <nav class="navbar navbar-default" id="main-nav">
+      <ul class="top-level">
+    <li id="menuToggle"
+        aria-label="Menu toggle. Click to expand or collapse the menu."
+        aria-haspopup="true">
+        <button data-target="menu-mobile" aria-expanded="false">Menu</button>
+        <ul class="nav navbar-nav menu-target contrast-switcher" id="menu-mobile"><li class="nav-link ">
+    <a href="/goals">Goals</a>
+</li><li class="nav-link ">
+    <a href="/reporting-status">Reporting Status</a>
+</li><li class="nav-link ">
+    <a href="/about">About</a>
+</li><li class="nav-link ">
+    <a href="/guidance">Guidance</a>
+</li><li class="nav-link ">
+    <a href="/faq">FAQ</a>
+</li><li class="nav-link ">
+    <a href="/publications">Publications</a>
+</li><li class="nav-link ">
+    <a href="/news">Updates</a>
+</li><li class="nav-link ">
+    <a href="/covid-indicators/">Covid indicators</a>
+</li><li class="nav-link ">
+    <a href="/gdp-indicators/">GDP indicators</a>
+</li>
+
+
+
+    <li class="nav-link contrast contrast-default contrast-type-default">
+        <a title="Disable high contrast"
+           aria-label="Disable high contrast"
+           data-contrast-switch-to="default"
+           href="javascript:void(0)"
+           data-on="click"
+data-event-category="Accessibility"
+data-event-action="Change contrast setting"
+data-event-label="default"
+
+        >A</a>
+    </li>
+    <li class="nav-link contrast contrast-high contrast-type-default">
+        <a title="Enable high contrast"
+           aria-label="Enable high contrast"
+           data-contrast-switch-to="high"
+           href="javascript:void(0)"
+           data-on="click"
+data-event-category="Accessibility"
+data-event-action="Change contrast setting"
+data-event-label="high"
+
+        >A</a>
+    </li>
+
+
+
+</ul>
+
+    </li>
+    <li id="searchToggle"
+        aria-label="Search toggle. Click to expand or collapse the search bar."
+        aria-haspopup="true">
+        <button data-target="search-mobile" aria-expanded="false">Search</button>
+        <div id="search-mobile" class="menu-target">
+  <form action="/search/">
+    <label class="sr-only" for="indicator_search-mobile">Search</label>
+    <input type="text" name="q" id="indicator_search-mobile" title="Search" /><!--
+    --><button aria-label="Search" id="search-mobile-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
+  </form>
+</div>
+
+    </li>
+</ul>
+      <div id="search" class="menu-target">
+  <form action="/search/">
+    <label class="sr-only" for="indicator_search">Search</label>
+    <input type="text" name="q" id="indicator_search" title="Search" /><!--
+    --><button aria-label="Search" id="search-btn" type="submit"><i class="fa fa-search" aria-hidden="false"></i></button>
+  </form>
+</div>
+
+      <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
+    <a href="/goals">Goals</a>
+</li><li class="nav-link ">
+    <a href="/reporting-status">Reporting Status</a>
+</li><li class="nav-link ">
+    <a href="/about">About</a>
+</li><li class="nav-link ">
+    <a href="/guidance">Guidance</a>
+</li><li class="nav-link ">
+    <a href="/faq">FAQ</a>
+</li><li class="nav-link ">
+    <a href="/publications">Publications</a>
+</li><li class="nav-link ">
+    <a href="/news">Updates</a>
+</li><li class="nav-link">
+            <div class="btn-group menu-dropdown">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Other indicators
+                    <i class="fa fa-chevron-down"></i>
+                </button>
+                <ul class="dropdown-menu"><li class="nav-link ">
+    <a href="/covid-indicators/">Covid indicators</a>
+</li><li class="nav-link ">
+    <a href="/gdp-indicators/">GDP indicators</a>
+</li></ul>
+            </div>
+        </li>
+
+
+
+    <li class="nav-link contrast contrast-default contrast-type-default">
+        <a title="Disable high contrast"
+           aria-label="Disable high contrast"
+           data-contrast-switch-to="default"
+           href="javascript:void(0)"
+           data-on="click"
+data-event-category="Accessibility"
+data-event-action="Change contrast setting"
+data-event-label="default"
+
+        >A</a>
+    </li>
+    <li class="nav-link contrast contrast-high contrast-type-default">
+        <a title="Enable high contrast"
+           aria-label="Enable high contrast"
+           data-contrast-switch-to="high"
+           href="javascript:void(0)"
+           data-on="click"
+data-event-category="Accessibility"
+data-event-action="Change contrast setting"
+data-event-label="high"
+
+        >A</a>
+    </li>
+
+
+
+</ul>
+
+    </nav>
+  </div>
+
+</header>
+<div id="top" tabindex=-1></div>
+
+
+
+
+
+<script type="text/template" id="item_template">
+  <% _.each(fields, function(fieldItem) { %>
+    <div class="variable-selector
+      <% if(allowedFields.indexOf(fieldItem.field) == -1) { %> disallowed <% }%>
+      <% if (typeof childFields !== 'undefined' && childFields.indexOf(fieldItem.field) !== -1) { %> child <% }%>
+      <% // @deprecated start %>
+      <% if (typeof childFields === 'undefined' && allowedFields.indexOf(fieldItem.field) == -1) { %> child <% }%>
+      <% // @deprecated end %>
+      "
+      data-field="<%=fieldItem.field%>"
+    >
+      <button class='accessBtn' tabindex='0' aria-expanded='false'
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
+        aria-describedby='variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>'
+        <% }%>
+      >
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %><h6><% } else { %><h5><% } %>
+          <span aria-hidden="true"><%=translations.t(fieldItem.label)%><i class="fa fa-chevron-down"></i></span>
+          <span class="sr-only">Show sub-categories: <%=translations.t(fieldItem.label)%></span>
+        <% if(allowedFields.indexOf(fieldItem.field) == -1) { %></h6><% } else { %></h5><% } %>
+      </button>
+      <div class="variable-options">
+        <fieldset>
+          <legend class="sr-only">Sub-categories - <%=translations.t(fieldItem.field)%></legend>
+          <div>
+            <button data-type="select">Select all</button>
+            <button data-type="clear">Clear all</button>
+          </div>
+          <% _.each(fieldItem.values, function(item) { %>
+            <label>
+              <input type="checkbox" <%=item.checked ? 'checked' : ''%> value="<%=item.value%>" data-field="<%=fieldItem.field%>" /><%=translations.t(item.value)%>
+            </label>
+          <% }); %>
+        </fieldset>
+      </div>
+
+      <% if(allowedFields.indexOf(fieldItem.field) == -1) { %>
+        <div class="variable-hint" id="variable-hint-<%=fieldItem.field.replace(/ /g, '-')%>">Available when '<%= translations.t(_.find(edges, { To: fieldItem.field }).From) %>' is selected
+        </div>
+        <div class="no-data-hint" id="no-data-hint-<%=fieldItem.field.replace(/ /g, '-')%>">
+          No options available because of filters above
+        </div>
+      <% }%>
+
+    </div>
+  <% }); %>
+</script>
+
+<script type="text/template" id="units_template">
+  
+    <h4>Unit of Measurement</h4>
+    <fieldset>
+      <legend class="sr-only">Unit of Measurement</legend>
+      <% _.each(units, function(unitsItem, index) { %>
+        <% var checked = (selectedUnit) ? (selectedUnit==unitsItem) : (index==0); %>
+        <label><input type="radio" name="unit" value="<%=unitsItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(unitsItem)%></label>
+      <% }); %>
+    </fieldset>
+  
+</script>
+
+<script type="text/template" id="series_template">
+  
+    <h4>Series</h4>
+    <fieldset>
+      <legend class="sr-only">Series</legend>
+      <% _.each(serieses, function(seriesItem, index) { %>
+        <% var checked = (selectedSeries) ? (selectedSeries==seriesItem) : (index==0); %>
+        <label><input type="radio" name="series" value="<%=seriesItem%>" tabindex=0 <%=checked ? 'checked' : ''%> /> <%=translations.t(seriesItem)%></label>
+      <% }); %>
+    </fieldset>
+  
+</script>
+
+<script>translations['indicator'] = {"annotation_2030_target":"2030 indicator target","annotation_series_break":"Series break","announce_data_added":"Chart and table updated to include data.","announce_data_not_available":"Chart and table shows no data.","announce_data_removed":"Chart and table updated to exclude data.","chart":"Chart","chart_annotation":"Chart annotation","clear_all":"Clear all","clear_selections":"Clear selections","data_keyboard_navigation":"Press enter to browse data points with left and right arrow keys.","data_not_available":"This data is not available. Please choose alternative data to display.","data_tabular_alternative":"For tabular data alternative see Table tab.","dataset_size_warning":"There are too many datasets to show on the chart. Not all will be shown until you remove some selections.","download_chart":"Download Chart CSV","download_chart_image":"Download Chart Image","download_chart_image_title":"Download chart as image","download_csv":"Download CSV","download_csv_title":"Download as CSV","download_geojson":"Download GeoJSON","download_geojson_title":"Download as GeoJSON","download_headline":"Download Headline CSV","download_headline_title":"Download headline data as CSV","download_source":"Download Source CSV","download_source_sdmx":"Download Source SDMX","download_source_sdmx_title":"Download source data as SDMX","download_source_title":"Download source data as CSV","download_table":"Download Table CSV","edit":"Edit","edit_configuration":"Edit Configuration","edit_data":"Edit Data","edit_metadata":"Edit Metadata","footnote":"Footnote","geographical_area":"Geographical Area","global_metadata":"Global Metadata","global_metadata_blurb":"This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href=\"https://unstats.un.org/sdgs/metadata/\">Complete global metadata</a> is provided by the UN Statistics Division.","legend_help":"Click on the legend to remove individual lines from the chart.","loading":"Loading","loading_map":"Loading map","map":"Map","map_search":"Search","map_search_hide":"Hide search","map_search_show":"Show search","map_year_slider":"Year slider","national_metadata":"National Metadata","national_metadata_blurb":"This table provides metadata for the actual indicator available from %country_name statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from %country_adjective statistics, this table should be consulted for information on national methodology and other %country_adjective-specific metadata information.","next":"Next indicator","no_data_hint":"No options available because of filters above","plot_legend_description":"Plot legend: list of lines included in chart","previous":"Previous indicator","select_all":"Select all","series":"Series","series_help":"Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.","source":"Source","sources":"Sources","status":"Indicator status","sub_categories":"Sub-categories","sub_categories_show":"Show sub-categories:","table":"Table","table_column_sort":"Click to sort by this column","tags":"Tags","unit":"Unit","unit_of_measurement":"Unit of Measurement","units_type":"Units type","variable_hint":"Available when '%field' is selected","view_indicator_list":"View this goal's indicator list"};</script>
+
+<script>translations['data'] = null;</script>
+
+
+<div class="container">
+  
+<ol class="breadcrumb">
+  
+  <li><a href="/">Home</a></li>
+  <li><a href="/goals">Goals</a></li>
+  
+  <li><a href="/6" title="Ensure availability and sustainable management of water and sanitation for all">Goal 6</a></li>
+  
+</ol>
+
+
+  
+</div>
+<div class="heading goal-banner indicator goal-6">
+  <div class="container">
+    <div class="row">
+      
+      <div class="col-xs-4 col-md-3 col-lg-2 goal-icon goal-tiles">
+        <a href="/6" title="View this goal's indicator list">
+          <img src="https://open-sdg.org/sdg-translations/assets/img/goals/en/6.png" alt="Clean water and sanitation - Goal 6" id="goal-6" class="goal-icon-image goal-icon-image-"/>
+        </a>
+      </div>
+      <div class="col-xs-8 col-md-9 col-lg-10 indicator-details">
+      
+        <div>
+          <h1>
+            
+            Indicator 6.5.1
+            
+            <span class="lead-copy">Degree of integrated water resources management</span>
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="main-content" class="container goal-6" role="main">
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+<div class="row"
+  id="indicatorData"
+  data-indicatorid='indicator_6-5-1'
+  data-id="6-5-1"
+  data-country="Ghana"
+  data-charttitle="Degree of integrated water resources management"
+  data-charttitles="[]"
+  data-measurementunit=""
+  data-xaxislabel=""
+  data-showdata="true"
+  data-graphtype="line"
+  data-graphtypes="null"
+  data-geocoderegex=""
+  data-showmap="false"
+  data-startvalues="[]"
+  data-graphlimits="[]"
+  data-stackeddisaggregation=""
+  data-graphannotations="[]"
+  data-graphtargetlines="null"
+  data-graphseriesbreaks="null"
+  data-indicatordownloads="null"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;title&quot;:&quot;Value&quot;},{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;}]}"
+  data-compositebreakdownlabel=""
+  data-precision="[]"
+>
+  
+  <span role="status" class="sr-only" id="indicator-data-view-status"></span>
+  <div id="indicator-sidebar" class="indicator-sidebar col-md-3">
+    <div id="serieses"></div>
+<div id="units"></div>
+<div id="toolbar">
+  <span id="series-help">
+    <h4>Sub-categories</h4>
+    <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
+  </span>
+  <div id="fields">
+    <p class="async-loading" data-img="/assets/img/loading-small.gif"></p>
+  </div>
+</div>
+
+  </div>
+  <div id="indicator-main" class="indicator-main col-md-9">
+    
+
+
+<div id="headlineTable">
+
+  <div id="datatables">
+
+    <a href="https://sdg-ghana.github.io/data/en/headline/6-5-1.csv" class="btn btn-primary btn-download" download="indicator_6-5-1.csv" tabindex="0" role="button">Download Headline CSV</a>
+
+    <a href="https://sdg-ghana.github.io/data/en/data/6-5-1.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_6-5-1.csv' tabindex='0' role='button'>Download Source CSV</a>
+
+    <h3>Headline data</h3>
+    <table class="table-responsive table table-hover dataTable no-footer" role="grid">
+      <caption>Degree of integrated water resources management</caption>
+      <thead>
+        
+        
+        <th scope="col">Year</th>
+        
+        
+        
+        <th scope="col" class="table-value">Value</th>
+        
+        
+      </thead>
+      <tbody>
+        
+        <tr>
+          
+          
+          <td>2017</td>
+          
+          
+          
+          <td class="table-value">49</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2019</td>
+          
+          
+          
+          <td class="table-value">51</td>
+          
+          
+        </tr>
+        
+        <tr>
+          
+          
+          <td>2021</td>
+          
+          
+          
+          <td class="table-value">57</td>
+          
+          
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+
+  <div id="datatableFooter">
+    
+    
+    <p>Geographical Area: </p>
+    
+    
+    <p>Unit of Measurement: </p>
+    
+    
+    <p>Footnote: </p>
+    
+  </div>
+
+</div>
+
+
+<section>
+
+  <p class="async-loading" data-img="/assets/img/loading-small.gif"></p>
+
+  <div class="async-loaded spacer medium" style="display:none;">
+
+    <div style="display: none;">
+  <span id="table-alternative">For tabular data alternative see Table tab.</span>
+</div>
+<ul class="nav nav-tabs non-stacking-tabs data-view" role="tablist">
+  
+  <li role="presentation"
+    class="
+      nav-item
+      
+      
+      active
+    ">
+    <a
+      class="nav-link"
+      data-toggle="tab"
+      role="tab"
+      
+        id="tab-chartview"
+        href="#chartview"
+        aria-controls="chartview"
+        aria-describedby="table-alternative"
+        data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Chart tab"
+
+      
+    >Chart</a>
+  </li>
+  
+  <li role="presentation"
+    class="
+      nav-item
+      
+      
+      
+    ">
+    <a
+      class="nav-link"
+      data-toggle="tab"
+      role="tab"
+      
+        id="tab-tableview"
+        href="#tableview"
+        aria-controls="tableview"
+        data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Table tab"
+
+      
+    >Table</a>
+  </li>
+  
+</ul>
+
+    <div class="tab-content data-view">
+  
+    
+      <div role="tabpanel" class="tab-pane active" id="chartview">
+        
+
+    <div id="dataset-size-warning" style="display:none" role="alert">
+      <i class="fa fa-bolt"><span class="sr-only">Warning:</span></i>
+      There are too many datasets to show on the chart. Not all will be shown until you remove some selections.
+    </div>
+
+    
+    
+    <div id="selectionsChart">
+      <figure role="group">
+        <div id="chart-canvas">
+          <h4 id="chart-heading" class="chart-title">Degree of integrated water resources management</h4>
+          <div id="chart" class="plot-container">
+            
+              
+<canvas
+    role="img"
+    aria-labelledby="chart-heading"
+    aria-describedby="table-alternative chart-annotations"
+    tabindex="0"
+ ></canvas>
+
+<script>
+// Add a chart alteration to support the chart_graph_limits metadata field.
+opensdg.chartConfigAlter(function(config, info) {
+  if (info.graphLimits && Object.keys(info.graphLimits).length > 0) {
+    var overrides = {
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              min: info.graphLimits.minimum,
+              max: info.graphLimits.maximum,
+            }
+          }]
+        }
+      }
+    }
+    // Add these overrides onto the normal config.
+    $.extend(true, config, overrides);
+  }
+  else {
+    // Otherwise remove any min/max that may be there.
+    try {
+      delete config.options.scales.yAxes[0].ticks.min;
+      delete config.options.scales.yAxes[0].ticks.max;
+    }
+    catch(e) {}
+  }
+});
+</script>
+
+<span style="display: none;" id="chart-annotations" role="status"></span>
+<script>
+opensdg.annotationPresets = {
+    common: {
+        // This "common" preset is applied to all annotations automatically.
+        borderColor: '#949494',
+        type: 'line',
+        borderDash: [10, 5],
+        borderWidth: 1,
+        label: {
+            backgroundColor: 'white',
+            
+            fontColor: 'black',
+            
+        },
+        // This "highContrast" overrides colors when in high-contrast mode.
+        highContrast: {
+            label: {
+                backgroundColor: 'black',
+                
+                fontColor: 'white',
+                
+            },
+        },
+        // This callback is used to generate a generic description for screenreaders.
+        // This can be overridden to be a more specific string, eg:
+        //
+        //     description: 'Chart annotation showing a 2030 target of 15%'
+        //
+        description: function() {
+            var descriptionParts = [translations.indicator.chart_annotation];
+            if (this.label && this.label.content) {
+                descriptionParts.push(translations.t(this.label.content));
+            }
+            else {
+                // If there is no label, just specify whether it is a box or line.
+                if (this.type == 'line') {
+                    descriptionParts.push(this.mode + ' line');
+                }
+                if (this.type == 'box') {
+                    descriptionParts.push('box');
+                }
+            }
+            if (typeof this.value !== 'undefined') {
+                descriptionParts.push(this.value);
+            }
+            return descriptionParts.join(': ');
+        },
+    },
+    target_line: {
+        mode: 'horizontal',
+        borderWidth: 2,
+        borderDash: [15, 10],
+        borderColor: '#757575',
+        label: {
+            position: 'right',
+            content: translations.indicator.annotation_2030_target,
+        },
+    },
+    series_break: {
+        mode: 'vertical',
+        borderDash: [2, 2],
+        label: {
+            position: 'top',
+            content: translations.indicator.annotation_series_break,
+        },
+    },
+};
+
+// Add a chart alteration to support the chart_annotations metadata field.
+opensdg.chartConfigAlter(function(config, info) {
+    if (info.graphAnnotations && info.graphAnnotations.length > 0) {
+        // Apply some helpers/fixes to the annotations.
+        var annotations = info.graphAnnotations.map(function(annotationOverrides) {
+            var annotation = {};
+            // Apply the "common" preset.
+            if (opensdg.annotationPresets.common) {
+                $.extend(true, annotation, opensdg.annotationPresets.common);
+            }
+            // Apply any specified presets.
+            if (annotationOverrides.preset) {
+                var preset = annotationOverrides.preset;
+                if (opensdg.annotationPresets[preset]) {
+                    $.extend(true, annotation, opensdg.annotationPresets[preset]);
+                }
+            }
+            // Now add any more annotation config.
+            $.extend(true, annotation, annotationOverrides);
+            // Default to horizontal lines.
+            if (!annotation.mode && annotation.type === 'line') {
+                annotation.mode = 'horizontal';
+            }
+            // Provide the obscure scaleID properties on user's behalf.
+            if (!annotation.scaleID && annotation.type === 'line') {
+                if (annotation.mode === 'horizontal') {
+                    annotation.scaleID = 'y-axis-0';
+                }
+                if (annotation.mode === 'vertical') {
+                    annotation.scaleID = 'x-axis-0';
+                }
+            }
+            if (!annotation.xScaleID && annotation.type === 'box') {
+                annotation.xScaleID = 'x-axis-0';
+            }
+            if (!annotation.yScaleID && annotation.type === 'box') {
+                annotation.yScaleID = 'y-axis-0';
+            }
+            // Provide the "enabled" label property on the user's behalf.
+            if (annotation.label && annotation.label.content) {
+                annotation.label.enabled = true;
+            }
+            // Translate any label content.
+            if (annotation.label && annotation.label.content) {
+                annotation.label.content = translations.t(annotation.label.content);
+            }
+            // Save some original values for later used when contrast mode is switched.
+            if (typeof annotation.defaultContrast === 'undefined') {
+                annotation.defaultContrast = {};
+                if (annotation.borderColor) {
+                    annotation.defaultContrast.borderColor = annotation.borderColor;
+                }
+                if (annotation.backgroundColor) {
+                    annotation.defaultContrast.backgroundColor = annotation.backgroundColor;
+                }
+                if (annotation.label) {
+                    annotation.defaultContrast.label = {};
+                    if (annotation.label.fontColor) {
+                        annotation.defaultContrast.label.fontColor = annotation.label.fontColor;
+                    }
+                    if (annotation.label.backgroundColor) {
+                        annotation.defaultContrast.label.backgroundColor = annotation.label.backgroundColor;
+                    }
+                }
+            }
+            return annotation;
+        });
+        if (annotations.length > 0) {
+            var overrides = {
+                options: {
+                    annotation: {
+                        drawTime: 'beforeDatasetsDraw',
+                        annotations: annotations
+                    }
+                }
+            };
+            // Add these overrides onto the normal config.
+            $.extend(true, config, overrides);
+
+            // Update the chart annotations element.
+            var descriptions = annotations.map(function(annotation) {
+                var description = '';
+                if (annotation.description) {
+                    if (typeof annotation.description === 'function') {
+                        description = annotation.description.call(annotation);
+                    }
+                    else {
+                        description = translations.t(annotation.description);
+                    }
+                }
+                return description;
+            }).filter(function(description) { return description != ''; });
+
+            var currentDescription = $('#chart-annotations').text();
+            var newDescription = descriptions.join('. ');
+            if (currentDescription != newDescription) {
+                $('#chart-annotations').text(newDescription);
+            }
+        }
+    }
+    else if (config.options && config.options.annotation) {
+        delete config.options.annotation;
+    }
+});
+</script>
+
+<script>
+// For line charts, add the vertical line hover functionality.
+opensdg.chartConfigAlter(function(config, info) {
+    var overrides = {
+        options: {
+            tooltips: {
+                intersect: false,
+                axis: 'x',
+            },
+        },
+        plugins: [{
+            beforeDatasetsDraw: function(chart) {
+                if (chart.tooltip._active && chart.tooltip._active.length) {
+                    var activePoint = chart.tooltip._active[0],
+                        ctx = chart.ctx,
+                        x = activePoint.tooltipPosition().x,
+                        topY = chart.scales['y-axis-0'].top,
+                        bottomY = chart.scales['y-axis-0'].bottom;
+
+                    // draw line
+                    ctx.save();
+                    ctx.beginPath();
+                    ctx.moveTo(x, topY);
+                    ctx.lineTo(x, bottomY);
+                    ctx.lineWidth = 2;
+                    ctx.strokeStyle = '#757575';
+                    ctx.stroke();
+                    ctx.restore();
+                }
+            }
+        }],
+    };
+    // Add these overrides onto the normal config, and return it.
+    $.extend(true, config, overrides);
+});
+</script>
+
+            
+          </div>
+          <div id="plotLegend"></div>
+          
+
+
+
+<div id="selectionChartFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+
+        
+
+        <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
+        <dd class="data-controlled-footer-field unit-from-data"></dd>
+
+        
+
+        
+
+        
+
+        
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        >Footnote:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        ></dd>
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        >Data last updated:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        ></dd>
+        
+        
+    <dl>
+</div>
+
+        </div>
+      </figure>
+      <div id="chartSelectionDownload" class="clearfix">
+        <button id="btnSave" title="Download chart as image" class='btn btn-primary btn-download'>
+          Download Chart Image
+        </button><!-- 
+   --></div>
+    </div>
+
+
+
+      </div>
+    
+  
+    
+      <div role="tabpanel" class="tab-pane " id="tableview">
+        <div style="display: none;">
+          <span id="column-sort-info">Click to sort by this column</span>
+        </div>
+        <div id="selectionsTable"></div>
+<dl id="tableTargetLines" class="clearfix"></dl>
+
+
+
+
+<div id="selectionTableFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+
+        
+
+        <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
+        <dd class="data-controlled-footer-field unit-from-data"></dd>
+
+        
+
+        
+
+        
+
+        
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        >Footnote:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        ></dd>
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        >Data last updated:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        ></dd>
+        
+        
+    <dl>
+</div>
+
+<div id="tableSelectionDownload" class="clearfix"></div>
+
+      </div>
+    
+  
+</div>
+
+
+  </div>
+
+</section>
+
+  
+  <ul class="nav nav-tabs spacer medium" role="tablist">
+
+  <li role="presentation" class="nav-item active">
+  <a class="nav-link" data-toggle="tab" id="tab-national" href="#national" aria-controls="national" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to National Metadata tab"
+>National Metadata</a>
+</li>
+
+<li role="presentation" class="nav-item">
+  <a class="nav-link" data-toggle="tab" id="tab-global" href="#global" aria-controls="global" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to Global Metadata tab"
+>Global Metadata</a>
+</li>
+
+<li role="presentation" class="nav-item">
+  <a class="nav-link" data-toggle="tab" id="tab-sources" href="#sources" aria-controls="sources" role="tab" data-on="click"
+data-event-category="Tab change"
+data-event-action="Change metadata view"
+data-event-label="Change to Sources tab"
+>Sources</a>
+</li>
+
+
+  
+  <li role="presentation" class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#edit" aria-controls="edit" role="tab">Edit</a>
+  </li>
+  
+</ul>
+
+<div class="tab-content">
+  
+    <div role="tabpanel" class="tab-pane active" id="national">
+  <!-- National Metadata -->
+  <div >
+    <article>
+      <p>
+        
+        
+        This table provides metadata for the actual indicator available from Ghana statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from Ghanaian statistics, this table should be consulted for information on national methodology and other Ghanaian-specific metadata information.
+      </p>
+      <table class="table">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+      
+      <tr>
+        <th scope="row">Indicator available </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Indicator description </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Geographical coverage </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Unit of measurement </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Definitions </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Calculations </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Other information </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Quality assurance </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Comparability with international data/standards </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Comments and limitations </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Rational and interpretation </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Data last updated </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Metadata last updated </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://github.com/sdg-ghana/data/commit/7d9fe819aaa4ad4e54f445fa37a51311f573d715" target="_blank">
+                2022-09-21: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+      
+      <tr>
+        <th scope="row">Indicator information </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Goal </th>
+        <td>
+          
+            <p>Goal 6: Ensure availability and sustainable management of water and sanitation for all</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Target </th>
+        <td>
+          
+            <p>Target 6.5: By 2030, implement integrated water resources management at all levels, including through transboundary cooperation as appropriate</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Indicator </th>
+        <td>
+          
+            <p> Indicator 6.5.1: Degree of integrated water resources management</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Series </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Metadata update </th>
+        <td>
+          
+            <p> Last updated: 7 November 2019</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Related indicators </th>
+        <td>
+          
+            <h1>Related indicators</h1>
+<p>As it measures the degree of implementation of an enabling environment for better water resources management, it directly supports the other outcome targets under SDG 6 (6.1 – 6.6). It does this by providing further information to countries on the context and possible explanation for the progress on other targets, and points to barriers and enablers to obtaining the other targets. It also directly supports the means of implementation targets 6.a and 6.b, as disaggregation is possible to provide data on financing (6.a) and stakeholder participation (6.b). Beyond SDG 6, indicator 6.5.1 has linkages with a number of other targets across the SDGs, as integrated water resources management is concerned with integrating the demands and impacts on water resources and water-related ecosystems from a number of different SDGs and their targets, including: poverty (1.4); agriculture (2.3); education (4.7); gender (5.5); energy (7.1); work (8.5); equality (10.2); urban areas (11.3); climate change (13.2); ecosystems (15.9); governance (16.3, 16.5 – 16.7) (UN-Water 2016).</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Data reporter </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Contact person(s) </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Contact organisation unit </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Contact person function </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Contact phone </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Contact mail </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Contact email </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Definition, concepts, and classifications </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Definition and concepts </th>
+        <td>
+          
+            <h1>Concepts and definitions</h1>
+<h2>Definition:</h2>
+<p>Indicator 6.5.1 is ‘degree of integrated water resources management implementation (0-100)’. It measures the stages of development and implementation of Integrated Water Resources Management (IWRM), on a scale of 0 to 100, in six categories (see Rationale section). The indicator score is calculated from a country survey with 33 questions, with each question scored on the same scale of 0-100.  </p>
+<p>The definition of IWRM is based on an internationally agreed definition, and is universally applicable. IWRM was officially established in 1992 and is defined as “a process which promotes the coordinated development and management of water, land and related resources in order to maximise economic and social welfare in an equitable manner without compromising the sustainability of vital ecosystems.” (GWP 2010). </p>
+<p>The method builds on official UN IWRM status reporting, from 2008 and 2012, of the Johannesburg Plan of Implementation from the UN World Summit for Sustainable Development (1992).</p>
+<h2>Concepts:</h2>
+<p>The concept of IWRM is measured in 4 main sections, each representing key dimension of IWRM: </p>
+<p>1. Enabling environment: this includes the policies, laws, plans and strategies which create the ‘enabling environment’ for IWRM. </p>
+<p>2. Institutions and participation: includes the range and roles of political, social, economic and administrative institutions that help to support the implementation of IWRM. </p>
+<p>3. Management Instruments: The tools and activities that enable decision-makers and users to make rational and informed choices between alternative actions. </p>
+<p>4. Financing: Budgeting and financing made available and used for water resources development and management from various sources.</p>
+<p>The indicator is based on a national survey structured around these four main sections. Each section is split into two parts: questions concerning the ‘National level’ and ‘Other levels’ respectively. ‘Other levels’ includes sub-national (including provinces/states for federated countries), basin level, and the transboundary level as appropriate. These two parts address the wording of Target 6.5 ‘implement [IWRM] at all levels …’.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Unit of measure </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Classifications </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Data source type and collection method </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Data sources </th>
+        <td>
+          
+            <h1>Data sources</h1>
+<h2>Description:</h2>
+<p>Monitoring progress on meeting SDG 6.5 is owned by and is the responsibility of the national government. The government will assign a ministry with the primary responsibility for overseeing this survey, which will be asked to take on the responsibility of coordinating the national IWRM monitoring and reporting process. As water management issues cut across a wide number of sectors, often overseen by different ministries and other administrative bodies at national or other levels, the process should be inclusive. Major stakeholders should be involved in order to contribute to well informed and objective answers to the survey. </p>
+<p>The ministry is invited to nominate a national “IWRM focal point”, who may or may not be a government official. The UN will provide support where needed and possible. The following steps are suggested as guidance only, as it is up to countries to decide which process or processes would best serve their needs. It should also be noted that the following steps represent a ‘ladder’ approach, in that completing all the steps will generally lead to a more robust indicator. However, it may not be possible or necessary for all countries to complete all steps. </p>
+<p>1. The responsible ministry or IWRM focal point contacts other relevant ministries/agencies to compile responses to the questionnaire. Each possible response option has a score which will be used to calculate the overall indicator score.</p>
+<p>2. The completed draft survey is reviewed by government stakeholders. These stakeholders could include those involved in water-relevant sectors, such as agriculture, energy, water supply and environment, as well as water management at different administrative levels. This process may be electronic (e.g. via email) and/or through workshops. </p>
+<p>3. The revised draft survey is validated at a multi-stakeholder workshop. Apart from government representatives these stakeholders could include water user associations, private sector, interest groups concerned with e.g. environment, agriculture, poverty, and academia. The suggested process is through a workshop but alternative means of consultation e.g. email or online call for public submissions could be considered. Note that steps 2 and 3 could be combined if desired. </p>
+<p>4. The responsible ministry or IWRM focal point discusses with relevant officials and consolidates the input into a final version. This version is the basis for calculating the degree of IWRM implementation (0-100) for global reporting. </p>
+<p>5. The responsible ministry submits the final indicator score to the national statistics office responsible for compiling all national SDG target data. </p>
+<p>Based on the national survey, UN-Water will periodically prepare synthesis reports for regional and global levels to provide overall progress on meeting SDG target 6.5. </p>
+<p>Temporal Coverage: A reporting cycle of three years is recommended.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Data collection method </th>
+        <td>
+          
+            <h2>Collection process:</h2>
+<p>Official counterparts at the country level oversee the validation and consultation process. </p>
+<p>The survey has been designed so that the indicator is comparable between countries and time periods. No adjustments are foreseen.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Data collection calendar </th>
+        <td>
+          
+            <h1>Calendar</h1>
+<h2>Data collection: </h2>
+<p>January – May 2020 (5 months). </p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Data release calendar </th>
+        <td>
+          
+            <h2>Data release: </h2>
+<p>1st quarter 2021</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Data providers </th>
+        <td>
+          
+            <h1>Data providers</h1>
+<p>The information required to complete the survey is expected to be held by government officials responsible for water resources management in the country, supported by official documentation. E.g. Ministry of Water in coordination with Ministry of Environment, Ministry of Finance, Ministry of Planning, Ministry of Lands and Agriculture, Ministry of Industry and Mining etc. See also ‘data sources’ section above. As a minimum, a small group of officials may be able to complete the survey. However, these government officials may belong to various government authorities, and coordination will be required to determine and validate the responses to each question. Increased government and non-government stakeholder participation in validating the question scores will lead to a more robust indicator score and facilitate tracking progress over time.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Data compilers </th>
+        <td>
+          
+            <h1>Data compilers</h1>
+<p>UNEP and UN-Water partners, under the UN-Water initiative on integrated monitoring of SDG 6.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Institutional mandate </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Other methodological considerations </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Rationale </th>
+        <td>
+          
+            <h2>Rationale:</h2>
+<p>The indicator provides a direct progress measurement of the first part of Target 6.5 “…implement integrated water resources management at all levels …”. The indicator score provides an easy and understandable way of measuring progress towards the target, with ‘0’ interpreted as no implementation of IWRM, and ‘100’ interpreted as IWRM being fully implemented. </p>
+<p>To further aid interpretation and comparison, the indicator results can be categorized as follows: </p>
+<table><tr><td><p>Degree of implementation</p></td><td><p>Score range</p></td><td><p>General interpretation for overall IWRM score</p></td></tr><tr><td><p>Very high</p></td><td><p>91 - 100</p></td><td><p>Vast majority of IWRM elements are fully implemented, with objectives consistently achieved, and plans and programmes periodically assessed and revised.</p></td></tr><tr><td><p>High</p></td><td><p>71 - 90</p></td><td><p>IWRM objectives of plans and programmes are generally met, and geographic coverage and stakeholder engagement is generally good.</p></td></tr><tr><td><p>Medium-high</p></td><td><p>51 - 70</p></td><td><p>Capacity to implement elements of IWRM is generally adequate, and elements are generally being implemented under long-term programmes.</p></td></tr><tr><td><p>Medium-low</p></td><td><p>31 - 50</p></td><td><p>Elements of IWRM are generally institutionalized, and implementation is underway.</p></td></tr><tr><td><p>Low</p></td><td><p>11 - 30</p></td><td><p>Implementation of elements of IWRM has generally begun, but with limited uptake across the country, and potentially low engagement of stakeholder groups.</p></td></tr><tr><td><p>Very low</p></td><td><p>0 - 10</p></td><td><p>Development of elements of IWRM has generally not begun, or has stalled.</p></td></tr></table>
+<p>The concept of the survey is that it provides sufficient information to be of real value to the countries in determining their progress towards the target, and through this, various aspects of IWRM. A balance has been sought between providing sufficient information to cover the core principles of IWRM, and thus providing a robust indicator value, and not overburdening countries with unnecessary reporting requirements. </p>
+<p>Countries are encouraged to provide additional information on each question, which may help to qualify their choice of score, and/or put that score into their national context. </p>
+<p>Indicator 6.5.1 is supported by indicator 6.5.2 “Proportion of transboundary basin area with an operational arrangement for water cooperation”, which directly addresses the portion of Target 6.5 “…, including through transboundary cooperation as appropriate.”.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Comment and limitations </th>
+        <td>
+          
+            <h2>Comments and limitations:</h2>
+<p>The challenge of subjectivity in responses associated with this type of survey is being addressed in a number of ways: </p>
+<ol><li>Draft responses are reviewed by a number of governmental and non-governmental stakeholders in an open, inclusive and transparent process. </li><li>Countries are encouraged to provide further information to qualify their responses and/or set them in the national context. </li><li>Guidelines are provided for each of the four main sections, each question, and each of the six thresholds for every single question, to ensure responses are as objective as possible, and are comparable both between countries, and between reporting periods. </li></ol>
+<p>To achieve robust indicator results requires a country process involving a wide range of stakeholders which will require a certain amount of time and resources. The advantage of this is that it puts in place a process that addresses the integrated and indivisible nature of the SDG targets, as well as stressing the importance of “leaving no on behind”.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Method of computation </th>
+        <td>
+          
+            <h1>Methodology</h1>
+<h2>Computation method:</h2>
+<p>1. The survey contains 33 questions divided into the four main sections described above. </p>
+<p>2. Each question is given a score between 0 and 100, in increments of 10, guided by threshold descriptions for the following 6 categories:</p>
+<ul><li>Very low (0)</li><li>Low (20)</li><li>Medium-low (40)</li><li>Medium-high (60)</li><li>High (80)</li><li>Very high (100)</li></ul>
+<p>Note that guidance is provided for each threshold for each question, to ensure objective and comparable results. </p>
+<p>3. The un-weighted average of the question scores within each of the four sections is calculated to give a score of 0 – 100 for each section, rounded to the nearest whole number. </p>
+<p>4. The section scores (rounded to the nearest whole number), are averaged (un-weighted), and rounded to the nearest whole number, to give the indicator score, expressed as a number between 0 and 100.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Validation </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Methods and guidance available to countries for the compilation of the data at the national level </th>
+        <td>
+          
+            <h2>Methods and guidance available to countries for the compilation of the data at the national level:</h2>
+<ol><li>National focal points selected by each country.  </li><li>Data collection is via a simple questionnaire with 33 questions, in MS Word format. Responses to each question are given on a scale of 0 – 100, in increments of 10. Threshold descriptions are given for six thresholds between 0 and 100.  </li><li>National focal points are responsible for coordinating a national process to engage governmental and non-governmental stakeholders, as appropriate in the context of each country, to develop draft responses and finalise responses. This may be via email, workshops, and online notices.   </li><li>The following materials are available for national focal points in 7 languages (English, Spanish, French, Arabic, Russian, Chinese, Portuguese), at <a href="about:blank">http://iwrmdataportal.unepdhi.org</a>: the survey (MS Word); a detailed monitoring guide; and a PowerPoint presentation and video recording. In addition, focal points may access the following materials: the 2017 baseline surveys and 2-page results summaries (for 172 countries); and 2017 workshop reports (for 36 countries). </li></ol>
+<p>Extensive explanations are provided in the monitoring guide and in the survey itself. The survey contains: an overall introduction and explanation; a glossary; an introduction and glossary in each of the four sections; threshold descriptions for six thresholds for each question; and a number of footnotes to explain aspects of questions or threshold descriptions. All materials can be downloaded from <a href="about:blank">http://iwrmdataportal.unepdhi.org</a>. In addition, a dedicated Help Desk is available to provide assistance at all times. The Help Desk is accessible via email <a href="about:blank">iwrmsdg651@un.org</a>.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Quality management </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Quality assurance </th>
+        <td>
+          
+            <h2>Quality assurance:</h2>
+<p>The following quality assurance guidelines are available to all individuals involved in quality assurance for 6.5.1.  </p>
+<p>Process: </p>
+<ol><li>Nominate person responsible for QA for a country response once it is submitted for the first time.  </li><li>Acknowledge receipt and inform the country of QA process.  </li><li>Update QA spreadsheet, indicating date of receipt and who submitted.  </li><li>Upload draft survey (MS Word) to the Dropbox folder.  </li><li>Undertake ALL checks described below.  </li><li>If there are any discrepancies, revert to UNEP-DHI colleagues.  </li><li>Once action is agreed, respond to the countries.  </li><li>Complete all checks on each subsequent version of the questionnaire until all quality issues are resolved and questionnaire is marked ‘final’.     </li></ol>
+<p>Checks:  </p>
+<ol><li>Focal point: Confirm the person submitting is the formal national focal point. If not, any reply should also add the national focal point in CC.  </li><li>Question responses:  </li><li>All questions answered. Official guidance is that all questions should be answered (either with a score or n/a).  </li><li>Scores in range from 0-100, in increments of 10.  </li><li>Check that n/a (not applicable) is used appropriately.  </li><li>Free-text fields: In the ““Status description” and “Way forward” fields for each question, check that the free text make sense in the context of the score (and vice versa). </li><li>Calculations: Check that section averages and final score are rounded to the nearest whole number and correct, using the QA spreadsheet on Dropbox. Fill in the given responses in columns M - AX, and the differences are calculated automatically in columns C – G. If the difference is greater than +/- 0.5, the cells are automatically highlighted in red using conditional formatting. </li><li>Compare with 2017 baseline: Where available, compare with 2017 baseline survey (for 172 countries) and discuss with colleagues as necessary.  </li><li>Transboundary issues:  </li><li>Check the ‘transboundary basins’ table in Annex B. A full list of transboundary basins can be found here: <a href="about:blank">http://twap-rivers.org/indicators/Report.ashx?type=IndicatorResultsSummary</a>.</li><li>Go to the final worksheet/tab to see the countries in each basin. Also check the maps here: <a href="about:blank">http://twap-rivers.org/indicators/</a>  to see if the basin is likely to be important for that country, or if there is only a small portion of the basin in their country (in which case they may not list it). </li><li>Check the transboundary questions: 1.2c, 2.2e; 3.2d; and 4.2c, and see if these make sense in the context of the country. Island countries should give ‘n/a’ for all of these questions.</li></ol>
+<p>All data is provided by each country and is therefore fully owned by the countries. Each country undertakes stakeholder consultation, to a level that is appropriate given resources and capacity available to them, to ensure that the data has adequate acceptance and ownership within the country. Guidance on consultation processes are provided in the monitoring guide and through the introductory powerpoint and video for focal points (all materials available at <a href="about:blank">http://iwrmdataportal.unepdhi.org</a>).</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Quality assessment </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Data availability and disaggregation </th>
+        <td>
+          
+            <h1>Data availability</h1>
+<h2>Description:</h2>
+<p>Total number of countries: 172 (89% of UN Member States) (UNEP 2018) </p>
+<p>The following covers the region (UNSD regional groupings): followed by the number of countries with data / total countries in region (as of 2017); followed by the percentage of countries with data.</p>
+<p>Australia and New Zealand: 2/2; 100%</p>
+<p>Central and Southern Asia: 10/14; 71%</p>
+<p>Eastern and South-Eastern Asia: 13/16; 81%</p>
+<p>Europe and Northern America: 43/45; 96%</p>
+<p>Latin America and the Caribbean: 29/33; 89%</p>
+<p>Northern Africa and Western Asia: 22/23; 96%</p>
+<p>Oceania (excluding Australia and New Zealand): 8/12; 67%</p>
+<p>Sub-Saharan Africa: 45/48; 94%</p>
+<p>World: 172/193: 89%</p>
+<h2>Time series:</h2>
+<p>Pre-SDGs: 2008, 2012 (UN-Water 2008, 2012). </p>
+<p>SDG period: 2017 (UNEP 2018). </p>
+<p>All on IWRM Portal (<a href="about:blank">http://iwrmdataportal.unepdhi.org</a>)</p>
+<h2>Disaggregation:</h2>
+<p>The strength of the indicator lies in the potential for disaggregating the country score into the four main dimensions of IWRM, and further to the questions in the survey. This provides countries with a quick assessment of which aspects of IWRM are progressing well, and which aspects require increased efforts to reach the target. </p>
+<p>The nature of the target, indicator and survey does not lend itself to disaggregation by sex, age group, income etc. However, social equality is an integral part of IWRM, and there are questions which directly address issues such as gender, vulnerable groups, geographic coverage and broad stakeholder participation in water resources development and management. These questions provide an indication of the national and sub-national situation regarding social equality.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Comparability/deviation from international standards </th>
+        <td>
+          
+            <h2>Sources of discrepancies:</h2>
+<p>As described in the “Data Sources” section below, there will be no internationally estimated data, with all data to be produced by countries.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">References and Documentation </th>
+        <td>
+          
+            <h1>References</h1>
+<h2>URL: </h2>
+<p><a href="about:blank">http://iwrmdataportal.unepdhi.org</a>  </p>
+<p>This contains the latest survey instrument, monitoring guide, and all supporting documentation. </p>
+<h2>References:</h2>
+<p>- AMCOW 2018: Status Report on the Implementation of Water Resources Management in Africa: a regional report for SDG indicator 6.5.1 on IWRM implementation. </p>
+<p>- UNEP 2018: Progress on integrated water resources management. Global baseline for SDG 6 Indicator 6.5.1: degree of IWRM implementation. </p>
+<p>- United Nations Economic and Social Commission for West Asia (2019). Status Report on the Implementation of Integrated Water Resources Management in the Arab Region: Progress on SDG indicator 6.5.1. </p>
+<p>- UN-Water initiative on integrated monitoring of SDG 6. <a href="about:blank">http://sdg6data.org</a></p>
+<p>- UN-Water, 2016: Water and Sanitation Interlinkages across the 2030 Agenda for Sustainable Development. Geneva.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Indicator information </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Goal </th>
+        <td>
+          
+            <p>Goal 6: Ensure availability and sustainable management of water and sanitation for all</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Target </th>
+        <td>
+          
+            <p>Target 6.5: By 2030, implement integrated water resources management at all levels, including through transboundary cooperation as appropriate</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Indicator </th>
+        <td>
+          
+            <p> Indicator 6.5.1: Degree of integrated water resources management</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Series </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Metadata update </th>
+        <td>
+          
+            <p> Last updated: 7 November 2019</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Related indicators </th>
+        <td>
+          
+            <h1>Related indicators</h1>
+<p>As it measures the degree of implementation of an enabling environment for better water resources management, it directly supports the other outcome targets under SDG 6 (6.1 – 6.6). It does this by providing further information to countries on the context and possible explanation for the progress on other targets, and points to barriers and enablers to obtaining the other targets. It also directly supports the means of implementation targets 6.a and 6.b, as disaggregation is possible to provide data on financing (6.a) and stakeholder participation (6.b). Beyond SDG 6, indicator 6.5.1 has linkages with a number of other targets across the SDGs, as integrated water resources management is concerned with integrating the demands and impacts on water resources and water-related ecosystems from a number of different SDGs and their targets, including: poverty (1.4); agriculture (2.3); education (4.7); gender (5.5); energy (7.1); work (8.5); equality (10.2); urban areas (11.3); climate change (13.2); ecosystems (15.9); governance (16.3, 16.5 – 16.7) (UN-Water 2016).</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">0.g. International organisations(s) responsible for global monitoring </th>
+        <td>
+          
+            <h1>Institutional information</h1>
+<h2>Organization(s):</h2>
+<p>United Nations Environment Programme (UNEP)</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Data reporter </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Contact person(s) </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Contact organisation unit </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Contact person function </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Contact phone </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Contact mail </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Contact email </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Definition, concepts, and classifications </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Definition and concepts </th>
+        <td>
+          
+            <h1>Concepts and definitions</h1>
+<h2>Definition:</h2>
+<p>Indicator 6.5.1 is ‘degree of integrated water resources management implementation (0-100)’. It measures the stages of development and implementation of Integrated Water Resources Management (IWRM), on a scale of 0 to 100, in six categories (see Rationale section). The indicator score is calculated from a country survey with 33 questions, with each question scored on the same scale of 0-100.  </p>
+<p>The definition of IWRM is based on an internationally agreed definition, and is universally applicable. IWRM was officially established in 1992 and is defined as “a process which promotes the coordinated development and management of water, land and related resources in order to maximise economic and social welfare in an equitable manner without compromising the sustainability of vital ecosystems.” (GWP 2010). </p>
+<p>The method builds on official UN IWRM status reporting, from 2008 and 2012, of the Johannesburg Plan of Implementation from the UN World Summit for Sustainable Development (1992).</p>
+<h2>Concepts:</h2>
+<p>The concept of IWRM is measured in 4 main sections, each representing key dimension of IWRM: </p>
+<p>1. Enabling environment: this includes the policies, laws, plans and strategies which create the ‘enabling environment’ for IWRM. </p>
+<p>2. Institutions and participation: includes the range and roles of political, social, economic and administrative institutions that help to support the implementation of IWRM. </p>
+<p>3. Management Instruments: The tools and activities that enable decision-makers and users to make rational and informed choices between alternative actions. </p>
+<p>4. Financing: Budgeting and financing made available and used for water resources development and management from various sources.</p>
+<p>The indicator is based on a national survey structured around these four main sections. Each section is split into two parts: questions concerning the ‘National level’ and ‘Other levels’ respectively. ‘Other levels’ includes sub-national (including provinces/states for federated countries), basin level, and the transboundary level as appropriate. These two parts address the wording of Target 6.5 ‘implement [IWRM] at all levels …’.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Unit of measure </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Classifications </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Data source type and collection method </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Data sources </th>
+        <td>
+          
+            <h1>Data sources</h1>
+<h2>Description:</h2>
+<p>Monitoring progress on meeting SDG 6.5 is owned by and is the responsibility of the national government. The government will assign a ministry with the primary responsibility for overseeing this survey, which will be asked to take on the responsibility of coordinating the national IWRM monitoring and reporting process. As water management issues cut across a wide number of sectors, often overseen by different ministries and other administrative bodies at national or other levels, the process should be inclusive. Major stakeholders should be involved in order to contribute to well informed and objective answers to the survey. </p>
+<p>The ministry is invited to nominate a national “IWRM focal point”, who may or may not be a government official. The UN will provide support where needed and possible. The following steps are suggested as guidance only, as it is up to countries to decide which process or processes would best serve their needs. It should also be noted that the following steps represent a ‘ladder’ approach, in that completing all the steps will generally lead to a more robust indicator. However, it may not be possible or necessary for all countries to complete all steps. </p>
+<p>1. The responsible ministry or IWRM focal point contacts other relevant ministries/agencies to compile responses to the questionnaire. Each possible response option has a score which will be used to calculate the overall indicator score.</p>
+<p>2. The completed draft survey is reviewed by government stakeholders. These stakeholders could include those involved in water-relevant sectors, such as agriculture, energy, water supply and environment, as well as water management at different administrative levels. This process may be electronic (e.g. via email) and/or through workshops. </p>
+<p>3. The revised draft survey is validated at a multi-stakeholder workshop. Apart from government representatives these stakeholders could include water user associations, private sector, interest groups concerned with e.g. environment, agriculture, poverty, and academia. The suggested process is through a workshop but alternative means of consultation e.g. email or online call for public submissions could be considered. Note that steps 2 and 3 could be combined if desired. </p>
+<p>4. The responsible ministry or IWRM focal point discusses with relevant officials and consolidates the input into a final version. This version is the basis for calculating the degree of IWRM implementation (0-100) for global reporting. </p>
+<p>5. The responsible ministry submits the final indicator score to the national statistics office responsible for compiling all national SDG target data. </p>
+<p>Based on the national survey, UN-Water will periodically prepare synthesis reports for regional and global levels to provide overall progress on meeting SDG target 6.5. </p>
+<p>Temporal Coverage: A reporting cycle of three years is recommended.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Data collection method </th>
+        <td>
+          
+            <h2>Collection process:</h2>
+<p>Official counterparts at the country level oversee the validation and consultation process. </p>
+<p>The survey has been designed so that the indicator is comparable between countries and time periods. No adjustments are foreseen.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Data collection calendar </th>
+        <td>
+          
+            <h1>Calendar</h1>
+<h2>Data collection: </h2>
+<p>January – May 2020 (5 months). </p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Data release calendar </th>
+        <td>
+          
+            <h2>Data release: </h2>
+<p>1st quarter 2021</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Data providers </th>
+        <td>
+          
+            <h1>Data providers</h1>
+<p>The information required to complete the survey is expected to be held by government officials responsible for water resources management in the country, supported by official documentation. E.g. Ministry of Water in coordination with Ministry of Environment, Ministry of Finance, Ministry of Planning, Ministry of Lands and Agriculture, Ministry of Industry and Mining etc. See also ‘data sources’ section above. As a minimum, a small group of officials may be able to complete the survey. However, these government officials may belong to various government authorities, and coordination will be required to determine and validate the responses to each question. Increased government and non-government stakeholder participation in validating the question scores will lead to a more robust indicator score and facilitate tracking progress over time.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Data compilers </th>
+        <td>
+          
+            <h1>Data compilers</h1>
+<p>UNEP and UN-Water partners, under the UN-Water initiative on integrated monitoring of SDG 6.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Institutional mandate </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Other methodological considerations </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Rationale </th>
+        <td>
+          
+            <h2>Rationale:</h2>
+<p>The indicator provides a direct progress measurement of the first part of Target 6.5 “…implement integrated water resources management at all levels …”. The indicator score provides an easy and understandable way of measuring progress towards the target, with ‘0’ interpreted as no implementation of IWRM, and ‘100’ interpreted as IWRM being fully implemented. </p>
+<p>To further aid interpretation and comparison, the indicator results can be categorized as follows: </p>
+<table><tr><td><p>Degree of implementation</p></td><td><p>Score range</p></td><td><p>General interpretation for overall IWRM score</p></td></tr><tr><td><p>Very high</p></td><td><p>91 - 100</p></td><td><p>Vast majority of IWRM elements are fully implemented, with objectives consistently achieved, and plans and programmes periodically assessed and revised.</p></td></tr><tr><td><p>High</p></td><td><p>71 - 90</p></td><td><p>IWRM objectives of plans and programmes are generally met, and geographic coverage and stakeholder engagement is generally good.</p></td></tr><tr><td><p>Medium-high</p></td><td><p>51 - 70</p></td><td><p>Capacity to implement elements of IWRM is generally adequate, and elements are generally being implemented under long-term programmes.</p></td></tr><tr><td><p>Medium-low</p></td><td><p>31 - 50</p></td><td><p>Elements of IWRM are generally institutionalized, and implementation is underway.</p></td></tr><tr><td><p>Low</p></td><td><p>11 - 30</p></td><td><p>Implementation of elements of IWRM has generally begun, but with limited uptake across the country, and potentially low engagement of stakeholder groups.</p></td></tr><tr><td><p>Very low</p></td><td><p>0 - 10</p></td><td><p>Development of elements of IWRM has generally not begun, or has stalled.</p></td></tr></table>
+<p>The concept of the survey is that it provides sufficient information to be of real value to the countries in determining their progress towards the target, and through this, various aspects of IWRM. A balance has been sought between providing sufficient information to cover the core principles of IWRM, and thus providing a robust indicator value, and not overburdening countries with unnecessary reporting requirements. </p>
+<p>Countries are encouraged to provide additional information on each question, which may help to qualify their choice of score, and/or put that score into their national context. </p>
+<p>Indicator 6.5.1 is supported by indicator 6.5.2 “Proportion of transboundary basin area with an operational arrangement for water cooperation”, which directly addresses the portion of Target 6.5 “…, including through transboundary cooperation as appropriate.”.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Comment and limitations </th>
+        <td>
+          
+            <h2>Comments and limitations:</h2>
+<p>The challenge of subjectivity in responses associated with this type of survey is being addressed in a number of ways: </p>
+<ol><li>Draft responses are reviewed by a number of governmental and non-governmental stakeholders in an open, inclusive and transparent process. </li><li>Countries are encouraged to provide further information to qualify their responses and/or set them in the national context. </li><li>Guidelines are provided for each of the four main sections, each question, and each of the six thresholds for every single question, to ensure responses are as objective as possible, and are comparable both between countries, and between reporting periods. </li></ol>
+<p>To achieve robust indicator results requires a country process involving a wide range of stakeholders which will require a certain amount of time and resources. The advantage of this is that it puts in place a process that addresses the integrated and indivisible nature of the SDG targets, as well as stressing the importance of “leaving no on behind”.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Method of computation </th>
+        <td>
+          
+            <h1>Methodology</h1>
+<h2>Computation method:</h2>
+<p>1. The survey contains 33 questions divided into the four main sections described above. </p>
+<p>2. Each question is given a score between 0 and 100, in increments of 10, guided by threshold descriptions for the following 6 categories:</p>
+<ul><li>Very low (0)</li><li>Low (20)</li><li>Medium-low (40)</li><li>Medium-high (60)</li><li>High (80)</li><li>Very high (100)</li></ul>
+<p>Note that guidance is provided for each threshold for each question, to ensure objective and comparable results. </p>
+<p>3. The un-weighted average of the question scores within each of the four sections is calculated to give a score of 0 – 100 for each section, rounded to the nearest whole number. </p>
+<p>4. The section scores (rounded to the nearest whole number), are averaged (un-weighted), and rounded to the nearest whole number, to give the indicator score, expressed as a number between 0 and 100.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Validation </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">4.e. Adjustments </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">4.f. Treatment of missing values (i) at country level and (ii) at regional level. </th>
+        <td>
+          
+            <h2>Treatment of missing values:</h2>
+<ul><li><strong><em>At country level:</em></strong></li></ul>
+<p>The indicator and survey have been designed for all countries to be able to submit an indicator value. A number of countries that did not submit a survey during the last round of data collection included fragile states / countries in conflict, or small island developing states. It is therefore estimated that the number of country responses under the SDG process will be in excess of 90%. Estimates for countries not responding to the survey will therefore not be made.</p>
+<ul><li><strong><em>At regional and global levels:</em></strong></li></ul>
+<p>It is estimated that the number of country responses will be in excess of 90%. This coverage of data will be deemed to be representative of global aggregates. Estimates for countries not responding to the survey will therefore not be made.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">4.g. Regional aggregations </th>
+        <td>
+          
+            <h2>Regional aggregates:</h2>
+<p>Following the Agenda 2030 principle of “leaving no one behind”, regional and global values will be based on simple, un-weighted averages of country scores. The country scores will be presented as a whole number, and regional and global averages will also be presented as a whole number. Global averages will be based on country values, not regional averages. </p>
+<p>Regional values may be assembled by regional bodies responsible for water resources in the region, such as the African Ministerial Council on Water (AMCOW), the European Environment Agency (EEA), and the United Nations Economic and Social Commission for West Asia (ESCWA).</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Methods and guidance available to countries for the compilation of the data at the national level </th>
+        <td>
+          
+            <h2>Methods and guidance available to countries for the compilation of the data at the national level:</h2>
+<ol><li>National focal points selected by each country.  </li><li>Data collection is via a simple questionnaire with 33 questions, in MS Word format. Responses to each question are given on a scale of 0 – 100, in increments of 10. Threshold descriptions are given for six thresholds between 0 and 100.  </li><li>National focal points are responsible for coordinating a national process to engage governmental and non-governmental stakeholders, as appropriate in the context of each country, to develop draft responses and finalise responses. This may be via email, workshops, and online notices.   </li><li>The following materials are available for national focal points in 7 languages (English, Spanish, French, Arabic, Russian, Chinese, Portuguese), at <a href="about:blank">http://iwrmdataportal.unepdhi.org</a>: the survey (MS Word); a detailed monitoring guide; and a PowerPoint presentation and video recording. In addition, focal points may access the following materials: the 2017 baseline surveys and 2-page results summaries (for 172 countries); and 2017 workshop reports (for 36 countries). </li></ol>
+<p>Extensive explanations are provided in the monitoring guide and in the survey itself. The survey contains: an overall introduction and explanation; a glossary; an introduction and glossary in each of the four sections; threshold descriptions for six thresholds for each question; and a number of footnotes to explain aspects of questions or threshold descriptions. All materials can be downloaded from <a href="about:blank">http://iwrmdataportal.unepdhi.org</a>. In addition, a dedicated Help Desk is available to provide assistance at all times. The Help Desk is accessible via email <a href="about:blank">iwrmsdg651@un.org</a>.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Quality management </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Quality assurance </th>
+        <td>
+          
+            <h2>Quality assurance:</h2>
+<p>The following quality assurance guidelines are available to all individuals involved in quality assurance for 6.5.1.  </p>
+<p>Process: </p>
+<ol><li>Nominate person responsible for QA for a country response once it is submitted for the first time.  </li><li>Acknowledge receipt and inform the country of QA process.  </li><li>Update QA spreadsheet, indicating date of receipt and who submitted.  </li><li>Upload draft survey (MS Word) to the Dropbox folder.  </li><li>Undertake ALL checks described below.  </li><li>If there are any discrepancies, revert to UNEP-DHI colleagues.  </li><li>Once action is agreed, respond to the countries.  </li><li>Complete all checks on each subsequent version of the questionnaire until all quality issues are resolved and questionnaire is marked ‘final’.     </li></ol>
+<p>Checks:  </p>
+<ol><li>Focal point: Confirm the person submitting is the formal national focal point. If not, any reply should also add the national focal point in CC.  </li><li>Question responses:  </li><li>All questions answered. Official guidance is that all questions should be answered (either with a score or n/a).  </li><li>Scores in range from 0-100, in increments of 10.  </li><li>Check that n/a (not applicable) is used appropriately.  </li><li>Free-text fields: In the ““Status description” and “Way forward” fields for each question, check that the free text make sense in the context of the score (and vice versa). </li><li>Calculations: Check that section averages and final score are rounded to the nearest whole number and correct, using the QA spreadsheet on Dropbox. Fill in the given responses in columns M - AX, and the differences are calculated automatically in columns C – G. If the difference is greater than +/- 0.5, the cells are automatically highlighted in red using conditional formatting. </li><li>Compare with 2017 baseline: Where available, compare with 2017 baseline survey (for 172 countries) and discuss with colleagues as necessary.  </li><li>Transboundary issues:  </li><li>Check the ‘transboundary basins’ table in Annex B. A full list of transboundary basins can be found here: <a href="about:blank">http://twap-rivers.org/indicators/Report.ashx?type=IndicatorResultsSummary</a>.</li><li>Go to the final worksheet/tab to see the countries in each basin. Also check the maps here: <a href="about:blank">http://twap-rivers.org/indicators/</a>  to see if the basin is likely to be important for that country, or if there is only a small portion of the basin in their country (in which case they may not list it). </li><li>Check the transboundary questions: 1.2c, 2.2e; 3.2d; and 4.2c, and see if these make sense in the context of the country. Island countries should give ‘n/a’ for all of these questions.</li></ol>
+<p>All data is provided by each country and is therefore fully owned by the countries. Each country undertakes stakeholder consultation, to a level that is appropriate given resources and capacity available to them, to ensure that the data has adequate acceptance and ownership within the country. Guidance on consultation processes are provided in the monitoring guide and through the introductory powerpoint and video for focal points (all materials available at <a href="about:blank">http://iwrmdataportal.unepdhi.org</a>).</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Quality assessment </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Data availability and disaggregation </th>
+        <td>
+          
+            <h1>Data availability</h1>
+<h2>Description:</h2>
+<p>Total number of countries: 172 (89% of UN Member States) (UNEP 2018) </p>
+<p>The following covers the region (UNSD regional groupings): followed by the number of countries with data / total countries in region (as of 2017); followed by the percentage of countries with data.</p>
+<p>Australia and New Zealand: 2/2; 100%</p>
+<p>Central and Southern Asia: 10/14; 71%</p>
+<p>Eastern and South-Eastern Asia: 13/16; 81%</p>
+<p>Europe and Northern America: 43/45; 96%</p>
+<p>Latin America and the Caribbean: 29/33; 89%</p>
+<p>Northern Africa and Western Asia: 22/23; 96%</p>
+<p>Oceania (excluding Australia and New Zealand): 8/12; 67%</p>
+<p>Sub-Saharan Africa: 45/48; 94%</p>
+<p>World: 172/193: 89%</p>
+<h2>Time series:</h2>
+<p>Pre-SDGs: 2008, 2012 (UN-Water 2008, 2012). </p>
+<p>SDG period: 2017 (UNEP 2018). </p>
+<p>All on IWRM Portal (<a href="about:blank">http://iwrmdataportal.unepdhi.org</a>)</p>
+<h2>Disaggregation:</h2>
+<p>The strength of the indicator lies in the potential for disaggregating the country score into the four main dimensions of IWRM, and further to the questions in the survey. This provides countries with a quick assessment of which aspects of IWRM are progressing well, and which aspects require increased efforts to reach the target. </p>
+<p>The nature of the target, indicator and survey does not lend itself to disaggregation by sex, age group, income etc. However, social equality is an integral part of IWRM, and there are questions which directly address issues such as gender, vulnerable groups, geographic coverage and broad stakeholder participation in water resources development and management. These questions provide an indication of the national and sub-national situation regarding social equality.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Comparability/deviation from international standards </th>
+        <td>
+          
+            <h2>Sources of discrepancies:</h2>
+<p>As described in the “Data Sources” section below, there will be no internationally estimated data, with all data to be produced by countries.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">References and Documentation </th>
+        <td>
+          
+            <h1>References</h1>
+<h2>URL: </h2>
+<p><a href="about:blank">http://iwrmdataportal.unepdhi.org</a>  </p>
+<p>This contains the latest survey instrument, monitoring guide, and all supporting documentation. </p>
+<h2>References:</h2>
+<p>- AMCOW 2018: Status Report on the Implementation of Water Resources Management in Africa: a regional report for SDG indicator 6.5.1 on IWRM implementation. </p>
+<p>- UNEP 2018: Progress on integrated water resources management. Global baseline for SDG 6 Indicator 6.5.1: degree of IWRM implementation. </p>
+<p>- United Nations Economic and Social Commission for West Asia (2019). Status Report on the Implementation of Integrated Water Resources Management in the Arab Region: Progress on SDG indicator 6.5.1. </p>
+<p>- UN-Water initiative on integrated monitoring of SDG 6. <a href="about:blank">http://sdg6data.org</a></p>
+<p>- UN-Water, 2016: Water and Sanitation Interlinkages across the 2030 Agenda for Sustainable Development. Geneva.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+</table>
+
+    </article>
+  </div>
+</div>
+<div role="tabpanel" class="tab-pane" id="global">
+  <!-- Global Metadata -->
+  <div>
+    <article>
+      <p>This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href="https://unstats.un.org/sdgs/metadata/">Complete global metadata</a> is provided by the UN Statistics Division.</p>
+      <table class="table">
+  
+  
+  
+  
+  
+      
+      
+      <tr>
+        <th scope="row">Indicator name </th>
+        <td>
+          
+            <p>Degree of integrated water resources management</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Indicator number </th>
+        <td>
+          
+            <p>6.5.1</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Target name </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Target number </th>
+        <td>
+          
+            <p>6.5</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Global indicator description </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">UN designated tier </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">UN custodian agency </th>
+        <td>
+          
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      <tr>
+        <th scope="row">Link to UN metadata </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+      
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</table>
+
+    </article>
+  </div>
+</div>
+<div role="tabpanel" class="tab-pane" id="sources">
+  <!-- Count the non-empty sources (up to 5) -->
+
+
+
+
+
+</div>
+
+  
+  
+  <div role="tabpanel" class="tab-pane" id="edit">
+    <div class="edit-container">
+  
+  
+
+  
+  
+
+
+  <a class="btn btn-primary" href="http://prose.io/#sdg-ghana/data/edit/develop/data/indicator_6-5-1.csv">Edit Data</a>
+  
+
+  
+  <a class="btn btn-primary" href="metadata">Edit Metadata</a>
+  
+
+  
+  <a class="btn btn-primary" href="config">Edit Configuration</a>
+  
+
+</div>
+
+  </div>
+  
+</div>
+
+
+  </div>
+</div>
+
+</div>
+
+
+<footer role="contentinfo">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div id="footerLinks">
+          <ul>
+            <li><a href="https://open-sdg.org">Built using Open SDG</a></li>
+            
+              <li>
+                
+                  <a href="mailto:sdg.secretariat@statsghana.gov.gh" target="_blank">Contact us</a>
+                
+                </li>
+              <li>
+                
+                  <a href="https://twitter.com/statsghana" target="_blank">Twitter</a>
+                
+                </li>
+              <li>
+                
+                  <a href="https://www.facebook.com/statsghana/" target="_blank">Facebook</a>
+                
+                </li>
+              <li>
+                <a href="/about/cookies-and-privacy/">Cookies</a>
+                
+                </li>
+              
+            
+            
+            <li><a href="/config">Configuration</a></li>
+            </ul>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+
+<script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js" integrity="sha512-90vH1Z83AJY9DmlWa8WkjkV79yfS2n2Oxhsi2dZbIv0nC4E6m5AbH8Nh156kkM7JePmqD6tcZsfad1ueoaovww==" crossorigin="anonymous"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/0.5.7/chartjs-plugin-annotation.min.js" integrity="sha512-9hzM/Gfa9KP1hSBlq3/zyNF/dfbcjAYwUTBWYX+xi8fzfAPHL3ILwS1ci0CTVeuXTGkRAWgRMZZwtSNV7P+nfw==" crossorigin="anonymous"></script>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+
+
+
+
+
+
+
+<script>translations['general'] = translations['general'] || {};
+    translations['general']['hide'] = 'hide';</script>
+
+<script>translations['search'] = translations['search'] || {};
+    translations['search']['search'] = 'Search';</script>
+
+<script src='/assets/js/sdg.js?v=20220922124716'></script>
+<!-- Add any custom javascript here. -->
+
+    
+    
+    <script src="/assets/js/custom.js?v=20220922124716"></script><script>
+    new indicatorInit();
+    new accessibilitySwitcher();
+</script>
+
+
+</body>
+</html>
+
