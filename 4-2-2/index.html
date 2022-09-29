@@ -138,7 +138,7 @@ var translations = {
         
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20220922124716">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20220929142607">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -146,7 +146,7 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20220922124716">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20220929142607">
         
 
         
@@ -234,7 +234,7 @@ data-event-label="high"
 </li><li class="nav-link ">
     <a href="/publications">Publications</a>
 </li><li class="nav-link ">
-    <a href="/news">Updates</a>
+    <a href="/news">News</a>
 </li><li class="nav-link ">
     <a href="/covid-indicators/">Covid indicators</a>
 </li><li class="nav-link ">
@@ -308,7 +308,7 @@ data-event-label="high"
 </li><li class="nav-link ">
     <a href="/publications">Publications</a>
 </li><li class="nav-link ">
-    <a href="/news">Updates</a>
+    <a href="/news">News</a>
 </li><li class="nav-link">
             <div class="btn-group menu-dropdown">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -593,6 +593,8 @@ data-event-label="high"
   </div>
 
   <div id="datatableFooter">
+    
+    <p>Source: World Bank</p>
     
     
     <p>Geographical Area: </p>
@@ -950,6 +952,9 @@ opensdg.chartConfigAlter(function(config, info) {
   <h5 class="sr-only">Chart details</h5>
     <dl>
         
+        <dt>Source:</dt>
+        <dd>World Bank</dd>
+        
 
         
 
@@ -1014,6 +1019,9 @@ opensdg.chartConfigAlter(function(config, info) {
 <div id="selectionTableFooter" class="table-footer-text">
   <h5 class="sr-only">Chart details</h5>
     <dl>
+        
+        <dt>Source:</dt>
+        <dd>World Bank</dd>
         
 
         
@@ -1116,21 +1124,18 @@ data-event-label="Change to Sources tab"
   
   
   
-  
-  
-  
-  
-  
-  
-  
-  
+      
+        
+          
+      
+        
       
       
       <tr>
-        <th scope="row">Indicator available </th>
+        <th scope="row">Goal </th>
         <td>
           
-            
+            <p>Goal 4: Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all</p>
 
           
         </td>
@@ -1139,12 +1144,14 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+      
       
       <tr>
-        <th scope="row">Indicator description </th>
+        <th scope="row">Target </th>
         <td>
           
-            
+            <p>Target 4.2: By 2030, ensure that all girls and boys have access to quality early childhood development, care and pre-primary education so that they are ready for primary education</p>
 
           
         </td>
@@ -1153,12 +1160,14 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+      
       
       <tr>
-        <th scope="row">Geographical coverage </th>
+        <th scope="row">Indicator </th>
         <td>
           
-            
+            <p>Indicator 4.2.2: Participation rate in organized learning (one year before the official primary entry age), by sex</p>
 
           
         </td>
@@ -1167,12 +1176,26 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+      
       
       <tr>
-        <th scope="row">Unit of measurement </th>
+        <th scope="row">Organisation </th>
         <td>
           
-            
+            <p>Ghana Statistical Service</p>
 
           
         </td>
@@ -1181,12 +1204,41 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+      
       
       <tr>
-        <th scope="row">Definitions </th>
+        <th scope="row">Definition and concepts </th>
         <td>
           
-            
+            <p><strong>Definition:</strong></p>
+<p>The participation rate in organized learning (one year before the official primary entry age), by sex is defined as the percentage of children in the given age range who participate in one or more organized learning programme, including programmes which offer a combination of education and care. Participation in early childhood and in primary education are both included. The age range will vary by country depending on the official age of entry to primary education.</p>
+<p><strong>Concepts:</strong></p>
+<p>An organized learning programme is one which consists of a coherent set or sequence of educational activities designed with the intention of achieving pre-determined learning outcomes or the</p>
+<p>accomplishment of a specific set of educational tasks. Early childhood and primary education programmes are examples of organized learning programmes.</p>
+<p>Early childhood and primary education are defined in the 2011 revision of the International Standard Classification of Education (ISCED 2011). Early childhood education is typically designed with a holistic approach to support children’s early cognitive, physical, social and emotional development and to introduce young children to organized instruction outside the family context. Primary education offers learning and educational activities designed to provide students with fundamental skills in reading, writing and mathematics and establish a solid foundation for learning and understanding core areas of knowledge and personal development. It focuses on learning at a basic level of complexity with little, if any, specialisation.</p>
+<p>The official primary entry age is the age at which children are obliged to start primary education according to national legislation or policies. Where more than one age is specified, for example, in different parts of a country, the most common official entry age (i.e. the age at which most children in the country are expected to start primary) is used for the calculation of this indicator at the global level.</p>
 
           
         </td>
@@ -1195,12 +1247,14 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+      
       
       <tr>
-        <th scope="row">Calculations </th>
+        <th scope="row">Unit of measure </th>
         <td>
           
-            
+            <p>Percent</p>
 
           
         </td>
@@ -1209,12 +1263,20 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+          
+      
+        
+          
+      
+        
+      
       
       <tr>
-        <th scope="row">Other information </th>
+        <th scope="row">Data sources </th>
         <td>
           
-            
+            <p>MICS 2011, 2017</p>
 
           
         </td>
@@ -1223,12 +1285,23 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+      
       
       <tr>
-        <th scope="row">Quality assurance </th>
+        <th scope="row">Data providers </th>
         <td>
           
-            
+            <p>Ghana Statistical Service</p>
 
           
         </td>
@@ -1237,12 +1310,14 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+      
       
       <tr>
-        <th scope="row">Comparability with international data/standards </th>
+        <th scope="row">Data compilers </th>
         <td>
           
-            
+            <p>Ghana Statistical Service</p>
 
           
         </td>
@@ -1251,12 +1326,20 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+          
+      
+        
+          
+      
+        
+      
       
       <tr>
-        <th scope="row">Comments and limitations </th>
+        <th scope="row">Rationale </th>
         <td>
           
-            
+            <p>The indicator measures children’s exposure to organized learning activities in the year prior to the start of primary school. A high value of the indicator shows a high degree of participation in organized learning immediately before the official entrance age to primary education.</p>
 
           
         </td>
@@ -1265,12 +1348,35 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+      
       
       <tr>
-        <th scope="row">Rational and interpretation </th>
+        <th scope="row">Data availability and disaggregation </th>
         <td>
           
-            
+            <p>The data has not been disaggregated </p>
 
           
         </td>
@@ -1279,17 +1385,18 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+          
+      
+        
+      
       
       <tr>
-        <th scope="row">Data last updated </th>
+        <th scope="row">References and Documentation </th>
         <td>
           
-            
-            
-            
-            
-
-            
+            <p><a href="https://unstats.un.org/sdgs/metadata/">SDG Indicators — SDG Indicators (un.org)</a></p>
+<p>https://statsghana.gov.gh/gssmain/fileUpload/pressrelease/MICS%20SFR%20final_compressed.pdf</p>
 
           
         </td>
@@ -1298,45 +1405,23 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+          
       
-      
-  
+        
       
       
       <tr>
         <th scope="row">Metadata last updated </th>
         <td>
           
-            
-            
-            
-            
-
-            
-              <a href="https://github.com/sdg-ghana/data/commit/9168c711ef89669142dc09a949ffc801b6a89e68" target="_blank">
-                2022-09-21: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
-              </a>
-            
-
+            Sep 28, 2022
           
         </td>
         </tr>
         
       
   
-      
-      
-      
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   
@@ -1411,26 +1496,17 @@ data-event-label="Change to Sources tab"
   
   
       
-      
-      <tr>
-        <th scope="row">Indicator information </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
+          
       
-  
+        
       
       
       <tr>
         <th scope="row">Goal </th>
         <td>
           
-            
+            <p>Goal 4: Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all</p>
 
           
         </td>
@@ -1438,13 +1514,15 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+        
       
       
       <tr>
         <th scope="row">Target </th>
         <td>
           
-            
+            <p>Target 4.2: By 2030, ensure that all girls and boys have access to quality early childhood development, care and pre-primary education so that they are ready for primary education</p>
 
           
         </td>
@@ -1452,13 +1530,15 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+        
       
       
       <tr>
         <th scope="row">Indicator </th>
         <td>
           
-            
+            <p>Indicator 4.2.2: Participation rate in organized learning (one year before the official primary entry age), by sex</p>
 
           
         </td>
@@ -1467,600 +1547,23 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">Series </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Metadata update </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Related indicators </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data reporter </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Organisation </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact person(s) </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact organisation unit </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact person function </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact phone </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact mail </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact email </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Definition, concepts, and classifications </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Definition and concepts </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Unit of measure </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Classifications </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data source type and collection method </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data sources </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data collection method </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data collection calendar </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data release calendar </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data providers </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data compilers </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Institutional mandate </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Other methodological considerations </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Rationale </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Comment and limitations </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Method of computation </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Validation </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Methods and guidance available to countries for the compilation of the data at the national level </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality management </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality assurance </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality assessment </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data availability and disaggregation </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Comparability/deviation from international standards </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">References and Documentation </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Indicator information </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Goal </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Target </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Indicator </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Series </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Metadata update </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Related indicators </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
       
       
       <tr>
         <th scope="row">0.g. International organisations(s) responsible for global monitoring </th>
         <td>
           
-            
+            <p>UNESCO Institute for Statistics (UIS)</p>
 
           
         </td>
@@ -2069,26 +1572,17 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">Data reporter </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
+          
       
-  
+        
       
       
       <tr>
         <th scope="row">Organisation </th>
         <td>
           
-            
+            <p>Ghana Statistical Service</p>
 
           
         </td>
@@ -2097,110 +1591,41 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">Contact person(s) </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact organisation unit </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact person function </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact phone </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact mail </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact email </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Definition, concepts, and classifications </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
+          
       
-  
+        
       
       
       <tr>
         <th scope="row">Definition and concepts </th>
         <td>
           
-            
+            <p><strong>Definition:</strong></p>
+<p>The participation rate in organized learning (one year before the official primary entry age), by sex is defined as the percentage of children in the given age range who participate in one or more organized learning programme, including programmes which offer a combination of education and care. Participation in early childhood and in primary education are both included. The age range will vary by country depending on the official age of entry to primary education.</p>
+<p><strong>Concepts:</strong></p>
+<p>An organized learning programme is one which consists of a coherent set or sequence of educational activities designed with the intention of achieving pre-determined learning outcomes or the</p>
+<p>accomplishment of a specific set of educational tasks. Early childhood and primary education programmes are examples of organized learning programmes.</p>
+<p>Early childhood and primary education are defined in the 2011 revision of the International Standard Classification of Education (ISCED 2011). Early childhood education is typically designed with a holistic approach to support children’s early cognitive, physical, social and emotional development and to introduce young children to organized instruction outside the family context. Primary education offers learning and educational activities designed to provide students with fundamental skills in reading, writing and mathematics and establish a solid foundation for learning and understanding core areas of knowledge and personal development. It focuses on learning at a basic level of complexity with little, if any, specialisation.</p>
+<p>The official primary entry age is the age at which children are obliged to start primary education according to national legislation or policies. Where more than one age is specified, for example, in different parts of a country, the most common official entry age (i.e. the age at which most children in the country are expected to start primary) is used for the calculation of this indicator at the global level.</p>
 
           
         </td>
@@ -2208,13 +1633,15 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+        
       
       
       <tr>
         <th scope="row">Unit of measure </th>
         <td>
           
-            
+            <p>Percent</p>
 
           
         </td>
@@ -2223,40 +1650,20 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">Classifications </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data source type and collection method </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
+          
       
-  
+        
       
       
       <tr>
         <th scope="row">Data sources </th>
         <td>
           
-            
+            <p>MICS 2011, 2017</p>
 
           
         </td>
@@ -2265,54 +1672,23 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">Data collection method </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data collection calendar </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data release calendar </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
+          
       
-  
+        
       
       
       <tr>
         <th scope="row">Data providers </th>
         <td>
           
-            
+            <p>Ghana Statistical Service</p>
 
           
         </td>
@@ -2320,13 +1696,15 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+        
       
       
       <tr>
         <th scope="row">Data compilers </th>
         <td>
           
-            
+            <p>Ghana Statistical Service</p>
 
           
         </td>
@@ -2335,40 +1713,20 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">Institutional mandate </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Other methodological considerations </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
+          
       
-  
+        
       
       
       <tr>
         <th scope="row">Rationale </th>
         <td>
           
-            
+            <p>The indicator measures children’s exposure to organized learning activities in the year prior to the start of primary school. A high value of the indicator shows a high degree of participation in organized learning immediately before the official entrance age to primary education.</p>
 
           
         </td>
@@ -2377,152 +1735,44 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">Comment and limitations </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Method of computation </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Validation </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">4.e. Adjustments </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">4.f. Treatment of missing values (i) at country level and (ii) at regional level. </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">4.g. Regional aggregations </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Methods and guidance available to countries for the compilation of the data at the national level </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality management </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality assurance </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality assessment </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
+          
       
-  
+        
       
       
       <tr>
         <th scope="row">Data availability and disaggregation </th>
         <td>
           
-            
+            <p>The data has not been disaggregated </p>
 
           
         </td>
@@ -2531,26 +1781,18 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">Comparability/deviation from international standards </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
+          
       
-  
+        
       
       
       <tr>
         <th scope="row">References and Documentation </th>
         <td>
           
-            
+            <p><a href="https://unstats.un.org/sdgs/metadata/">SDG Indicators — SDG Indicators (un.org)</a></p>
+<p>https://statsghana.gov.gh/gssmain/fileUpload/pressrelease/MICS%20SFR%20final_compressed.pdf</p>
 
           
         </td>
@@ -2570,267 +1812,137 @@ data-event-label="Change to Sources tab"
       <p>This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href="https://unstats.un.org/sdgs/metadata/">Complete global metadata</a> is provided by the UN Statistics Division.</p>
       <table class="table">
   
-  
-  
-  
-  
       
-      
-      <tr>
-        <th scope="row">Indicator name </th>
-        <td>
-          
-            <p>Participation rate in organized learning (one year before the official primary entry age), by sex</p>
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Indicator number </th>
-        <td>
           
-            <p>4.2.2</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Target name </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Target number </th>
-        <td>
           
-            <p>4.2</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Global indicator description </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
+          
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
       
-      
-      <tr>
-        <th scope="row">UN designated tier </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">UN custodian agency </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Link to UN metadata </th>
-        <td>
-          
-            
-            
-            
-            
-
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   
@@ -2885,6 +1997,332 @@ data-event-label="Change to Sources tab"
 
 
 
+  <div class="row">
+  
+    
+    
+    <div class="col-md-6">
+      
+      <table class="table">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            <p>World Bank</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            <p>Annual</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Earliest available data </th>
+        <td>
+          
+            <p>2004</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Geographical coverage </th>
+        <td>
+          
+            <p>Ghana</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Link to data source </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://data.worldbank.org/indicator/SI.POV.DDAY?locations=GB" target="_blank">
+                Poverty headcount ratio at $1.90 a day (2011 PPP) (% of population) <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Release date </th>
+        <td>
+          
+            May 28, 2020
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Next release </th>
+        <td>
+          
+            <p>TBA</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Statistical classification </th>
+        <td>
+          
+            <p>Non-official</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Contact details </th>
+        <td>
+          
+            <p>Research@WorldBank.org</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+          
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</table>
+
+    </div>
+    
+  </div>
+
 
 </div>
 
@@ -2906,8 +2344,6 @@ data-event-label="Change to Sources tab"
   <a class="btn btn-primary" href="metadata">Edit Metadata</a>
   
 
-  
-  <a class="btn btn-primary" href="config">Edit Configuration</a>
   
 
 </div>
@@ -2996,12 +2432,12 @@ data-event-label="Change to Sources tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/assets/js/sdg.js?v=20220922124716'></script>
+<script src='/assets/js/sdg.js?v=20220929142607'></script>
 <!-- Add any custom javascript here. -->
 
     
     
-    <script src="/assets/js/custom.js?v=20220922124716"></script><script>
+    <script src="/assets/js/custom.js?v=20220929142607"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

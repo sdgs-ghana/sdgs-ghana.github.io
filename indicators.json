@@ -675,7 +675,7 @@
           "description": "",
           "keywords": "",
           "href": "/5-a-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "5-a-2",
@@ -955,7 +955,7 @@
           "description": "",
           "keywords": "",
           "href": "/8-9-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "8-10-1",
@@ -1163,7 +1163,7 @@
           "description": "",
           "keywords": "",
           "href": "/10-7-1",
-          "status": "notstarted"
+          "status": "complete"
         },
         {
           "id": "10-7-2",
@@ -1923,7 +1923,7 @@
           "description": "",
           "keywords": "",
           "href": "/16-b-1",
-          "status": "notstarted"
+          "status": "complete"
         }]
     }
   },
@@ -2123,7 +2123,7 @@
           "description": "",
           "keywords": "",
           "href": "/17-19-2",
-          "status": "notstarted"
+          "status": "complete"
         }]
     }
   },

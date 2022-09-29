@@ -138,7 +138,7 @@ var translations = {
         
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20220922124716">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20220929142607">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -146,7 +146,7 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20220922124716">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20220929142607">
         
 
         
@@ -234,7 +234,7 @@ data-event-label="high"
 </li><li class="nav-link ">
     <a href="/publications">Publications</a>
 </li><li class="nav-link ">
-    <a href="/news">Updates</a>
+    <a href="/news">News</a>
 </li><li class="nav-link ">
     <a href="/covid-indicators/">Covid indicators</a>
 </li><li class="nav-link ">
@@ -308,7 +308,7 @@ data-event-label="high"
 </li><li class="nav-link ">
     <a href="/publications">Publications</a>
 </li><li class="nav-link ">
-    <a href="/news">Updates</a>
+    <a href="/news">News</a>
 </li><li class="nav-link">
             <div class="btn-group menu-dropdown">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -501,8 +501,8 @@ data-event-label="high"
   data-id="14-4-1"
   data-country="Ghana"
   data-charttitle="Proportion of fish stocks within biologically sustainable levels"
-  data-charttitles="[]"
-  data-measurementunit=""
+  data-charttitles="&quot;Mean length of fish species&quot;"
+  data-measurementunit="Centimetre(s)"
   data-xaxislabel=""
   data-showdata="true"
   data-graphtype="line"
@@ -562,11 +562,13 @@ data-event-label="high"
 
   <div id="datatableFooter">
     
+    <p>Source: World Bank</p>
+    
     
     <p>Geographical Area: </p>
     
     
-    <p>Unit of Measurement: </p>
+    <p>Unit of Measurement: Centimetre(s)</p>
     
     
     <p>Footnote: </p>
@@ -918,6 +920,9 @@ opensdg.chartConfigAlter(function(config, info) {
   <h5 class="sr-only">Chart details</h5>
     <dl>
         
+        <dt>Source:</dt>
+        <dd>World Bank</dd>
+        
 
         
 
@@ -982,6 +987,9 @@ opensdg.chartConfigAlter(function(config, info) {
 <div id="selectionTableFooter" class="table-footer-text">
   <h5 class="sr-only">Chart details</h5>
     <dl>
+        
+        <dt>Source:</dt>
+        <dd>World Bank</dd>
         
 
         
@@ -1084,21 +1092,18 @@ data-event-label="Change to Sources tab"
   
   
   
-  
-  
-  
-  
-  
-  
-  
-  
+      
+        
+          
+      
+        
       
       
       <tr>
-        <th scope="row">Indicator available </th>
+        <th scope="row">Goal </th>
         <td>
           
-            
+            <p>Goal 14: Conserve and sustainably use the oceans, seas and marine resources for sustainable<br />development</p>
 
           
         </td>
@@ -1107,12 +1112,14 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+      
       
       <tr>
-        <th scope="row">Indicator description </th>
+        <th scope="row">Target </th>
         <td>
           
-            
+            <p>Target 14.4: By 2020, effectively regulate harvesting and end overfishing, illegal, unreported and<br />unregulated fishing and destructive fishing practices and implement science-based management plans, in<br />order to restore fish stocks in the shortest time feasible, at least to levels that can produce maximum<br />sustainable yield as determined by their biological characteristics</p>
 
           
         </td>
@@ -1121,12 +1128,14 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+      
       
       <tr>
-        <th scope="row">Geographical coverage </th>
+        <th scope="row">Indicator </th>
         <td>
           
-            
+            <p>Indicator 14.4.1: Proportion of fish stocks within biologically sustainable levels</p>
 
           
         </td>
@@ -1135,12 +1144,20 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+          
+      
+        
+          
+      
+        
+      
       
       <tr>
-        <th scope="row">Unit of measurement </th>
+        <th scope="row">Related indicators </th>
         <td>
           
-            
+            <p>Indicator 14.7.1: Sustainable fisheries as a percentage of GDP in small island developing States, least<br />developed countries and all countries</p>
 
           
         </td>
@@ -1149,12 +1166,17 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+          
+      
+        
+      
       
       <tr>
-        <th scope="row">Definitions </th>
+        <th scope="row">Organisation </th>
         <td>
           
-            
+            <p>Ghana Statistical Service</p>
 
           
         </td>
@@ -1163,12 +1185,36 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+      
       
       <tr>
-        <th scope="row">Calculations </th>
+        <th scope="row">Definition and concepts </th>
         <td>
           
-            
+            <p>Definition:<br />The indicator, "Proportion of marine fish stocks within biologically sustainable levels", measures the<br />sustainability of the world's marine capture fisheries by the abundance of the exploited fish stocks with<br />respect to MSY levels.<br />For each level of reporting (National, Regional, Global) the indicator is calculated as the ratio between the<br />number of exploited fish stocks classified as "within biologically sustainable levels" and the total number<br />of stocks in the Reference List that were classified with a determined status (within/not within<br />"biologically sustainable levels").</p>
+<p>Maximum Sustainable Yield (MSY) is commonly defined as the greatest average amount of catch that<br />can be harvested in the long-term from a stock under constant and current environmental conditions<br />(e.g., habitat, water conditions, species composition and interactions, and anything that could affect<br />birth, growth, or death rates of the stock), without affecting the long-term productivity of the stock. A<br />stock can produce MSY if its abundance is above a certain level, usually around 50% of its unexploited<br />abundance (but actual value can vary around that level, depending on the biological characteristics of the<br />stock). See more at https://www.fao.org/faoterm/en/?defaultCollId=21<br />MSY-based reference points are the most common type of reference points used in fisheries<br />management today. This is primarily because, for decades, reference points from surplus production<br />models have most often been set based on the concept of MSY and they are the basic benchmarks for<br />the sustainability of fisheries set by the UN Convention on the Law of the Sea (UNCLOS, Article 61(3)). For<br />more on Reference Points in Fish Stock Assessment, see Caddy and Mahon (1995), Cadima (2003) or<br />Haddon (2011).<br />BMSY: Biomass corresponding to Maximum Sustainable Yield from a production model or from an age-<br />based analysis using a stock recruitment model. Often used as a biological reference point in fisheries<br />management, it is the calculated long-term average biomass value expected if fishing at FMSY.<br />A population is: “A group of individuals of the same species living in the same area at the same time and<br />sharing a common gene pool, with little or no immigration or emigration.” A biological stock is: “A subpopulation of a species inhabiting a particular geographic area, having<br />similar biological characteristics (e.g. growth, reproduction, mortality) and negligible genetic mixing with<br />other adjacent subpopulations of the same species." (FAO, 2004-2021).<br />The Reference List of Stocks: it is not possible to classify the sustainability of exploitation for all the<br />exploited stocks from a country, region or the world. Therefore, the indicator must be calculated based<br />on a subset of these stocks. The list of the stocks that are classified for status and used to calculate the<br />indicators is called the "Reference List of Stocks".<br />The Reference List of Stocks is built differently for the Regional/Global and the National levels. The<br />process of building the Reference List of Stocks for regional and global level are described in FAO (2011).<br />At National level, countries are requested to define a list of stocks, based on an agreed set of criteria<br />(Appendix 1). National and shared stocks can be included, but not straddling stocks (stocks that are<br />distributed both in national EEZ and Areas Beyond National Jurisdiction).<br />At this moment, there is not a direct correspondence between the national level Reference Lists (that are<br />defined by each country) and the regional and global Reference lists (that are defined by FAO).<br />The detailed description of all necessary concepts can be found in the e-learning course (FAO 2019-2021).</p>
 
           
         </td>
@@ -1177,12 +1223,14 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+      
       
       <tr>
-        <th scope="row">Other information </th>
+        <th scope="row">Unit of measure </th>
         <td>
           
-            
+            <p>Centimeter (cm) </p>
 
           
         </td>
@@ -1191,12 +1239,20 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+          
+      
+        
+          
+      
+        
+      
       
       <tr>
-        <th scope="row">Quality assurance </th>
+        <th scope="row">Data sources </th>
         <td>
           
-            
+            <p>Ministry of Fisheries and Aquaculture Development, 2021</p>
 
           
         </td>
@@ -1205,12 +1261,23 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+      
       
       <tr>
-        <th scope="row">Comparability with international data/standards </th>
+        <th scope="row">Data providers </th>
         <td>
           
-            
+            <p>Ministry of Fisheries and Aquaculture Development</p>
 
           
         </td>
@@ -1219,12 +1286,14 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+      
       
       <tr>
-        <th scope="row">Comments and limitations </th>
+        <th scope="row">Data compilers </th>
         <td>
           
-            
+            <p>Ghana statistical service</p>
 
           
         </td>
@@ -1233,12 +1302,20 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+          
+      
+        
+          
+      
+        
+      
       
       <tr>
-        <th scope="row">Rational and interpretation </th>
+        <th scope="row">Rationale </th>
         <td>
           
-            
+            <p>The United Nations (UN) Convention on the Law of the Sea (UNCLOS), the United Nations Fish Stocks Agreement (UNFSA [UN, 1995]) and the FAO Code of Conduct for Responsible Fisheries (FAO, 1995a) all require maintaining or restoring fish stocks at levels that are capable of producing their maximum sustainable yield (MSY). To fulfil the objectives of these international treaties, fishery management authorities need to undertake assessment of the state of fish stocks and develop effective policies and management strategies. As a UN Agency with a mandate for fisheries, FAO endeavours to provide the international community with the best information on the state of marine fishery resources. Since 1974, FAO has been periodically assessing and reporting the state of marine fishery resources using a wide spectrum of methods from numerical models to data poor approaches. FAO global and regional estimates were also used as an MDG indicator for Goal 7 on environment during the period 2000-2015. This facilitated its approval as a Tier I SDG indicator by the 2nd IAEG-SDG in October 2015. The indicator has a peculiar nature compared to more conventional SDG indicators. The indicator estimates the sustainability of fish stocks that often move across national boundaries. This led the indicator to be initially reported only at global and regional levels, with regions not corresponding to continental MDG or SDG regions but to marine regions termed “FAO Major Fishing Areas”. The Global SDG Indicator Framework is a voluntary mechanism, but countries are required to report if data are available. As a custodian agency, the FAO works to put in action the 2030 Agenda’s emphasis on country ownership and higher the incentive to take actions at country, regional and global levels. FAO has developed, since 2018, a questionnaire approach to allow individual countries to report on the sustainability of fish stocks. The approach 1) provides a framework for meaningful country-level reporting that complements but does not alter the core methodology of SDG indicator 14.4.1 at the global/regional levels (FAO, 2011), and 2) provides countries with simplified methods to carry out fish stock assessment in data-limited contexts, to some extent overcoming the technical barriers that traditional methods presented. This is because country-level reporting will be limited to the assessment of stocks that are found only within a country’s EEZ and/or shared with neighbouring countries’ EEZs, and therefore do not include straddling stocks, highly migratory species, or stocks in Areas Beyond National Jurisdiction (ABNJ). As a result, national data alone cannot be meaningfully aggregated at global/regional levels, but it can be used to inform country progress on fish stock sustainability within the EEZ. In 2019, the FAO began sending a questionnaire to countries to collect national data with the aim to help countries in the reporting process</p>
 
           
         </td>
@@ -1247,64 +1324,53 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">Data last updated </th>
-        <td>
-          
-            
-            
-            
-            
-
-            
-
-          
-        </td>
-        </tr>
         
+          
       
-  
+        
+          
       
+        
+          
       
+        
+          
       
-  
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
       
       
       <tr>
         <th scope="row">Metadata last updated </th>
         <td>
           
-            
-            
-            
-            
-
-            
-              <a href="https://github.com/sdg-ghana/data/commit/03abf3d7994c32ffa32f6354ef706c9b9cfb5332" target="_blank">
-                2022-09-20: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
-              </a>
-            
-
+            Sep 28, 2022
           
         </td>
         </tr>
         
       
   
-      
-      
-      
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   
@@ -1379,26 +1445,17 @@ data-event-label="Change to Sources tab"
   
   
       
-      
-      <tr>
-        <th scope="row">Indicator information </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
+          
       
-  
+        
       
       
       <tr>
         <th scope="row">Goal </th>
         <td>
           
-            
+            <p>Goal 14: Conserve and sustainably use the oceans, seas and marine resources for sustainable<br />development</p>
 
           
         </td>
@@ -1406,13 +1463,15 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+        
       
       
       <tr>
         <th scope="row">Target </th>
         <td>
           
-            
+            <p>Target 14.4: By 2020, effectively regulate harvesting and end overfishing, illegal, unreported and<br />unregulated fishing and destructive fishing practices and implement science-based management plans, in<br />order to restore fish stocks in the shortest time feasible, at least to levels that can produce maximum<br />sustainable yield as determined by their biological characteristics</p>
 
           
         </td>
@@ -1420,13 +1479,15 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+        
       
       
       <tr>
         <th scope="row">Indicator </th>
         <td>
           
-            
+            <p>Indicator 14.4.1: Proportion of fish stocks within biologically sustainable levels</p>
 
           
         </td>
@@ -1435,40 +1496,20 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">Series </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Metadata update </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
+          
       
-  
+        
       
       
       <tr>
         <th scope="row">Related indicators </th>
         <td>
           
-            
+            <p>Indicator 14.7.1: Sustainable fisheries as a percentage of GDP in small island developing States, least<br />developed countries and all countries</p>
 
           
         </td>
@@ -1477,558 +1518,14 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">Data reporter </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Organisation </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact person(s) </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact organisation unit </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact person function </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact phone </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact mail </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact email </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Definition, concepts, and classifications </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Definition and concepts </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Unit of measure </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Classifications </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data source type and collection method </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data sources </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data collection method </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data collection calendar </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data release calendar </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data providers </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data compilers </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Institutional mandate </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Other methodological considerations </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Rationale </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Comment and limitations </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Method of computation </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Validation </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Methods and guidance available to countries for the compilation of the data at the national level </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality management </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality assurance </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality assessment </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data availability and disaggregation </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Comparability/deviation from international standards </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">References and Documentation </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Indicator information </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Goal </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Target </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Indicator </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Series </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Metadata update </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Related indicators </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
       
       
       <tr>
         <th scope="row">0.g. International organisations(s) responsible for global monitoring </th>
         <td>
           
-            
+            <p>Food and Agriculture Organization of the United Nations (FAO)</p>
 
           
         </td>
@@ -2037,26 +1534,17 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">Data reporter </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
+          
       
-  
+        
       
       
       <tr>
         <th scope="row">Organisation </th>
         <td>
           
-            
+            <p>Ghana Statistical Service</p>
 
           
         </td>
@@ -2065,110 +1553,36 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">Contact person(s) </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact organisation unit </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact person function </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact phone </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact mail </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact email </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Definition, concepts, and classifications </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
+          
       
-  
+        
       
       
       <tr>
         <th scope="row">Definition and concepts </th>
         <td>
           
-            
+            <p>Definition:<br />The indicator, "Proportion of marine fish stocks within biologically sustainable levels", measures the<br />sustainability of the world's marine capture fisheries by the abundance of the exploited fish stocks with<br />respect to MSY levels.<br />For each level of reporting (National, Regional, Global) the indicator is calculated as the ratio between the<br />number of exploited fish stocks classified as "within biologically sustainable levels" and the total number<br />of stocks in the Reference List that were classified with a determined status (within/not within<br />"biologically sustainable levels").</p>
+<p>Maximum Sustainable Yield (MSY) is commonly defined as the greatest average amount of catch that<br />can be harvested in the long-term from a stock under constant and current environmental conditions<br />(e.g., habitat, water conditions, species composition and interactions, and anything that could affect<br />birth, growth, or death rates of the stock), without affecting the long-term productivity of the stock. A<br />stock can produce MSY if its abundance is above a certain level, usually around 50% of its unexploited<br />abundance (but actual value can vary around that level, depending on the biological characteristics of the<br />stock). See more at https://www.fao.org/faoterm/en/?defaultCollId=21<br />MSY-based reference points are the most common type of reference points used in fisheries<br />management today. This is primarily because, for decades, reference points from surplus production<br />models have most often been set based on the concept of MSY and they are the basic benchmarks for<br />the sustainability of fisheries set by the UN Convention on the Law of the Sea (UNCLOS, Article 61(3)). For<br />more on Reference Points in Fish Stock Assessment, see Caddy and Mahon (1995), Cadima (2003) or<br />Haddon (2011).<br />BMSY: Biomass corresponding to Maximum Sustainable Yield from a production model or from an age-<br />based analysis using a stock recruitment model. Often used as a biological reference point in fisheries<br />management, it is the calculated long-term average biomass value expected if fishing at FMSY.<br />A population is: “A group of individuals of the same species living in the same area at the same time and<br />sharing a common gene pool, with little or no immigration or emigration.” A biological stock is: “A subpopulation of a species inhabiting a particular geographic area, having<br />similar biological characteristics (e.g. growth, reproduction, mortality) and negligible genetic mixing with<br />other adjacent subpopulations of the same species." (FAO, 2004-2021).<br />The Reference List of Stocks: it is not possible to classify the sustainability of exploitation for all the<br />exploited stocks from a country, region or the world. Therefore, the indicator must be calculated based<br />on a subset of these stocks. The list of the stocks that are classified for status and used to calculate the<br />indicators is called the "Reference List of Stocks".<br />The Reference List of Stocks is built differently for the Regional/Global and the National levels. The<br />process of building the Reference List of Stocks for regional and global level are described in FAO (2011).<br />At National level, countries are requested to define a list of stocks, based on an agreed set of criteria<br />(Appendix 1). National and shared stocks can be included, but not straddling stocks (stocks that are<br />distributed both in national EEZ and Areas Beyond National Jurisdiction).<br />At this moment, there is not a direct correspondence between the national level Reference Lists (that are<br />defined by each country) and the regional and global Reference lists (that are defined by FAO).<br />The detailed description of all necessary concepts can be found in the e-learning course (FAO 2019-2021).</p>
 
           
         </td>
@@ -2176,13 +1590,15 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+        
       
       
       <tr>
         <th scope="row">Unit of measure </th>
         <td>
           
-            
+            <p>Centimeter (cm) </p>
 
           
         </td>
@@ -2191,40 +1607,20 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">Classifications </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data source type and collection method </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
+          
       
-  
+        
       
       
       <tr>
         <th scope="row">Data sources </th>
         <td>
           
-            
+            <p>Ministry of Fisheries and Aquaculture Development, 2021</p>
 
           
         </td>
@@ -2233,54 +1629,23 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">Data collection method </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data collection calendar </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data release calendar </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
+          
       
-  
+        
       
       
       <tr>
         <th scope="row">Data providers </th>
         <td>
           
-            
+            <p>Ministry of Fisheries and Aquaculture Development</p>
 
           
         </td>
@@ -2288,13 +1653,15 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+        
       
       
       <tr>
         <th scope="row">Data compilers </th>
         <td>
           
-            
+            <p>Ghana statistical service</p>
 
           
         </td>
@@ -2303,40 +1670,20 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">Institutional mandate </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Other methodological considerations </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
+          
       
-  
+        
       
       
       <tr>
         <th scope="row">Rationale </th>
         <td>
           
-            
+            <p>The United Nations (UN) Convention on the Law of the Sea (UNCLOS), the United Nations Fish Stocks Agreement (UNFSA [UN, 1995]) and the FAO Code of Conduct for Responsible Fisheries (FAO, 1995a) all require maintaining or restoring fish stocks at levels that are capable of producing their maximum sustainable yield (MSY). To fulfil the objectives of these international treaties, fishery management authorities need to undertake assessment of the state of fish stocks and develop effective policies and management strategies. As a UN Agency with a mandate for fisheries, FAO endeavours to provide the international community with the best information on the state of marine fishery resources. Since 1974, FAO has been periodically assessing and reporting the state of marine fishery resources using a wide spectrum of methods from numerical models to data poor approaches. FAO global and regional estimates were also used as an MDG indicator for Goal 7 on environment during the period 2000-2015. This facilitated its approval as a Tier I SDG indicator by the 2nd IAEG-SDG in October 2015. The indicator has a peculiar nature compared to more conventional SDG indicators. The indicator estimates the sustainability of fish stocks that often move across national boundaries. This led the indicator to be initially reported only at global and regional levels, with regions not corresponding to continental MDG or SDG regions but to marine regions termed “FAO Major Fishing Areas”. The Global SDG Indicator Framework is a voluntary mechanism, but countries are required to report if data are available. As a custodian agency, the FAO works to put in action the 2030 Agenda’s emphasis on country ownership and higher the incentive to take actions at country, regional and global levels. FAO has developed, since 2018, a questionnaire approach to allow individual countries to report on the sustainability of fish stocks. The approach 1) provides a framework for meaningful country-level reporting that complements but does not alter the core methodology of SDG indicator 14.4.1 at the global/regional levels (FAO, 2011), and 2) provides countries with simplified methods to carry out fish stock assessment in data-limited contexts, to some extent overcoming the technical barriers that traditional methods presented. This is because country-level reporting will be limited to the assessment of stocks that are found only within a country’s EEZ and/or shared with neighbouring countries’ EEZs, and therefore do not include straddling stocks, highly migratory species, or stocks in Areas Beyond National Jurisdiction (ABNJ). As a result, national data alone cannot be meaningfully aggregated at global/regional levels, but it can be used to inform country progress on fish stock sustainability within the EEZ. In 2019, the FAO began sending a questionnaire to countries to collect national data with the aim to help countries in the reporting process</p>
 
           
         </td>
@@ -2345,187 +1692,44 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">Comment and limitations </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Method of computation </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Validation </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">4.e. Adjustments </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">4.f. Treatment of missing values (i) at country level and (ii) at regional level. </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">4.g. Regional aggregations </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Methods and guidance available to countries for the compilation of the data at the national level </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality management </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality assurance </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality assessment </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data availability and disaggregation </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Comparability/deviation from international standards </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">References and Documentation </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
+          
 </table>
 
     </article>
@@ -2538,267 +1742,137 @@ data-event-label="Change to Sources tab"
       <p>This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href="https://unstats.un.org/sdgs/metadata/">Complete global metadata</a> is provided by the UN Statistics Division.</p>
       <table class="table">
   
-  
-  
-  
-  
       
-      
-      <tr>
-        <th scope="row">Indicator name </th>
-        <td>
-          
-            <p>Proportion of fish stocks within biologically sustainable levels</p>
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Indicator number </th>
-        <td>
           
-            <p>14.4.1</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Target name </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Target number </th>
-        <td>
           
-            <p>14.4</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Global indicator description </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
+          
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
       
-      
-      <tr>
-        <th scope="row">UN designated tier </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">UN custodian agency </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Link to UN metadata </th>
-        <td>
-          
-            
-            
-            
-            
-
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   
@@ -2853,6 +1927,332 @@ data-event-label="Change to Sources tab"
 
 
 
+  <div class="row">
+  
+    
+    
+    <div class="col-md-6">
+      
+      <table class="table">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            <p>World Bank</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            <p>Annual</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Earliest available data </th>
+        <td>
+          
+            <p>2004</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Geographical coverage </th>
+        <td>
+          
+            <p>Ghana</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Link to data source </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://data.worldbank.org/indicator/SI.POV.DDAY?locations=GB" target="_blank">
+                Poverty headcount ratio at $1.90 a day (2011 PPP) (% of population) <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Release date </th>
+        <td>
+          
+            May 28, 2020
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Next release </th>
+        <td>
+          
+            <p>TBA</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Statistical classification </th>
+        <td>
+          
+            <p>Non-official</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Contact details </th>
+        <td>
+          
+            <p>Research@WorldBank.org</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+          
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</table>
+
+    </div>
+    
+  </div>
+
 
 </div>
 
@@ -2874,8 +2274,6 @@ data-event-label="Change to Sources tab"
   <a class="btn btn-primary" href="metadata">Edit Metadata</a>
   
 
-  
-  <a class="btn btn-primary" href="config">Edit Configuration</a>
   
 
 </div>
@@ -2964,12 +2362,12 @@ data-event-label="Change to Sources tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/assets/js/sdg.js?v=20220922124716'></script>
+<script src='/assets/js/sdg.js?v=20220929142607'></script>
 <!-- Add any custom javascript here. -->
 
     
     
-    <script src="/assets/js/custom.js?v=20220922124716"></script><script>
+    <script src="/assets/js/custom.js?v=20220929142607"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

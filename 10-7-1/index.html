@@ -138,7 +138,7 @@ var translations = {
         
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20220922124716">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20220929142607">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -146,7 +146,7 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20220922124716">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20220929142607">
         
 
         
@@ -234,7 +234,7 @@ data-event-label="high"
 </li><li class="nav-link ">
     <a href="/publications">Publications</a>
 </li><li class="nav-link ">
-    <a href="/news">Updates</a>
+    <a href="/news">News</a>
 </li><li class="nav-link ">
     <a href="/covid-indicators/">Covid indicators</a>
 </li><li class="nav-link ">
@@ -308,7 +308,7 @@ data-event-label="high"
 </li><li class="nav-link ">
     <a href="/publications">Publications</a>
 </li><li class="nav-link ">
-    <a href="/news">Updates</a>
+    <a href="/news">News</a>
 </li><li class="nav-link">
             <div class="btn-group menu-dropdown">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -504,7 +504,7 @@ data-event-label="high"
   data-charttitles="[]"
   data-measurementunit=""
   data-xaxislabel=""
-  data-showdata="false"
+  data-showdata="true"
   data-graphtype="line"
   data-graphtypes="null"
   data-geocoderegex=""
@@ -516,12 +516,549 @@ data-event-label="high"
   data-graphtargetlines="null"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
-  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;},{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Year&quot;}]}"
+  data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;COMPOSITE_BREAKDOWN&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;&quot;,&quot;America&quot;,&quot;Asia&quot;,&quot;ECOWAS countries&quot;,&quot;Europe&quot;,&quot;Middle East/Gulf Cooperation Council countries&quot;,&quot;Oceania&quot;,&quot;Other African Countries&quot;]},&quot;title&quot;:&quot;Composite breakdown&quot;},{&quot;name&quot;:&quot;SEX&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;&quot;,&quot;Female&quot;,&quot;Male&quot;]},&quot;title&quot;:&quot;Sex&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;},{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;}]}"
   data-compositebreakdownlabel=""
   data-precision="[]"
 >
   
-  <div id="indicator-main" class="indicator-main col-md-12">
+  <span role="status" class="sr-only" id="indicator-data-view-status"></span>
+  <div id="indicator-sidebar" class="indicator-sidebar col-md-3">
+    <div id="serieses"></div>
+<div id="units"></div>
+<div id="toolbar">
+  <span id="series-help">
+    <h4>Sub-categories</h4>
+    <p>Choose categories from the dropdowns below to see different breakdowns of the data. Some will not be available until a higher level is chosen.</p>
+  </span>
+  <div id="fields">
+    <p class="async-loading" data-img="/assets/img/loading-small.gif"></p>
+  </div>
+</div>
+
+  </div>
+  <div id="indicator-main" class="indicator-main col-md-9">
+    
+
+
+<div id="headlineTable">
+
+  <div id="datatables">
+
+    <a href="https://sdg-ghana.github.io/data/en/headline/10-7-1.csv" class="btn btn-primary btn-download" download="indicator_10-7-1.csv" tabindex="0" role="button">Download Headline CSV</a>
+
+    <a href="https://sdg-ghana.github.io/data/en/data/10-7-1.csv" class="btn btn-primary btn-download" style='float:left;margin-right:1em' download='indicator_10-7-1.csv' tabindex='0' role='button'>Download Source CSV</a>
+
+    <h3>Headline data</h3>
+    <table class="table-responsive table table-hover dataTable no-footer" role="grid">
+      <caption>Recruitment cost borne by employee as a proportion of monthly income earned in country of destination</caption>
+      <thead>
+        
+        
+        <th scope="col">Year</th>
+        
+        
+        
+        <th scope="col" class="table-value">Value</th>
+        
+        
+      </thead>
+      <tbody>
+        
+        <tr>
+          
+          
+          <td>2020</td>
+          
+          
+          
+          <td class="table-value">2.0</td>
+          
+          
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+
+  <div id="datatableFooter">
+    
+    <p>Source: World Bank</p>
+    
+    
+    <p>Geographical Area: </p>
+    
+    
+    <p>Unit of Measurement: </p>
+    
+    
+    <p>Footnote: </p>
+    
+  </div>
+
+</div>
+
+
+<section>
+
+  <p class="async-loading" data-img="/assets/img/loading-small.gif"></p>
+
+  <div class="async-loaded spacer medium" style="display:none;">
+
+    <div style="display: none;">
+  <span id="table-alternative">For tabular data alternative see Table tab.</span>
+</div>
+<ul class="nav nav-tabs non-stacking-tabs data-view" role="tablist">
+  
+  <li role="presentation"
+    class="
+      nav-item
+      
+      
+      active
+    ">
+    <a
+      class="nav-link"
+      data-toggle="tab"
+      role="tab"
+      
+        id="tab-chartview"
+        href="#chartview"
+        aria-controls="chartview"
+        aria-describedby="table-alternative"
+        data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Chart tab"
+
+      
+    >Chart</a>
+  </li>
+  
+  <li role="presentation"
+    class="
+      nav-item
+      
+      
+      
+    ">
+    <a
+      class="nav-link"
+      data-toggle="tab"
+      role="tab"
+      
+        id="tab-tableview"
+        href="#tableview"
+        aria-controls="tableview"
+        data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Table tab"
+
+      
+    >Table</a>
+  </li>
+  
+</ul>
+
+    <div class="tab-content data-view">
+  
+    
+      <div role="tabpanel" class="tab-pane active" id="chartview">
+        
+
+    <div id="dataset-size-warning" style="display:none" role="alert">
+      <i class="fa fa-bolt"><span class="sr-only">Warning:</span></i>
+      There are too many datasets to show on the chart. Not all will be shown until you remove some selections.
+    </div>
+
+    
+    
+    <div id="selectionsChart">
+      <figure role="group">
+        <div id="chart-canvas">
+          <h4 id="chart-heading" class="chart-title">Recruitment cost borne by employee as a proportion of monthly income earned in country of destination</h4>
+          <div id="chart" class="plot-container">
+            
+              
+<canvas
+    role="img"
+    aria-labelledby="chart-heading"
+    aria-describedby="table-alternative chart-annotations"
+    tabindex="0"
+ ></canvas>
+
+<script>
+// Add a chart alteration to support the chart_graph_limits metadata field.
+opensdg.chartConfigAlter(function(config, info) {
+  if (info.graphLimits && Object.keys(info.graphLimits).length > 0) {
+    var overrides = {
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              min: info.graphLimits.minimum,
+              max: info.graphLimits.maximum,
+            }
+          }]
+        }
+      }
+    }
+    // Add these overrides onto the normal config.
+    $.extend(true, config, overrides);
+  }
+  else {
+    // Otherwise remove any min/max that may be there.
+    try {
+      delete config.options.scales.yAxes[0].ticks.min;
+      delete config.options.scales.yAxes[0].ticks.max;
+    }
+    catch(e) {}
+  }
+});
+</script>
+
+<span style="display: none;" id="chart-annotations" role="status"></span>
+<script>
+opensdg.annotationPresets = {
+    common: {
+        // This "common" preset is applied to all annotations automatically.
+        borderColor: '#949494',
+        type: 'line',
+        borderDash: [10, 5],
+        borderWidth: 1,
+        label: {
+            backgroundColor: 'white',
+            
+            fontColor: 'black',
+            
+        },
+        // This "highContrast" overrides colors when in high-contrast mode.
+        highContrast: {
+            label: {
+                backgroundColor: 'black',
+                
+                fontColor: 'white',
+                
+            },
+        },
+        // This callback is used to generate a generic description for screenreaders.
+        // This can be overridden to be a more specific string, eg:
+        //
+        //     description: 'Chart annotation showing a 2030 target of 15%'
+        //
+        description: function() {
+            var descriptionParts = [translations.indicator.chart_annotation];
+            if (this.label && this.label.content) {
+                descriptionParts.push(translations.t(this.label.content));
+            }
+            else {
+                // If there is no label, just specify whether it is a box or line.
+                if (this.type == 'line') {
+                    descriptionParts.push(this.mode + ' line');
+                }
+                if (this.type == 'box') {
+                    descriptionParts.push('box');
+                }
+            }
+            if (typeof this.value !== 'undefined') {
+                descriptionParts.push(this.value);
+            }
+            return descriptionParts.join(': ');
+        },
+    },
+    target_line: {
+        mode: 'horizontal',
+        borderWidth: 2,
+        borderDash: [15, 10],
+        borderColor: '#757575',
+        label: {
+            position: 'right',
+            content: translations.indicator.annotation_2030_target,
+        },
+    },
+    series_break: {
+        mode: 'vertical',
+        borderDash: [2, 2],
+        label: {
+            position: 'top',
+            content: translations.indicator.annotation_series_break,
+        },
+    },
+};
+
+// Add a chart alteration to support the chart_annotations metadata field.
+opensdg.chartConfigAlter(function(config, info) {
+    if (info.graphAnnotations && info.graphAnnotations.length > 0) {
+        // Apply some helpers/fixes to the annotations.
+        var annotations = info.graphAnnotations.map(function(annotationOverrides) {
+            var annotation = {};
+            // Apply the "common" preset.
+            if (opensdg.annotationPresets.common) {
+                $.extend(true, annotation, opensdg.annotationPresets.common);
+            }
+            // Apply any specified presets.
+            if (annotationOverrides.preset) {
+                var preset = annotationOverrides.preset;
+                if (opensdg.annotationPresets[preset]) {
+                    $.extend(true, annotation, opensdg.annotationPresets[preset]);
+                }
+            }
+            // Now add any more annotation config.
+            $.extend(true, annotation, annotationOverrides);
+            // Default to horizontal lines.
+            if (!annotation.mode && annotation.type === 'line') {
+                annotation.mode = 'horizontal';
+            }
+            // Provide the obscure scaleID properties on user's behalf.
+            if (!annotation.scaleID && annotation.type === 'line') {
+                if (annotation.mode === 'horizontal') {
+                    annotation.scaleID = 'y-axis-0';
+                }
+                if (annotation.mode === 'vertical') {
+                    annotation.scaleID = 'x-axis-0';
+                }
+            }
+            if (!annotation.xScaleID && annotation.type === 'box') {
+                annotation.xScaleID = 'x-axis-0';
+            }
+            if (!annotation.yScaleID && annotation.type === 'box') {
+                annotation.yScaleID = 'y-axis-0';
+            }
+            // Provide the "enabled" label property on the user's behalf.
+            if (annotation.label && annotation.label.content) {
+                annotation.label.enabled = true;
+            }
+            // Translate any label content.
+            if (annotation.label && annotation.label.content) {
+                annotation.label.content = translations.t(annotation.label.content);
+            }
+            // Save some original values for later used when contrast mode is switched.
+            if (typeof annotation.defaultContrast === 'undefined') {
+                annotation.defaultContrast = {};
+                if (annotation.borderColor) {
+                    annotation.defaultContrast.borderColor = annotation.borderColor;
+                }
+                if (annotation.backgroundColor) {
+                    annotation.defaultContrast.backgroundColor = annotation.backgroundColor;
+                }
+                if (annotation.label) {
+                    annotation.defaultContrast.label = {};
+                    if (annotation.label.fontColor) {
+                        annotation.defaultContrast.label.fontColor = annotation.label.fontColor;
+                    }
+                    if (annotation.label.backgroundColor) {
+                        annotation.defaultContrast.label.backgroundColor = annotation.label.backgroundColor;
+                    }
+                }
+            }
+            return annotation;
+        });
+        if (annotations.length > 0) {
+            var overrides = {
+                options: {
+                    annotation: {
+                        drawTime: 'beforeDatasetsDraw',
+                        annotations: annotations
+                    }
+                }
+            };
+            // Add these overrides onto the normal config.
+            $.extend(true, config, overrides);
+
+            // Update the chart annotations element.
+            var descriptions = annotations.map(function(annotation) {
+                var description = '';
+                if (annotation.description) {
+                    if (typeof annotation.description === 'function') {
+                        description = annotation.description.call(annotation);
+                    }
+                    else {
+                        description = translations.t(annotation.description);
+                    }
+                }
+                return description;
+            }).filter(function(description) { return description != ''; });
+
+            var currentDescription = $('#chart-annotations').text();
+            var newDescription = descriptions.join('. ');
+            if (currentDescription != newDescription) {
+                $('#chart-annotations').text(newDescription);
+            }
+        }
+    }
+    else if (config.options && config.options.annotation) {
+        delete config.options.annotation;
+    }
+});
+</script>
+
+<script>
+// For line charts, add the vertical line hover functionality.
+opensdg.chartConfigAlter(function(config, info) {
+    var overrides = {
+        options: {
+            tooltips: {
+                intersect: false,
+                axis: 'x',
+            },
+        },
+        plugins: [{
+            beforeDatasetsDraw: function(chart) {
+                if (chart.tooltip._active && chart.tooltip._active.length) {
+                    var activePoint = chart.tooltip._active[0],
+                        ctx = chart.ctx,
+                        x = activePoint.tooltipPosition().x,
+                        topY = chart.scales['y-axis-0'].top,
+                        bottomY = chart.scales['y-axis-0'].bottom;
+
+                    // draw line
+                    ctx.save();
+                    ctx.beginPath();
+                    ctx.moveTo(x, topY);
+                    ctx.lineTo(x, bottomY);
+                    ctx.lineWidth = 2;
+                    ctx.strokeStyle = '#757575';
+                    ctx.stroke();
+                    ctx.restore();
+                }
+            }
+        }],
+    };
+    // Add these overrides onto the normal config, and return it.
+    $.extend(true, config, overrides);
+});
+</script>
+
+            
+          </div>
+          <div id="plotLegend"></div>
+          
+
+
+
+<div id="selectionChartFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+        <dt>Source:</dt>
+        <dd>World Bank</dd>
+        
+
+        
+
+        <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
+        <dd class="data-controlled-footer-field unit-from-data"></dd>
+
+        
+
+        
+
+        
+
+        
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        >Footnote:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        ></dd>
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        >Data last updated:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        ></dd>
+        
+        
+    <dl>
+</div>
+
+        </div>
+      </figure>
+      <div id="chartSelectionDownload" class="clearfix">
+        <button id="btnSave" title="Download chart as image" class='btn btn-primary btn-download'>
+          Download Chart Image
+        </button><!-- 
+   --></div>
+    </div>
+
+
+
+      </div>
+    
+  
+    
+      <div role="tabpanel" class="tab-pane " id="tableview">
+        <div style="display: none;">
+          <span id="column-sort-info">Click to sort by this column</span>
+        </div>
+        <div id="selectionsTable"></div>
+<dl id="tableTargetLines" class="clearfix"></dl>
+
+
+
+
+<div id="selectionTableFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+        <dt>Source:</dt>
+        <dd>World Bank</dd>
+        
+
+        
+
+        <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
+        <dd class="data-controlled-footer-field unit-from-data"></dd>
+
+        
+
+        
+
+        
+
+        
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        >Footnote:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        ></dd>
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        >Data last updated:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        ></dd>
+        
+        
+    <dl>
+</div>
+
+<div id="tableSelectionDownload" class="clearfix"></div>
+
+      </div>
+    
+  
+</div>
+
+
+  </div>
+
+</section>
+
   
   <ul class="nav nav-tabs spacer medium" role="tablist">
 
@@ -575,21 +1112,18 @@ data-event-label="Change to Sources tab"
   
   
   
-  
-  
-  
-  
-  
-  
-  
-  
+      
+        
+          
+      
+        
       
       
       <tr>
-        <th scope="row">Indicator available </th>
+        <th scope="row">Goal </th>
         <td>
           
-            
+            <p>Goal 10: Reduced Inequalities</p>
 
           
         </td>
@@ -598,12 +1132,14 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+      
       
       <tr>
-        <th scope="row">Indicator description </th>
+        <th scope="row">Target </th>
         <td>
           
-            
+            <p>Target 10.7: Facilitate orderly, safe, regular and responsible migration and mobility of people, including through the implementation of planned and well-managed migration policies.</p>
 
           
         </td>
@@ -612,12 +1148,14 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+      
       
       <tr>
-        <th scope="row">Geographical coverage </th>
+        <th scope="row">Indicator </th>
         <td>
           
-            
+            <p>Indicator 10.7.1: Recruitment cost borne by employee as a proportion of yearly income earning in country of destination</p>
 
           
         </td>
@@ -626,12 +1164,26 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+      
       
       <tr>
-        <th scope="row">Unit of measurement </th>
+        <th scope="row">Organisation </th>
         <td>
           
-            
+            <p>Ghana Statistical Service</p>
 
           
         </td>
@@ -640,12 +1192,14 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+      
       
       <tr>
-        <th scope="row">Definitions </th>
+        <th scope="row">Contact person(s) </th>
         <td>
           
-            
+            <p>Anthony Oduro-Denkyirah</p>
 
           
         </td>
@@ -654,12 +1208,14 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+      
       
       <tr>
-        <th scope="row">Calculations </th>
+        <th scope="row">Contact organisation unit </th>
         <td>
           
-            
+            <p>Resource and Data Centre</p>
 
           
         </td>
@@ -668,12 +1224,14 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+      
       
       <tr>
-        <th scope="row">Other information </th>
+        <th scope="row">Contact person function </th>
         <td>
           
-            
+            <p>Project Coordinator</p>
 
           
         </td>
@@ -682,12 +1240,14 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+      
       
       <tr>
-        <th scope="row">Quality assurance </th>
+        <th scope="row">Contact phone </th>
         <td>
           
-            
+            <p>0540517915</p>
 
           
         </td>
@@ -696,12 +1256,17 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+          
+      
+        
+      
       
       <tr>
-        <th scope="row">Comparability with international data/standards </th>
+        <th scope="row">Contact email </th>
         <td>
           
-            
+            <p>anthony.oduro@statsghana.gov.gh</p>
 
           
         </td>
@@ -710,12 +1275,28 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+          
+      
+        
+      
       
       <tr>
-        <th scope="row">Comments and limitations </th>
+        <th scope="row">Definition and concepts </th>
         <td>
           
-            
+            <p>Definitions</p>
+<p>Recruitment costs refer to “any fees or costs incurred in the recruitment process in order for workers to secure employment or placement, regardless of the manner, timing or location of their imposition or collection.</p>
+<p>Recruitment Cost Indicator is defined as the number of months it would take for a migrant worker to offset the recruitment cost incurred as a result of migrating to another country to work.</p>
+<p>Concepts</p>
+<p>Household</p>
+<p>A household is defined as “one person or a group of persons who live together, share the same house-keeping arrangements, and recognize one person as the head of household”. It is important to remember that members of the household are not necessarily related (either by blood or marriage) because non-relatives such as house helps may form part of a household. Typically, a household may consist of a man, his wife, children, distant relatives, or a housekeeper living with them.</p>
+<p>Return migrants</p>
+<p>The ILO (2018, p.8), defines return migrants as ‘all current residents of the country who were previously international migrant workers in another country or countries’</p>
+<p>International migrant workers</p>
+<p>The term ‘international migrant worker’ is to be understood to mean someone who leaves his/her country of usual residence with stated intention to work in another country, as a wage/salary earner. Thus the concept does not include those who leave their area of residence to work in another area in the same country, or those who can commute for work across an international border, on a daily or weekly basis without changing the country of usual residence.</p>
+<p>Earnings</p>
+<p>The concept of earnings, as applied in wages statistics, relates to remuneration in cash and in-kind paid to employees. It is usually paid at regular intervals, for time worked or work done together with remuneration for time not worked, such as annual vacation, other paid leave or holidays. Earnings exclude employer’s contributions in respect of their employees paid to social security and pension schemes and also benefits received by employees under these schemes. Earnings also exclude severance and termination pay. The earnings also relate to employee gross remuneration (the total earnings before any deductions are made by the employer in respect of taxes, contributions of employees to social security and pension schemes, life insurance premiums, union dues, and other obligations of the employees).</p>
 
           
         </td>
@@ -724,12 +1305,14 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+      
       
       <tr>
-        <th scope="row">Rational and interpretation </th>
+        <th scope="row">Unit of measure </th>
         <td>
           
-            
+            <p>percentage</p>
 
           
         </td>
@@ -738,17 +1321,23 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+      
       
       <tr>
-        <th scope="row">Data last updated </th>
+        <th scope="row">Data collection method </th>
         <td>
           
-            
-            
-            
-            
-
-            
+            <p>questionnaire</p>
 
           
         </td>
@@ -757,45 +1346,205 @@ data-event-label="Change to Sources tab"
       
   
       
+        
       
+      
+      <tr>
+        <th scope="row">Data collection calendar </th>
+        <td>
+          
+            <p>22<sup>nd</sup> January to 2<sup>nd</sup> February 2020</p>
+
+          
+        </td>
+        </tr>
+        
       
   
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Data release calendar </th>
+        <td>
+          
+            <p>May 2020</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Data providers </th>
+        <td>
+          
+            <p>Ghana Statistical Service, (GSS)</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Data compilers </th>
+        <td>
+          
+            <p>Ghana Statistical Service, (GSS)</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+          
+      
+        
+          
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Rationale </th>
+        <td>
+          
+            <p>The main objective for producing this report is to pilot a methodology that enables an examination of the average recruitment cost and monthly earnings per migrant worker abroad with the view of calculating RCI for measuring the SDG indicator 10.7.1.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Comment and limitations </th>
+        <td>
+          
+            <p>The survey was conducted in four districts in Ashanti and Brong Ahafo (now Bono and Bono East) regions in Ghana.</p>
+<p>Three years reference period preceding the date of the survey should be revised especially when conducting the survey in the country of origin.</p>
+<p>It is recommended that the survey be conducted during festive seasons when most migrants have returned to their countries of origin to have better estimates.</p>
+<p>Different sample approaches should be adopted to get a large sample size since one approach may not work given the elusive nature of the target population.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Method of computation </th>
+        <td>
+          
+            <p>RCI = Proportion of recruitment costs in the monthly employment earnings, is a ratio </p>
+<p>Calculation: </p>
+<p>	<img alt="A picture containing text, sign  Description automatically generated" src="data:image/png;base64,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" /></p>
+<p>Where</p>
+<p>	f may take on various functions’ forms, such as: mean, median and 4th quintile</p>
+<p>	C<sub>k </sub>= is the recruitment costs paid by individual migrant worker k;</p>
+<p>	E<sub>k</sub> = is the monthly earnings of the same migrant worker k.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Validation </th>
+        <td>
+          
+            <p>Field supervision was carried-out throughout the period that the teams were in the field. Supervisors met together with interviewers after each day’s fieldwork to check for completeness and consistency. In some cases, supervisors revisited some selected households for re-interview on some selected questions to ensure interviewers were asking the questions as structured in the questionnaire and also getting the right responses.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+      
+      
+      <tr>
+        <th scope="row">References and Documentation </th>
+        <td>
+          
+            <p>1. Draft Operational manual on recruitment costs SDG 10.7.1, May, 2019.</p>
+<p>2. General principles and operational guidelines for fair recruitment &amp; definition of recruitment fees and related costs- Geneva, ILO, 2019.</p>
+<p>3. Ghana Statistical Service; Baseline Assessment of Household Remittances Main Report, March, 2017.</p>
+<p>4. Ghana Statistical Service (2013) 2010 Population and Housing Census: National Analytical Report.</p>
+<p>5. Guidelines for Statistics for SDG indicator 10.7.1</p>
+<p>6. ILO Global Estimates on International Migrant Workers-Results and Methodologies, 2nd edition, International Labour Office, Geneva-ILO, 2018.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+          
+      
+        
       
       
       <tr>
         <th scope="row">Metadata last updated </th>
         <td>
           
-            
-            
-            
-            
-
-            
-              <a href="https://github.com/sdg-ghana/data/commit/a089615294020262533c53147dd63adcfa72c6e1" target="_blank">
-                2021-04-13: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
-              </a>
-            
-
+            Sep 28, 2022
           
         </td>
         </tr>
         
       
   
-      
-      
-      
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   
@@ -870,26 +1619,17 @@ data-event-label="Change to Sources tab"
   
   
       
-      
-      <tr>
-        <th scope="row">Indicator information </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
+          
       
-  
+        
       
       
       <tr>
         <th scope="row">Goal </th>
         <td>
           
-            
+            <p>Goal 10: Reduced Inequalities</p>
 
           
         </td>
@@ -897,13 +1637,15 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+        
       
       
       <tr>
         <th scope="row">Target </th>
         <td>
           
-            
+            <p>Target 10.7: Facilitate orderly, safe, regular and responsible migration and mobility of people, including through the implementation of planned and well-managed migration policies.</p>
 
           
         </td>
@@ -911,13 +1653,15 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+        
       
       
       <tr>
         <th scope="row">Indicator </th>
         <td>
           
-            
+            <p>Indicator 10.7.1: Recruitment cost borne by employee as a proportion of yearly income earning in country of destination</p>
 
           
         </td>
@@ -926,600 +1670,23 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">Series </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Metadata update </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Related indicators </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data reporter </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Organisation </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact person(s) </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact organisation unit </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact person function </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact phone </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact mail </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact email </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Definition, concepts, and classifications </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Definition and concepts </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Unit of measure </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Classifications </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data source type and collection method </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data sources </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data collection method </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data collection calendar </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data release calendar </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data providers </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data compilers </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Institutional mandate </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Other methodological considerations </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Rationale </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Comment and limitations </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Method of computation </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Validation </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Methods and guidance available to countries for the compilation of the data at the national level </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality management </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality assurance </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality assessment </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data availability and disaggregation </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Comparability/deviation from international standards </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">References and Documentation </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Indicator information </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Goal </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Target </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Indicator </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Series </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Metadata update </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Related indicators </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
       
       
       <tr>
         <th scope="row">0.g. International organisations(s) responsible for global monitoring </th>
         <td>
           
-            
+            <p>International Labour Organization (ILO)</p>
 
           
         </td>
@@ -1528,26 +1695,17 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">Data reporter </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
+          
       
-  
+        
       
       
       <tr>
         <th scope="row">Organisation </th>
         <td>
           
-            
+            <p>Ghana Statistical Service</p>
 
           
         </td>
@@ -1555,13 +1713,15 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+        
       
       
       <tr>
         <th scope="row">Contact person(s) </th>
         <td>
           
-            
+            <p>Anthony Oduro-Denkyirah</p>
 
           
         </td>
@@ -1569,13 +1729,15 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+        
       
       
       <tr>
         <th scope="row">Contact organisation unit </th>
         <td>
           
-            
+            <p>Resource and Data Centre</p>
 
           
         </td>
@@ -1583,13 +1745,15 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+        
       
       
       <tr>
         <th scope="row">Contact person function </th>
         <td>
           
-            
+            <p>Project Coordinator</p>
 
           
         </td>
@@ -1597,13 +1761,15 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+        
       
       
       <tr>
         <th scope="row">Contact phone </th>
         <td>
           
-            
+            <p>0540517915</p>
 
           
         </td>
@@ -1612,26 +1778,17 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">Contact mail </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
+          
       
-  
+        
       
       
       <tr>
         <th scope="row">Contact email </th>
         <td>
           
-            
+            <p>anthony.oduro@statsghana.gov.gh</p>
 
           
         </td>
@@ -1640,26 +1797,28 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">Definition, concepts, and classifications </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
+          
       
-  
+        
       
       
       <tr>
         <th scope="row">Definition and concepts </th>
         <td>
           
-            
+            <p>Definitions</p>
+<p>Recruitment costs refer to “any fees or costs incurred in the recruitment process in order for workers to secure employment or placement, regardless of the manner, timing or location of their imposition or collection.</p>
+<p>Recruitment Cost Indicator is defined as the number of months it would take for a migrant worker to offset the recruitment cost incurred as a result of migrating to another country to work.</p>
+<p>Concepts</p>
+<p>Household</p>
+<p>A household is defined as “one person or a group of persons who live together, share the same house-keeping arrangements, and recognize one person as the head of household”. It is important to remember that members of the household are not necessarily related (either by blood or marriage) because non-relatives such as house helps may form part of a household. Typically, a household may consist of a man, his wife, children, distant relatives, or a housekeeper living with them.</p>
+<p>Return migrants</p>
+<p>The ILO (2018, p.8), defines return migrants as ‘all current residents of the country who were previously international migrant workers in another country or countries’</p>
+<p>International migrant workers</p>
+<p>The term ‘international migrant worker’ is to be understood to mean someone who leaves his/her country of usual residence with stated intention to work in another country, as a wage/salary earner. Thus the concept does not include those who leave their area of residence to work in another area in the same country, or those who can commute for work across an international border, on a daily or weekly basis without changing the country of usual residence.</p>
+<p>Earnings</p>
+<p>The concept of earnings, as applied in wages statistics, relates to remuneration in cash and in-kind paid to employees. It is usually paid at regular intervals, for time worked or work done together with remuneration for time not worked, such as annual vacation, other paid leave or holidays. Earnings exclude employer’s contributions in respect of their employees paid to social security and pension schemes and also benefits received by employees under these schemes. Earnings also exclude severance and termination pay. The earnings also relate to employee gross remuneration (the total earnings before any deductions are made by the employer in respect of taxes, contributions of employees to social security and pension schemes, life insurance premiums, union dues, and other obligations of the employees).</p>
 
           
         </td>
@@ -1667,13 +1826,15 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+        
       
       
       <tr>
         <th scope="row">Unit of measure </th>
         <td>
           
-            
+            <p>percentage</p>
 
           
         </td>
@@ -1682,54 +1843,23 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">Classifications </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data source type and collection method </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data sources </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
+          
       
-  
+        
       
       
       <tr>
         <th scope="row">Data collection method </th>
         <td>
           
-            
+            <p>questionnaire</p>
 
           
         </td>
@@ -1737,13 +1867,15 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+        
       
       
       <tr>
         <th scope="row">Data collection calendar </th>
         <td>
           
-            
+            <p>22<sup>nd</sup> January to 2<sup>nd</sup> February 2020</p>
 
           
         </td>
@@ -1751,13 +1883,15 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+        
       
       
       <tr>
         <th scope="row">Data release calendar </th>
         <td>
           
-            
+            <p>May 2020</p>
 
           
         </td>
@@ -1765,13 +1899,15 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+        
       
       
       <tr>
         <th scope="row">Data providers </th>
         <td>
           
-            
+            <p>Ghana Statistical Service, (GSS)</p>
 
           
         </td>
@@ -1779,13 +1915,15 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+        
       
       
       <tr>
         <th scope="row">Data compilers </th>
         <td>
           
-            
+            <p>Ghana Statistical Service, (GSS)</p>
 
           
         </td>
@@ -1794,40 +1932,20 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">Institutional mandate </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Other methodological considerations </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
+          
       
-  
+        
       
       
       <tr>
         <th scope="row">Rationale </th>
         <td>
           
-            
+            <p>The main objective for producing this report is to pilot a methodology that enables an examination of the average recruitment cost and monthly earnings per migrant worker abroad with the view of calculating RCI for measuring the SDG indicator 10.7.1.</p>
 
           
         </td>
@@ -1835,13 +1953,18 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+        
       
       
       <tr>
         <th scope="row">Comment and limitations </th>
         <td>
           
-            
+            <p>The survey was conducted in four districts in Ashanti and Brong Ahafo (now Bono and Bono East) regions in Ghana.</p>
+<p>Three years reference period preceding the date of the survey should be revised especially when conducting the survey in the country of origin.</p>
+<p>It is recommended that the survey be conducted during festive seasons when most migrants have returned to their countries of origin to have better estimates.</p>
+<p>Different sample approaches should be adopted to get a large sample size since one approach may not work given the elusive nature of the target population.</p>
 
           
         </td>
@@ -1849,13 +1972,21 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+        
       
       
       <tr>
         <th scope="row">Method of computation </th>
         <td>
           
-            
+            <p>RCI = Proportion of recruitment costs in the monthly employment earnings, is a ratio </p>
+<p>Calculation: </p>
+<p>	<img alt="A picture containing text, sign  Description automatically generated" src="data:image/png;base64,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" /></p>
+<p>Where</p>
+<p>	f may take on various functions’ forms, such as: mean, median and 4th quintile</p>
+<p>	C<sub>k </sub>= is the recruitment costs paid by individual migrant worker k;</p>
+<p>	E<sub>k</sub> = is the monthly earnings of the same migrant worker k.</p>
 
           
         </td>
@@ -1863,13 +1994,15 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+        
       
       
       <tr>
         <th scope="row">Validation </th>
         <td>
           
-            
+            <p>Field supervision was carried-out throughout the period that the teams were in the field. Supervisors met together with interviewers after each day’s fieldwork to check for completeness and consistency. In some cases, supervisors revisited some selected households for re-interview on some selected questions to ensure interviewers were asking the questions as structured in the questionnaire and also getting the right responses.</p>
 
           
         </td>
@@ -1878,138 +2011,46 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">4.e. Adjustments </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">4.f. Treatment of missing values (i) at country level and (ii) at regional level. </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">4.g. Regional aggregations </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Methods and guidance available to countries for the compilation of the data at the national level </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality management </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality assurance </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality assessment </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data availability and disaggregation </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Comparability/deviation from international standards </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
+          
       
-  
+        
       
       
       <tr>
         <th scope="row">References and Documentation </th>
         <td>
           
-            
+            <p>1. Draft Operational manual on recruitment costs SDG 10.7.1, May, 2019.</p>
+<p>2. General principles and operational guidelines for fair recruitment &amp; definition of recruitment fees and related costs- Geneva, ILO, 2019.</p>
+<p>3. Ghana Statistical Service; Baseline Assessment of Household Remittances Main Report, March, 2017.</p>
+<p>4. Ghana Statistical Service (2013) 2010 Population and Housing Census: National Analytical Report.</p>
+<p>5. Guidelines for Statistics for SDG indicator 10.7.1</p>
+<p>6. ILO Global Estimates on International Migrant Workers-Results and Methodologies, 2nd edition, International Labour Office, Geneva-ILO, 2018.</p>
 
           
         </td>
@@ -2029,267 +2070,137 @@ data-event-label="Change to Sources tab"
       <p>This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href="https://unstats.un.org/sdgs/metadata/">Complete global metadata</a> is provided by the UN Statistics Division.</p>
       <table class="table">
   
-  
-  
-  
-  
       
-      
-      <tr>
-        <th scope="row">Indicator name </th>
-        <td>
-          
-            <p>Recruitment cost borne by employee as a proportion of monthly income earned in country of destination</p>
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Indicator number </th>
-        <td>
           
-            <p>10.7.1</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Target name </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Target number </th>
-        <td>
           
-            <p>10.7</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Global indicator description </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
+          
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
       
-      
-      <tr>
-        <th scope="row">UN designated tier </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">UN custodian agency </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Link to UN metadata </th>
-        <td>
-          
-            
-            
-            
-            
-
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   
@@ -2344,6 +2255,332 @@ data-event-label="Change to Sources tab"
 
 
 
+  <div class="row">
+  
+    
+    
+    <div class="col-md-6">
+      
+      <table class="table">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            <p>World Bank</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            <p>Annual</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Earliest available data </th>
+        <td>
+          
+            <p>2004</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Geographical coverage </th>
+        <td>
+          
+            <p>Ghana</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Link to data source </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://data.worldbank.org/indicator/SI.POV.DDAY?locations=GB" target="_blank">
+                Poverty headcount ratio at $1.90 a day (2011 PPP) (% of population) <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Release date </th>
+        <td>
+          
+            May 28, 2020
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Next release </th>
+        <td>
+          
+            <p>TBA</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Statistical classification </th>
+        <td>
+          
+            <p>Non-official</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Contact details </th>
+        <td>
+          
+            <p>Research@WorldBank.org</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+          
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</table>
+
+    </div>
+    
+  </div>
+
 
 </div>
 
@@ -2365,8 +2602,6 @@ data-event-label="Change to Sources tab"
   <a class="btn btn-primary" href="metadata">Edit Metadata</a>
   
 
-  
-  <a class="btn btn-primary" href="config">Edit Configuration</a>
   
 
 </div>
@@ -2455,12 +2690,12 @@ data-event-label="Change to Sources tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/assets/js/sdg.js?v=20220922124716'></script>
+<script src='/assets/js/sdg.js?v=20220929142607'></script>
 <!-- Add any custom javascript here. -->
 
     
     
-    <script src="/assets/js/custom.js?v=20220922124716"></script><script>
+    <script src="/assets/js/custom.js?v=20220929142607"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

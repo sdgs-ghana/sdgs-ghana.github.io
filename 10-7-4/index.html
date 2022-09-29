@@ -138,7 +138,7 @@ var translations = {
         
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20220922124716">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20220929142607">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -146,7 +146,7 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20220922124716">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20220929142607">
         
 
         
@@ -234,7 +234,7 @@ data-event-label="high"
 </li><li class="nav-link ">
     <a href="/publications">Publications</a>
 </li><li class="nav-link ">
-    <a href="/news">Updates</a>
+    <a href="/news">News</a>
 </li><li class="nav-link ">
     <a href="/covid-indicators/">Covid indicators</a>
 </li><li class="nav-link ">
@@ -308,7 +308,7 @@ data-event-label="high"
 </li><li class="nav-link ">
     <a href="/publications">Publications</a>
 </li><li class="nav-link ">
-    <a href="/news">Updates</a>
+    <a href="/news">News</a>
 </li><li class="nav-link">
             <div class="btn-group menu-dropdown">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -517,7 +517,7 @@ data-event-label="high"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
   data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;COMPOSITE_BREAKDOWN&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;&quot;,&quot;COTE D'IVOIRE&quot;,&quot;LIBERIA&quot;,&quot;TOGO&quot;]},&quot;title&quot;:&quot;Composite breakdown&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;},{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;}]}"
-  data-compositebreakdownlabel=""
+  data-compositebreakdownlabel="Country of Origin"
   data-precision="[]"
 >
   
@@ -629,6 +629,8 @@ data-event-label="high"
   </div>
 
   <div id="datatableFooter">
+    
+    <p>Source: World Bank</p>
     
     
     <p>Geographical Area: </p>
@@ -986,6 +988,9 @@ opensdg.chartConfigAlter(function(config, info) {
   <h5 class="sr-only">Chart details</h5>
     <dl>
         
+        <dt>Source:</dt>
+        <dd>World Bank</dd>
+        
 
         
 
@@ -1050,6 +1055,9 @@ opensdg.chartConfigAlter(function(config, info) {
 <div id="selectionTableFooter" class="table-footer-text">
   <h5 class="sr-only">Chart details</h5>
     <dl>
+        
+        <dt>Source:</dt>
+        <dd>World Bank</dd>
         
 
         
@@ -1152,21 +1160,18 @@ data-event-label="Change to Sources tab"
   
   
   
-  
-  
-  
-  
-  
-  
-  
-  
+      
+        
+          
+      
+        
       
       
       <tr>
-        <th scope="row">Indicator available </th>
+        <th scope="row">Goal </th>
         <td>
           
-            
+            <p>Goal 10: Reduce inequality within and among countries</p>
 
           
         </td>
@@ -1175,12 +1180,14 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+      
       
       <tr>
-        <th scope="row">Indicator description </th>
+        <th scope="row">Target </th>
         <td>
           
-            
+            <p>Target 10.7: Facilitate orderly, safe, regular and responsible migration and mobility of people, including through the implementation of planned and well-managed migration policies</p>
 
           
         </td>
@@ -1189,12 +1196,14 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+      
       
       <tr>
-        <th scope="row">Geographical coverage </th>
+        <th scope="row">Indicator </th>
         <td>
           
-            
+            <p>Indicator 10.7.4: Proportion of the population who are refugees, by country of origin</p>
 
           
         </td>
@@ -1203,12 +1212,20 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+          
+      
+        
+          
+      
+        
+      
       
       <tr>
-        <th scope="row">Unit of measurement </th>
+        <th scope="row">Related indicators </th>
         <td>
           
-            
+            <p>Goals 1 (“No Poverty”), 2 (“Zero Hunger”), 3 (“Good Health and Wellbeing”), 4 (“Quality Education”), 5 (“Gender Equality”), 8 (“Decent Work and Economic Growth”), and 16 (“Peace, Justice and Strong Institutions”).</p>
 
           
         </td>
@@ -1217,12 +1234,17 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+          
+      
+        
+      
       
       <tr>
-        <th scope="row">Definitions </th>
+        <th scope="row">Organisation </th>
         <td>
           
-            
+            <p>United Nations High Commissioner for Refugees (UNHCR)</p>
 
           
         </td>
@@ -1231,12 +1253,47 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+      
       
       <tr>
-        <th scope="row">Calculations </th>
+        <th scope="row">Definition and concepts </th>
         <td>
           
-            
+            <p><strong>Definition:</strong></p>
+<p>The indicator is defined as the total count of population who have been recognized as refugees as a proportion of the total population of their country of origin, expressed per 100,000 population.</p>
+<p>Refugees refers to persons recognized by the Government and/or UNHCR, or those in a refugee-like situation.</p>
+<p>Population refers to total resident population in a given country in a given year.</p>
+<p><strong>Concepts:</strong></p>
+<p>Refugees recognized by the Government and/or UNHCR include:</p>
+<p>(a) persons recognized as refugees by Governments having ratified the 1951 United Nations Convention Relating to the Status of Refugees, and/or its 1967 Protocol;</p>
+<p>(b) persons recognized as refugees under the 1969 Organization of African Unity (OAU) Convention Governing the Specific Aspects of Refugee Problems in Africa;</p>
+<p>(c) those recognized in accordance with the principles enshrined in the Cartagena Declaration;</p>
+<p>(d) persons recognized by UNHCR as refugees in accordance with its Statute (otherwise referred to as “mandate” refugees);</p>
+<p>(e) those who have been granted a complementary form of protection (i.e. non-Convention);</p>
+<p>(f) persons who have been granted temporary protection on a group basis;</p>
+<p>Persons in a refugee-like situation refer to those outside their territory of origin who face protection risks similar to those of refugees, but who, for practical or other reasons, have not been formally recognized or issued documentation to that effect.</p>
 
           
         </td>
@@ -1245,12 +1302,14 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+      
       
       <tr>
-        <th scope="row">Other information </th>
+        <th scope="row">Unit of measure </th>
         <td>
           
-            
+            <p>Number of refugees per 100,000 population in country of origin</p>
 
           
         </td>
@@ -1259,12 +1318,20 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+          
+      
+        
+          
+      
+        
+      
       
       <tr>
-        <th scope="row">Quality assurance </th>
+        <th scope="row">Data sources </th>
         <td>
           
-            
+            <p>UNHCR Refugee Data Finder, 2021</p>
 
           
         </td>
@@ -1273,12 +1340,23 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+      
       
       <tr>
-        <th scope="row">Comparability with international data/standards </th>
+        <th scope="row">Data providers </th>
         <td>
           
-            
+            <p>United Nations High Commissioner for Refugees (UNHCR)</p>
 
           
         </td>
@@ -1287,12 +1365,14 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+      
       
       <tr>
-        <th scope="row">Comments and limitations </th>
+        <th scope="row">Data compilers </th>
         <td>
           
-            
+            <p>Ghana Statistical Service (GSS)</p>
 
           
         </td>
@@ -1301,12 +1381,21 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+          
+      
+        
+          
+      
+        
+      
       
       <tr>
-        <th scope="row">Rational and interpretation </th>
+        <th scope="row">Rationale </th>
         <td>
           
-            
+            <p>Forced displacement as a result of conflict, violence, and other causes undermine sustainable development, and can increase the risk of regional instability, especially when refugees are hosted in neighbouring countries, resulting in possible tensions with local populations. The United Nations General Assembly Resolution (A/Res/70/1) that adopted the 2030 Agenda for Sustainable Development at paragraph 23 recognizes the relevance of the Agenda to meet the needs of refugees, internally displaced persons and migrants on the basis that they are among the most vulnerable. It also explicitly states that Member States resolve to take further effective measures and actions, to “strengthen support and meet the special needs of people living in areas affected by complex humanitarian emergencies”. In addition, target 10.7 recognizes for the first time the contribution of migration to sustainable development by aiming to “facilitate orderly, safe, and responsible migration and mobility of people, including through implementation of planned and well-managed migration policies”.</p>
+<p>This indicator tracks the number of people displaced across national borders as a result of persecution, conflict, violence, human rights violations, or events seriously disturbing public order. It measures the total count of refugee population by country or territory of origin as a proportion of the total population.</p>
 
           
         </td>
@@ -1315,17 +1404,18 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+          
+      
+        
+      
       
       <tr>
-        <th scope="row">Data last updated </th>
+        <th scope="row">Method of computation </th>
         <td>
           
-            
-            
-            
-            
-
-            
+            <p>[𝑁𝑢𝑚𝑏𝑒𝑟 𝑜𝑓 𝑟𝑒𝑓𝑢𝑔𝑒𝑒𝑠 𝑏𝑦 𝑐𝑜𝑢𝑛𝑡𝑟𝑦 𝑜𝑓 𝑜𝑟𝑖𝑔𝑖𝑛 𝑎𝑡 𝑦𝑒𝑎𝑟−𝑒𝑛𝑑/(𝑌𝑒𝑎𝑟−𝑒𝑛𝑑 𝑝𝑜𝑝𝑢𝑙𝑎𝑡𝑖𝑜𝑛 𝑖𝑛 𝑐𝑜𝑢𝑛𝑡𝑟𝑦 𝑜𝑓 𝑜𝑟𝑖𝑔𝑖𝑛 +𝑛𝑢𝑚𝑏𝑒𝑟 𝑜𝑓 𝑟𝑒𝑓𝑢𝑔𝑒𝑒𝑠 𝑏𝑦 𝑐𝑜𝑢𝑛𝑡𝑟𝑦 𝑜𝑓 𝑜𝑟𝑖𝑔𝑖𝑛 𝑎𝑡 𝑦𝑒𝑎𝑟−𝑒𝑛𝑑)]×100,000</p>
+<p>The indicator is presented as the number of refugees per 100,000 population in country of origin.</p>
 
           
         </td>
@@ -1334,45 +1424,63 @@ data-event-label="Change to Sources tab"
       
   
       
+        
+          
       
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+      
+      
+      <tr>
+        <th scope="row">References and Documentation </th>
+        <td>
+          
+            <p><a href="https://unstats.un.org/sdgs/metadata/">SDG Indicators — SDG Indicators (un.org)</a></p>
+<p>URL: www.unhcr.org </p>
+<p>References: </p>
+<p>UNHCR Refugee Population Statistics Database (https://www.unhcr.org/refugee-statistics/ )</p>
+
+          
+        </td>
+        </tr>
+        
       
   
+      
+        
+          
+      
+        
       
       
       <tr>
         <th scope="row">Metadata last updated </th>
         <td>
           
-            
-            
-            
-            
-
-            
-              <a href="https://github.com/sdg-ghana/data/commit/03abf3d7994c32ffa32f6354ef706c9b9cfb5332" target="_blank">
-                2022-09-20: see changes on GitHub <span class="visuallyhidden">opens in a new window</span>
-              </a>
-            
-
+            Sep 28, 2022
           
         </td>
         </tr>
         
       
   
-      
-      
-      
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   
@@ -1447,26 +1555,17 @@ data-event-label="Change to Sources tab"
   
   
       
-      
-      <tr>
-        <th scope="row">Indicator information </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
+          
       
-  
+        
       
       
       <tr>
         <th scope="row">Goal </th>
         <td>
           
-            
+            <p>Goal 10: Reduce inequality within and among countries</p>
 
           
         </td>
@@ -1474,13 +1573,15 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+        
       
       
       <tr>
         <th scope="row">Target </th>
         <td>
           
-            
+            <p>Target 10.7: Facilitate orderly, safe, regular and responsible migration and mobility of people, including through the implementation of planned and well-managed migration policies</p>
 
           
         </td>
@@ -1488,13 +1589,15 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+        
       
       
       <tr>
         <th scope="row">Indicator </th>
         <td>
           
-            
+            <p>Indicator 10.7.4: Proportion of the population who are refugees, by country of origin</p>
 
           
         </td>
@@ -1503,40 +1606,20 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">Series </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Metadata update </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
+          
       
-  
+        
       
       
       <tr>
         <th scope="row">Related indicators </th>
         <td>
           
-            
+            <p>Goals 1 (“No Poverty”), 2 (“Zero Hunger”), 3 (“Good Health and Wellbeing”), 4 (“Quality Education”), 5 (“Gender Equality”), 8 (“Decent Work and Economic Growth”), and 16 (“Peace, Justice and Strong Institutions”).</p>
 
           
         </td>
@@ -1545,558 +1628,14 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">Data reporter </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Organisation </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact person(s) </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact organisation unit </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact person function </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact phone </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact mail </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact email </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Definition, concepts, and classifications </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Definition and concepts </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Unit of measure </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Classifications </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data source type and collection method </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data sources </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data collection method </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data collection calendar </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data release calendar </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data providers </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data compilers </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Institutional mandate </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Other methodological considerations </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Rationale </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Comment and limitations </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Method of computation </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Validation </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Methods and guidance available to countries for the compilation of the data at the national level </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality management </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality assurance </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality assessment </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data availability and disaggregation </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Comparability/deviation from international standards </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">References and Documentation </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Indicator information </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Goal </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Target </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Indicator </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Series </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Metadata update </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Related indicators </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
       
       
       <tr>
         <th scope="row">0.g. International organisations(s) responsible for global monitoring </th>
         <td>
           
-            
+            <p>United Nations High Commissioner for Refugees (UNHCR)</p>
 
           
         </td>
@@ -2105,26 +1644,17 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">Data reporter </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
+          
       
-  
+        
       
       
       <tr>
         <th scope="row">Organisation </th>
         <td>
           
-            
+            <p>United Nations High Commissioner for Refugees (UNHCR)</p>
 
           
         </td>
@@ -2133,110 +1663,47 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">Contact person(s) </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact organisation unit </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact person function </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact phone </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact mail </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Contact email </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Definition, concepts, and classifications </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
+          
       
-  
+        
       
       
       <tr>
         <th scope="row">Definition and concepts </th>
         <td>
           
-            
+            <p><strong>Definition:</strong></p>
+<p>The indicator is defined as the total count of population who have been recognized as refugees as a proportion of the total population of their country of origin, expressed per 100,000 population.</p>
+<p>Refugees refers to persons recognized by the Government and/or UNHCR, or those in a refugee-like situation.</p>
+<p>Population refers to total resident population in a given country in a given year.</p>
+<p><strong>Concepts:</strong></p>
+<p>Refugees recognized by the Government and/or UNHCR include:</p>
+<p>(a) persons recognized as refugees by Governments having ratified the 1951 United Nations Convention Relating to the Status of Refugees, and/or its 1967 Protocol;</p>
+<p>(b) persons recognized as refugees under the 1969 Organization of African Unity (OAU) Convention Governing the Specific Aspects of Refugee Problems in Africa;</p>
+<p>(c) those recognized in accordance with the principles enshrined in the Cartagena Declaration;</p>
+<p>(d) persons recognized by UNHCR as refugees in accordance with its Statute (otherwise referred to as “mandate” refugees);</p>
+<p>(e) those who have been granted a complementary form of protection (i.e. non-Convention);</p>
+<p>(f) persons who have been granted temporary protection on a group basis;</p>
+<p>Persons in a refugee-like situation refer to those outside their territory of origin who face protection risks similar to those of refugees, but who, for practical or other reasons, have not been formally recognized or issued documentation to that effect.</p>
 
           
         </td>
@@ -2244,13 +1711,15 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+        
       
       
       <tr>
         <th scope="row">Unit of measure </th>
         <td>
           
-            
+            <p>Number of refugees per 100,000 population in country of origin</p>
 
           
         </td>
@@ -2259,40 +1728,20 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">Classifications </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data source type and collection method </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
+          
       
-  
+        
       
       
       <tr>
         <th scope="row">Data sources </th>
         <td>
           
-            
+            <p>UNHCR Refugee Data Finder, 2021</p>
 
           
         </td>
@@ -2301,54 +1750,23 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">Data collection method </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data collection calendar </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data release calendar </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
+          
       
-  
+        
       
       
       <tr>
         <th scope="row">Data providers </th>
         <td>
           
-            
+            <p>United Nations High Commissioner for Refugees (UNHCR)</p>
 
           
         </td>
@@ -2356,13 +1774,15 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+        
       
       
       <tr>
         <th scope="row">Data compilers </th>
         <td>
           
-            
+            <p>Ghana Statistical Service (GSS)</p>
 
           
         </td>
@@ -2371,40 +1791,21 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">Institutional mandate </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Other methodological considerations </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
+          
       
-  
+        
       
       
       <tr>
         <th scope="row">Rationale </th>
         <td>
           
-            
+            <p>Forced displacement as a result of conflict, violence, and other causes undermine sustainable development, and can increase the risk of regional instability, especially when refugees are hosted in neighbouring countries, resulting in possible tensions with local populations. The United Nations General Assembly Resolution (A/Res/70/1) that adopted the 2030 Agenda for Sustainable Development at paragraph 23 recognizes the relevance of the Agenda to meet the needs of refugees, internally displaced persons and migrants on the basis that they are among the most vulnerable. It also explicitly states that Member States resolve to take further effective measures and actions, to “strengthen support and meet the special needs of people living in areas affected by complex humanitarian emergencies”. In addition, target 10.7 recognizes for the first time the contribution of migration to sustainable development by aiming to “facilitate orderly, safe, and responsible migration and mobility of people, including through implementation of planned and well-managed migration policies”.</p>
+<p>This indicator tracks the number of people displaced across national borders as a result of persecution, conflict, violence, human rights violations, or events seriously disturbing public order. It measures the total count of refugee population by country or territory of origin as a proportion of the total population.</p>
 
           
         </td>
@@ -2413,26 +1814,18 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">Comment and limitations </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
+          
       
-  
+        
       
       
       <tr>
         <th scope="row">Method of computation </th>
         <td>
           
-            
+            <p>[𝑁𝑢𝑚𝑏𝑒𝑟 𝑜𝑓 𝑟𝑒𝑓𝑢𝑔𝑒𝑒𝑠 𝑏𝑦 𝑐𝑜𝑢𝑛𝑡𝑟𝑦 𝑜𝑓 𝑜𝑟𝑖𝑔𝑖𝑛 𝑎𝑡 𝑦𝑒𝑎𝑟−𝑒𝑛𝑑/(𝑌𝑒𝑎𝑟−𝑒𝑛𝑑 𝑝𝑜𝑝𝑢𝑙𝑎𝑡𝑖𝑜𝑛 𝑖𝑛 𝑐𝑜𝑢𝑛𝑡𝑟𝑦 𝑜𝑓 𝑜𝑟𝑖𝑔𝑖𝑛 +𝑛𝑢𝑚𝑏𝑒𝑟 𝑜𝑓 𝑟𝑒𝑓𝑢𝑔𝑒𝑒𝑠 𝑏𝑦 𝑐𝑜𝑢𝑛𝑡𝑟𝑦 𝑜𝑓 𝑜𝑟𝑖𝑔𝑖𝑛 𝑎𝑡 𝑦𝑒𝑎𝑟−𝑒𝑛𝑑)]×100,000</p>
+<p>The indicator is presented as the number of refugees per 100,000 population in country of origin.</p>
 
           
         </td>
@@ -2441,152 +1834,47 @@ data-event-label="Change to Sources tab"
       
   
       
-      
-      <tr>
-        <th scope="row">Validation </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">4.e. Adjustments </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">4.f. Treatment of missing values (i) at country level and (ii) at regional level. </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">4.g. Regional aggregations </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Methods and guidance available to countries for the compilation of the data at the national level </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality management </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality assurance </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Quality assessment </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Data availability and disaggregation </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Comparability/deviation from international standards </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
+          
       
-  
+        
       
       
       <tr>
         <th scope="row">References and Documentation </th>
         <td>
           
-            
+            <p><a href="https://unstats.un.org/sdgs/metadata/">SDG Indicators — SDG Indicators (un.org)</a></p>
+<p>URL: www.unhcr.org </p>
+<p>References: </p>
+<p>UNHCR Refugee Population Statistics Database (https://www.unhcr.org/refugee-statistics/ )</p>
 
           
         </td>
@@ -2606,267 +1894,137 @@ data-event-label="Change to Sources tab"
       <p>This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href="https://unstats.un.org/sdgs/metadata/">Complete global metadata</a> is provided by the UN Statistics Division.</p>
       <table class="table">
   
-  
-  
-  
-  
       
-      
-      <tr>
-        <th scope="row">Indicator name </th>
-        <td>
-          
-            <p>Proportion of the population who are refugees, by country of origin</p>
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Indicator number </th>
-        <td>
           
-            <p>10.7.4</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Target name </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Target number </th>
-        <td>
           
-            <p>10.7</p>
-
-          
-        </td>
-        </tr>
+      
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Global indicator description </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
+      
         
-      
+          
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
       
-      
-      <tr>
-        <th scope="row">UN designated tier </th>
-        <td>
-          
-            
-
-          
-        </td>
-        </tr>
         
-      
-  
-      
-      
-      <tr>
-        <th scope="row">UN custodian agency </th>
-        <td>
           
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      <tr>
-        <th scope="row">Link to UN metadata </th>
-        <td>
-          
-            
-            
-            
-            
-
-            
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-      
-      
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   
@@ -2921,6 +2079,332 @@ data-event-label="Change to Sources tab"
 
 
 
+  <div class="row">
+  
+    
+    
+    <div class="col-md-6">
+      
+      <table class="table">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            <p>World Bank</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            <p>Annual</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Earliest available data </th>
+        <td>
+          
+            <p>2004</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Geographical coverage </th>
+        <td>
+          
+            <p>Ghana</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Link to data source </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://data.worldbank.org/indicator/SI.POV.DDAY?locations=GB" target="_blank">
+                Poverty headcount ratio at $1.90 a day (2011 PPP) (% of population) <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Release date </th>
+        <td>
+          
+            May 28, 2020
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Next release </th>
+        <td>
+          
+            <p>TBA</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Statistical classification </th>
+        <td>
+          
+            <p>Non-official</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Contact details </th>
+        <td>
+          
+            <p>Research@WorldBank.org</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+          
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</table>
+
+    </div>
+    
+  </div>
+
 
 </div>
 
@@ -2942,8 +2426,6 @@ data-event-label="Change to Sources tab"
   <a class="btn btn-primary" href="metadata">Edit Metadata</a>
   
 
-  
-  <a class="btn btn-primary" href="config">Edit Configuration</a>
   
 
 </div>
@@ -3032,12 +2514,12 @@ data-event-label="Change to Sources tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/assets/js/sdg.js?v=20220922124716'></script>
+<script src='/assets/js/sdg.js?v=20220929142607'></script>
 <!-- Add any custom javascript here. -->
 
     
     
-    <script src="/assets/js/custom.js?v=20220922124716"></script><script>
+    <script src="/assets/js/custom.js?v=20220929142607"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
