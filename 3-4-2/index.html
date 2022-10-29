@@ -138,7 +138,7 @@ var translations = {
         
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20220929142607">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20221029074117">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -146,7 +146,7 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20220929142607">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20221029074117">
         
 
         
@@ -501,14 +501,14 @@ data-event-label="high"
   data-id="3-4-2"
   data-country="Ghana"
   data-charttitle="Suicide mortality rate"
-  data-charttitles="[]"
-  data-measurementunit="Percent"
+  data-charttitles="[{&quot;series&quot;:&quot;Death rate due to an accident, violence, homicide, or suicide&quot;,&quot;title&quot;:&quot;Death rate due to an accident, violence, homicide, or suicide&quot;}]"
+  data-measurementunit="Per 100,000 population"
   data-xaxislabel=""
   data-showdata="true"
-  data-graphtype="line"
+  data-graphtype="bar"
   data-graphtypes="null"
   data-geocoderegex=""
-  data-showmap="false"
+  data-showmap="true"
   data-startvalues="[]"
   data-graphlimits="[]"
   data-stackeddisaggregation=""
@@ -590,13 +590,13 @@ data-event-label="high"
 
   <div id="datatableFooter">
     
-    <p>Source: World Bank</p>
+    <p>Source: Ghana Statistical Service</p>
     
     
     <p>Geographical Area: </p>
     
     
-    <p>Unit of Measurement: Percent</p>
+    <p>Unit of Measurement: Per 100,000 population</p>
     
     
     <p>Footnote: </p>
@@ -666,6 +666,31 @@ data-event-label="Change to Table tab"
     >Table</a>
   </li>
   
+  <li role="presentation"
+    class="
+      nav-item
+      map
+      
+      
+    ">
+    <a
+      class="nav-link"
+      data-toggle="tab"
+      role="tab"
+      
+        id="tab-mapview"
+        href="#mapview"
+        aria-controls="mapview"
+        data-no-disagg="true"
+        data-on="click"
+data-event-category="Tab change"
+data-event-action="Change data view"
+data-event-label="Change to Map tab"
+
+      
+    >Map</a>
+  </li>
+  
 </ul>
 
     <div class="tab-content data-view">
@@ -684,7 +709,7 @@ data-event-label="Change to Table tab"
     <div id="selectionsChart">
       <figure role="group">
         <div id="chart-canvas">
-          <h4 id="chart-heading" class="chart-title">Suicide mortality rate</h4>
+          <h4 id="chart-heading" class="chart-title">Death rate due to an accident, violence, homicide, or suicide</h4>
           <div id="chart" class="plot-container">
             
               
@@ -901,39 +926,32 @@ opensdg.chartConfigAlter(function(config, info) {
 </script>
 
 <script>
-// For line charts, add the vertical line hover functionality.
 opensdg.chartConfigAlter(function(config, info) {
+  if (info.stackedDisaggregation) {
     var overrides = {
-        options: {
-            tooltips: {
-                intersect: false,
-                axis: 'x',
-            },
-        },
-        plugins: [{
-            beforeDatasetsDraw: function(chart) {
-                if (chart.tooltip._active && chart.tooltip._active.length) {
-                    var activePoint = chart.tooltip._active[0],
-                        ctx = chart.ctx,
-                        x = activePoint.tooltipPosition().x,
-                        topY = chart.scales['y-axis-0'].top,
-                        bottomY = chart.scales['y-axis-0'].bottom;
-
-                    // draw line
-                    ctx.save();
-                    ctx.beginPath();
-                    ctx.moveTo(x, topY);
-                    ctx.lineTo(x, bottomY);
-                    ctx.lineWidth = 2;
-                    ctx.strokeStyle = '#757575';
-                    ctx.stroke();
-                    ctx.restore();
-                }
-            }
-        }],
+      options: {
+        scales: {
+          xAxes: [{ stacked: true }],
+          yAxes: [{ stacked: true }],
+        }
+      }
     };
+    // If we have stackedDisaggregation, we need to group datasets into stacks.
+    config.data.datasets.forEach(function(dataset) {
+      var disaggregation = $.extend({}, dataset.disaggregation);
+      // We're going to "stringify" each combination of disaggregations in order
+      // to place them in their own "stacks". To place "stacked" disaggregations
+      // into the same stack, we set them as "samestack" before stringifying.
+      // Note that the string "samestack" is completely arbitrary.
+      if (typeof disaggregation[info.stackedDisaggregation] !== 'undefined') {
+        disaggregation[info.stackedDisaggregation] = 'samestack';
+      }
+      // Use the disaggregation as a unique id for each stack.
+      dataset.stack = JSON.stringify(disaggregation);
+    });
     // Add these overrides onto the normal config, and return it.
     $.extend(true, config, overrides);
+  }
 });
 </script>
 
@@ -949,7 +967,7 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
         
         <dt>Source:</dt>
-        <dd>World Bank</dd>
+        <dd>Ghana Statistical Service</dd>
         
 
         
@@ -1017,7 +1035,7 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
         
         <dt>Source:</dt>
-        <dd>World Bank</dd>
+        <dd>Ghana Statistical Service</dd>
         
 
         
@@ -1056,6 +1074,64 @@ opensdg.chartConfigAlter(function(config, info) {
 </div>
 
 <div id="tableSelectionDownload" class="clearfix"></div>
+
+      </div>
+    
+  
+    
+      <div role="tabpanel" class="tab-pane " id="mapview" class="map">
+        
+<h4 id="map-heading" class="chart-title">Death rate due to an accident, violence, homicide, or suicide</h4>
+<div id="map" aria-describedby="table-alternative">
+  <img class="map-loading-image" src="/assets/img/loading.gif" alt="Loading map" />
+</div>
+
+
+
+
+<div id="mapFooter" class="table-footer-text">
+  <h5 class="sr-only">Chart details</h5>
+    <dl>
+        
+        <dt>Source:</dt>
+        <dd>Ghana Statistical Service</dd>
+        
+
+        
+
+        <dt class="data-controlled-footer-field unit-from-data">Unit of Measurement:</dt>
+        <dd class="data-controlled-footer-field unit-from-data"></dd>
+
+        
+
+        
+
+        
+
+        
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        >Footnote:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="COMMENT_TS"
+        ></dd>
+        
+        <dt
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        >Data last updated:</dt>
+        <dd
+          class="data-controlled-footer-field"
+          data-ts-attribute="DATA_LAST_UPDATE"
+        ></dd>
+        
+        
+    <dl>
+</div>
+
 
       </div>
     
@@ -1114,6 +1190,13 @@ data-event-label="Change to Sources tab"
         This table provides metadata for the actual indicator available from Ghana statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from Ghanaian statistics, this table should be consulted for information on national methodology and other Ghanaian-specific metadata information.
       </p>
       <table class="table">
+  
+  
+  
+  
+  
+  
+  
   
   
   
@@ -1417,7 +1500,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            Sep 28, 2022
+            Oct 12, 2022
           
         </td>
         </tr>
@@ -1497,316 +1580,14 @@ data-event-label="Change to Sources tab"
   
   
   
-      
-        
-          
-      
-        
-      
-      
-      <tr>
-        <th scope="row">Goal </th>
-        <td>
-          
-            <p>Goal 3: Ensure healthy lives and promote well-being for all at all ages</p>
-
-          
-        </td>
-        </tr>
-        
-      
   
-      
-        
-      
-      
-      <tr>
-        <th scope="row">Target </th>
-        <td>
-          
-            <p>Target 3.4: By 2030, reduce by one third premature mortality from non-communicable diseases through<br />prevention and treatment and promote mental health and well-being</p>
-
-          
-        </td>
-        </tr>
-        
-      
   
-      
-        
-      
-      
-      <tr>
-        <th scope="row">Indicator </th>
-        <td>
-          
-            <p>Indicator 3.4.2: Suicide mortality rate</p>
-
-          
-        </td>
-        </tr>
-        
-      
   
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-      
-      
-      <tr>
-        <th scope="row">0.g. International organisations(s) responsible for global monitoring </th>
-        <td>
-          
-            <p>World Health Organization (WHO)<br /></p>
-
-          
-        </td>
-        </tr>
-        
-      
   
-      
-        
-          
-      
-        
-      
-      
-      <tr>
-        <th scope="row">Organisation </th>
-        <td>
-          
-            <p>Ghana Statistical Service</p>
-
-          
-        </td>
-        </tr>
-        
-      
   
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-      
-      
-      <tr>
-        <th scope="row">Definition and concepts </th>
-        <td>
-          
-            <p>The Suicide mortality rate as defined as the number of suicide deaths in a year, divided by the population,<br />and multiplied by 100 000.</p>
-
-          
-        </td>
-        </tr>
-        
-      
   
-      
-        
-      
-      
-      <tr>
-        <th scope="row">Unit of measure </th>
-        <td>
-          
-            <p>Rate per 100 000 population</p>
-
-          
-        </td>
-        </tr>
-        
-      
   
-      
-        
-          
-      
-        
-          
-      
-        
-      
-      
-      <tr>
-        <th scope="row">Data sources </th>
-        <td>
-          
-            <p>PHC 2021, Ghana statistical service </p>
-
-          
-        </td>
-        </tr>
-        
-      
   
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-      
-      
-      <tr>
-        <th scope="row">Data providers </th>
-        <td>
-          
-            <p>Ghana statistical service</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-        
-      
-      
-      <tr>
-        <th scope="row">Data compilers </th>
-        <td>
-          
-            <p>Ghana statistical service</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-        
-          
-      
-        
-          
-      
-        
-      
-      
-      <tr>
-        <th scope="row">Rationale </th>
-        <td>
-          
-            <p>Mental disorders occur in all regions and cultures of the world. The most prevalent of these disorders are depression and anxiety, which are estimated to affect nearly 1 in 10 people. At its worst, depression can lead to suicide. In 2019, there were over 700,000 estimated suicide deaths worldwide.</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-        
-          
-      
-        
-      
-      
-      <tr>
-        <th scope="row">Method of computation </th>
-        <td>
-          
-            <p>Suicide mortality rate (per 100,000 population) = (Number of suicide deaths in a year x 100,000) / Mid-<br />year population for the same calendar year</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-      
-      
-      <tr>
-        <th scope="row">Data availability and disaggregation </th>
-        <td>
-          
-            <p>The data has been disaggregated into regions, urban and rural areas</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-        
-          
-      
-        
-      
-      
-      <tr>
-        <th scope="row">References and Documentation </th>
-        <td>
-          
-            <p>http://www.who.int/gho/en/</p>
-
-          
-        </td>
-        </tr>
-        
-      
   
 </table>
 
@@ -1820,137 +1601,204 @@ data-event-label="Change to Sources tab"
       <p>This table provides information on metadata for SDG indicators as defined by the UN Statistical Commission. <a href="https://unstats.un.org/sdgs/metadata/">Complete global metadata</a> is provided by the UN Statistics Division.</p>
       <table class="table">
   
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   
   
       
         
+      
+      
+      <tr>
+        <th scope="row">Indicator name </th>
+        <td>
           
+            <p>Suicide mortality rate</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Indicator number </th>
+        <td>
+          
+            <p>3.4.2</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Target name </th>
+        <td>
+          
+            <p>By 2030, reduce by one third premature mortality from non-communicable diseases through prevention and treatment and promote mental health and well-being</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+          
+      
+        
+      
+      
+      <tr>
+        <th scope="row">UN designated tier </th>
+        <td>
+          
+            <p>Tier I</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">UN custodian agency </th>
+        <td>
+          
+            <p>World Health Organisation (WHO)</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Link to UN metadata </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://unstats.un.org/sdgs/metadata/files/Metadata-03-04-02.pdf" target="_blank">
+                United Nations Sustainable Development Goals Metadata (PDF 65.1 KB) <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
@@ -2060,6 +1908,23 @@ data-event-label="Change to Sources tab"
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
       
         
       
@@ -2068,7 +1933,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            <p>World Bank</p>
+            <p>Ghana Statistical Service</p>
 
           
         </td>
@@ -2100,7 +1965,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            <p>2004</p>
+            <p>2021</p>
 
           
         </td>
@@ -2138,8 +2003,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://data.worldbank.org/indicator/SI.POV.DDAY?locations=GB" target="_blank">
-                Poverty headcount ratio at $1.90 a day (2011 PPP) (% of population) <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://www.statsghana.gov.gh/gssmain/fileUpload/pressrelease/Volume%203H_Fertility%20and%20Mortality_240222a.pdf" target="_blank">
+                2021 PHC General Report Vol 3H <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -2163,7 +2028,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            May 28, 2020
+            Jan 01, 1970
           
         </td>
         </tr>
@@ -2194,7 +2059,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            <p>Non-official</p>
+            <p>Official</p>
 
           
         </td>
@@ -2210,7 +2075,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            <p>Research@WorldBank.org</p>
+            <p>info@statsghana.gov.gh</p>
 
           
         </td>
@@ -2221,50 +2086,6 @@ data-event-label="Change to Sources tab"
       
         
           
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   
@@ -2424,6 +2245,15 @@ data-event-label="Change to Sources tab"
 
 
 
+<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.zoomshowhide@0.1.0/dist/leaflet-zoom-show-hide.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.4.0/chroma.min.js"></script>
+<script src="https://cdn.rawgit.com/nezasa/iso8601-js-period/master/iso8601.min.js"></script>
+<script src="https://cdn.rawgit.com/socib/Leaflet.TimeDimension/master/dist/leaflet.timedimension.min.js"></script>
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+<script src="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.3/dist/html2canvas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
@@ -2440,12 +2270,12 @@ data-event-label="Change to Sources tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/assets/js/sdg.js?v=20220929142607'></script>
+<script src='/assets/js/sdg.js?v=20221029074117'></script>
 <!-- Add any custom javascript here. -->
 
     
     
-    <script src="/assets/js/custom.js?v=20220929142607"></script><script>
+    <script src="/assets/js/custom.js?v=20221029074117"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
