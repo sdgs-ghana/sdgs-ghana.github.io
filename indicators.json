@@ -2122,7 +2122,7 @@
           "title": "COVID-19 impact on work and income of households in Ghana",
           "description": "",
           "keywords": "",
-          "href": "//covid-indicator-1",
+          "href": "/covid-1",
           "status": "complete"
         },
         {
@@ -2130,7 +2130,7 @@
           "title": "Indications of recovery relating to SDG Goal 2",
           "description": "",
           "keywords": "",
-          "href": "//covid-indicator-2",
+          "href": "/covid-2",
           "status": "complete"
         },
         {
@@ -2138,7 +2138,7 @@
           "title": "Health impact of COVID-19",
           "description": "",
           "keywords": "",
-          "href": "//covid-indicator-3",
+          "href": "/covid-3",
           "status": "complete"
         },
         {
@@ -2146,7 +2146,7 @@
           "title": "Indications of recovery relating to SDG Goal 4",
           "description": "",
           "keywords": "",
-          "href": "//covid-indicator-4",
+          "href": "/covid-4",
           "status": "complete"
         }]
     }
@@ -2162,7 +2162,7 @@
           "title": "Proportion of men, women and children of all ages living in poverty in all its dimensions according to national definitions",
           "description": "",
           "keywords": "",
-          "href": "//gdp-1",
+          "href": "/gdp-1",
           "status": "complete"
         }]
     }
