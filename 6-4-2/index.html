@@ -138,7 +138,7 @@ var translations = {
         
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20221031201927">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20221113183002">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -146,7 +146,7 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20221031201927">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20221113183002">
         
 
         
@@ -222,6 +222,8 @@ data-event-label="high"
         aria-haspopup="true">
         <button data-target="menu-mobile" aria-expanded="false">Menu</button>
         <ul class="nav navbar-nav menu-target contrast-switcher" id="menu-mobile"><li class="nav-link ">
+    <a href="/">Frontpage</a>
+</li><li class="nav-link ">
     <a href="/goals">Goals</a>
 </li><li class="nav-link ">
     <a href="/reporting-status">Reporting Status</a>
@@ -296,6 +298,8 @@ data-event-label="high"
 </div>
 
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
+    <a href="/">Frontpage</a>
+</li><li class="nav-link ">
     <a href="/goals">Goals</a>
 </li><li class="nav-link ">
     <a href="/reporting-status">Reporting Status</a>
@@ -678,7 +682,7 @@ data-event-label="high"
 
   <div id="datatableFooter">
     
-    <p>Source: World Bank</p>
+    <p>Source: Water Resources Commission (WRC)</p>
     
     
     <p>Geographical Area: </p>
@@ -1037,7 +1041,7 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
         
         <dt>Source:</dt>
-        <dd>World Bank</dd>
+        <dd>Water Resources Commission (WRC)</dd>
         
 
         
@@ -1105,7 +1109,7 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
         
         <dt>Source:</dt>
-        <dd>World Bank</dd>
+        <dd>Water Resources Commission (WRC)</dd>
         
 
         
@@ -1199,7 +1203,7 @@ data-event-label="Change to Sources tab"
       <p>
         
         
-        This table provides metadata for the actual indicator available from Ghana statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from Ghanaian statistics, this table should be consulted for information on national methodology and other Ghanaian-specific metadata information.
+        This table provides metadata for the actual indicator available from Ghana statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from Ghana statistics, this table should be consulted for information on national methodology and other Ghana-specific metadata information.
       </p>
       <table class="table">
   
@@ -1280,15 +1284,15 @@ data-event-label="Change to Sources tab"
         <th scope="row">Related indicators </th>
         <td>
           
-            <p>6.4.1: Change in water-use efficiency over time</p>
-<p>6.1.1: Proportion of population using safely managed drinking water services</p>
-<p>6.3.1: Proportion of wastewater safely treated</p>
-<p>6.6.1: Change in the extent of water-related ecosystems over time</p>
-<p>6.5.1: Degree of integrated water resources management implementation (0-100)</p>
-<p>2.4.1: Proportion of agricultural area under productive and sustainable agriculture</p>
-<p>15.3.1: Proportion of land that is degraded over total land area</p>
-<p>1.5.1: Number of deaths, missing persons and persons affected by disaster per 100,000 people [a]</p>
-<p>11.5.1: Number of deaths, missing persons and persons affected by disaster per 100,000 people [a]</p>
+            <p>1.5.1</p>
+<p>2.4.1</p>
+<p>6.1.1</p>
+<p>6.3.1</p>
+<p>6.4.1</p>
+<p>6.5.1</p>
+<p>6.6.1</p>
+<p>11.5.1</p>
+<p>15.3.1</p>
 
           
         </td>
@@ -1301,20 +1305,7 @@ data-event-label="Change to Sources tab"
           
       
         
-      
-      
-      <tr>
-        <th scope="row">Organisation </th>
-        <td>
           
-            <p>Water Resources Commission (WRC)</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
       
         
           
@@ -1345,15 +1336,16 @@ data-event-label="Change to Sources tab"
         <td>
           
             <p><strong>Definition:</strong></p>
-<p>The level of water stress: freshwater withdrawal as a proportion of available freshwater resources is the ratio between total freshwater withdrawn by all major sectors and total renewable freshwater resources, after taking into account environmental flow requirements. Main sectors, as defined by ISIC standards, include agriculture; forestry and fishing; manufacturing; electricity industry; and services. This indicator is also known as water withdrawal intensity.</p>
+<p>The level of water stress: freshwater withdrawal as a proportion of available freshwater resources is the ratio between total freshwater withdrawn by all major sectors and total renewable freshwater resources, after taking into account environmental flow requirements. </p>
+<p>Main sectors, as defined by <a href="https://unstats.un.org/unsd/publication/seriesm/seriesm_4rev4e.pdf">ISIC standards</a>, include agriculture; forestry and fishing; manufacturing; electricity industry; and services. </p>
+<p>This indicator is also known as water withdrawal intensity.</p>
 <p><strong>Concepts:</strong></p>
 <p>This indicator provides an estimate of pressure by all sectors on the country’s renewable freshwater resources. A low level of water stress indicates a situation where the combined withdrawal by all sectors is marginal in relation to the resources, and has therefore little potential impact on the sustainability of the resources or on the potential competition between users. A high level of water stress indicates a situation where the combined withdrawal by all sectors represents a substantial share of the total renewable freshwater resources, with potentially larger impacts on the sustainability of the resources and potential situations of conflicts and competition between users. </p>
-<p>Total renewable freshwater resources (TRWR) are expressed as the sum of internal and external renewable water resources. The terms “water resources” and “water withdrawal” are understood here as freshwater resources and freshwater withdrawal. </p>
+<p>Total renewable freshwater resources (TRWR) are expressed as the sum of internal and external renewable water resources. </p>
 <p>Internal renewable water resources are defined as the long-term average annual flow of rivers and recharge of groundwater for a given country generated from endogenous precipitation. </p>
-<p>External renewable water resources refer to the flows of water entering the country, taking into consideration the quantity of flows reserved to upstream and downstream countries through agreements or treaties. </p>
-<p>Total freshwater withdrawal (TFWW) is the volume of freshwater extracted from its source (rivers, lakes, aquifers) for agriculture, industries and services<sup><a href="#footnote-2" id="footnote-ref-2">[2]</a></sup>. It is estimated at the country level for the following three main sectors: agriculture, services (including domestic water withdrawal) and industries (including cooling of thermoelectric plants). Freshwater withdrawal includes fossil groundwater. It does not include non-conventional water, i.e. direct use of treated wastewater, direct use of agricultural drainage water and desalinated water. </p>
-<p>Environmental flow requirements (EFR) are defined as the quantity and timing of freshwater flows and levels necessary to sustain aquatic ecosystems, which, in turn, support human cultures, economies, sustainable livelihoods, and wellbeing.  Water quality and also the resulting ecosystem services are excluded from this formulation which is confined to water volumes. This does not imply that quality and the support to societies which are dependent on environmental flows are not important and should not be taken care of.<sup><a href="#footnote-3" id="footnote-ref-3">[3]</a></sup> Methods of computation of EFR are extremely variable and range from global estimates to comprehensive assessments for river reaches. For the purpose of the SDG indicator, water volumes can be expressed in the same units as the TFWW, and then as percentages of the available water resources.</p>
-<div class="footnotes"><div><sup class="footnote-number" id="footnote-2">2</sup><p> <a href="#footnote-ref-2">↑</a></p></div><div><sup class="footnote-number" id="footnote-3">3</sup><p> <a href="#footnote-ref-3">↑</a></p></div></div>
+<p>External renewable water resources refer to the flows of water entering the country. </p>
+<p>Total freshwater withdrawal (TFWW) is the volume of freshwater extracted from its source (rivers, lakes, aquifers) for agriculture, industries and services.</p>
+<p>Environmental flow requirements (EFR) are defined as the quantity and timing of freshwater flows and levels necessary to sustain aquatic ecosystems, which, in turn, support human cultures, economies, sustainable livelihoods, and well-being.  </p>
 
           
         </td>
@@ -1369,7 +1361,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Unit of measure </th>
         <td>
           
-            <p>Percentage</p>
+            <p>M3/Per person/year</p>
 
           
         </td>
@@ -1391,7 +1383,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data sources </th>
         <td>
           
-            <p>2020 Annual Report, WRC</p>
+            <p>Water Resources Commission (WRC) Annual Report, 2021</p>
 
           
         </td>
@@ -1454,7 +1446,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Rationale </th>
         <td>
           
-            <p>The purpose of this indicator is to show the degree to which water resources are being exploited to meet the country's water demand. It measures a country's pressure on its water resources and therefore the challenge on the sustainability of its water use. It tracks progress regarding “withdrawals and supply of freshwater to address water scarcity”, i.e. the environmental component of target 6.4. The indicator shows to what extent water resources are already used, and signals the importance of effective supply and demand management policies. It indicates the likelihood of increasing competition and conflict between different water uses and users in a situation of increasing water scarcity. Increased water stress, shown by an increase in the value of the indicator, has potentially negative effects on the sustainability of the natural resources and on economic development. On the other hand, low values of the indicator indicate that water does not represent a particular challenge for economic development and sustainability. This indicator provides an estimate of pressure by all sectors on Ghana’s renewable freshwater resources. A low level of water stress indicates a situation where the combined withdrawal by all sectors is marginal in relation to the resources, and has therefore little potential impact on the sustainability of the resources or on the potential competition between users. A high level of water stress indicates a situation where the combined withdrawal by all sectors represents a substantial share of the total renewable freshwater resources, with potentially larger impacts on the sustainability of the resources and potential situations of conflicts and competition between users.</p>
+            <p>The purpose of this indicator is to show the degree to which water resources are being exploited to meet the country's water demand. It measures a country's pressure on its water resources and therefore the challenge on the sustainability of its water use. The indicator shows to what extent water resources are already used, and signals the importance of effective supply and demand management policies. This indicator provides an estimate of pressure by all sectors on Ghana’s renewable freshwater resources. A low level of water stress indicates a situation where the combined withdrawal by all sectors is marginal in relation to the resources, and has therefore little potential impact on the sustainability of the resources or on the potential competition between users. A high level of water stress indicates a situation where the combined withdrawal by all sectors represents a substantial share of the total renewable freshwater resources, with potentially larger impacts on the sustainability of the resources and potential situations of conflicts and competition between users.</p>
 
           
         </td>
@@ -1485,6 +1477,22 @@ data-event-label="Change to Sources tab"
           
       
         
+      
+      
+      <tr>
+        <th scope="row">Data availability and disaggregation </th>
+        <td>
+          
+            <p>There is no available disaggregation for this indicator.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
           
       
         
@@ -1503,7 +1511,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            Oct 10, 2022
+            Nov 10, 2022
           
         </td>
         </tr>
@@ -1845,6 +1853,7 @@ data-event-label="Change to Sources tab"
   
   
   
+  
 </table>
 
     </article>
@@ -1928,6 +1937,7 @@ data-event-label="Change to Sources tab"
   
   
   
+  
       
         
       
@@ -1936,7 +1946,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            <p>World Bank</p>
+            <p>Water Resources Commission (WRC)</p>
 
           
         </td>
@@ -1946,20 +1956,7 @@ data-event-label="Change to Sources tab"
   
       
         
-      
-      
-      <tr>
-        <th scope="row">Periodicity </th>
-        <td>
           
-            <p>Annual</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
       
         
       
@@ -1968,7 +1965,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            <p>2004</p>
+            <p>2013</p>
 
           
         </td>
@@ -2006,8 +2003,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://data.worldbank.org/indicator/SI.POV.DDAY?locations=GB" target="_blank">
-                Poverty headcount ratio at $1.90 a day (2011 PPP) (% of population) <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://wrcwebsite.azurewebsites.net/mdocs-posts/wrc-annual-report-2021-22_final/" target="_blank">
+                Water Resources Commission (WRC), Annual Report, 2021/22 <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -2025,35 +2022,10 @@ data-event-label="Change to Sources tab"
   
       
         
-      
-      
-      <tr>
-        <th scope="row">Release date </th>
-        <td>
           
-            May 28, 2020
-          
-        </td>
-        </tr>
-        
-      
-  
       
         
-      
-      
-      <tr>
-        <th scope="row">Next release </th>
-        <td>
           
-            <p>TBA</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
       
         
       
@@ -2062,7 +2034,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            <p>Non-official</p>
+            <p>Official</p>
 
           
         </td>
@@ -2078,7 +2050,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            <p>Research@WorldBank.org</p>
+            <p>https://www.wrc-gh.org/contact-us</p>
 
           
         </td>
@@ -2264,12 +2236,12 @@ data-event-label="Change to Sources tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/assets/js/sdg.js?v=20221031201927'></script>
+<script src='/assets/js/sdg.js?v=20221113183002'></script>
 <!-- Add any custom javascript here. -->
 
     
     
-    <script src="/assets/js/custom.js?v=20221031201927"></script><script>
+    <script src="/assets/js/custom.js?v=20221113183002"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

@@ -138,7 +138,7 @@ var translations = {
         
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20221031201927">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20221113183002">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -146,7 +146,7 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20221031201927">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20221113183002">
         
 
         
@@ -222,6 +222,8 @@ data-event-label="high"
         aria-haspopup="true">
         <button data-target="menu-mobile" aria-expanded="false">Menu</button>
         <ul class="nav navbar-nav menu-target contrast-switcher" id="menu-mobile"><li class="nav-link ">
+    <a href="/">Frontpage</a>
+</li><li class="nav-link ">
     <a href="/goals">Goals</a>
 </li><li class="nav-link ">
     <a href="/reporting-status">Reporting Status</a>
@@ -296,6 +298,8 @@ data-event-label="high"
 </div>
 
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
+    <a href="/">Frontpage</a>
+</li><li class="nav-link ">
     <a href="/goals">Goals</a>
 </li><li class="nav-link ">
     <a href="/reporting-status">Reporting Status</a>
@@ -517,7 +521,7 @@ data-event-label="high"
   data-graphseriesbreaks="null"
   data-indicatordownloads="null"
   data-dataschema="{&quot;fields&quot;:[{&quot;name&quot;:&quot;COMPOSITE_BREAKDOWN&quot;,&quot;type&quot;:&quot;string&quot;,&quot;constraints&quot;:{&quot;enum&quot;:[&quot;&quot;,&quot;Children Rights&quot;,&quot;Civil and Political Rights&quot;,&quot;Economic, Social and Cultural Rights&quot;,&quot;Property Rights&quot;,&quot;Total Human Rights Complaints&quot;,&quot;Total Resolved&quot;,&quot;Women Rights&quot;]},&quot;title&quot;:&quot;Composite breakdown&quot;},{&quot;name&quot;:&quot;SERIES&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;SDG Series&quot;},{&quot;name&quot;:&quot;UNIT_MEASURE&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Unit of measure&quot;},{&quot;name&quot;:&quot;Value&quot;,&quot;type&quot;:&quot;number&quot;,&quot;title&quot;:&quot;Value&quot;},{&quot;name&quot;:&quot;Year&quot;,&quot;type&quot;:&quot;string&quot;,&quot;title&quot;:&quot;Year&quot;}]}"
-  data-compositebreakdownlabel=""
+  data-compositebreakdownlabel="Category"
   data-precision="[]"
 >
   
@@ -562,7 +566,7 @@ data-event-label="high"
 
   <div id="datatableFooter">
     
-    <p>Source: World Bank</p>
+    <p>Source: Commission on Human Rights and Administrative Justice</p>
     
     
     <p>Geographical Area: </p>
@@ -921,7 +925,7 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
         
         <dt>Source:</dt>
-        <dd>World Bank</dd>
+        <dd>Commission on Human Rights and Administrative Justice</dd>
         
 
         
@@ -989,7 +993,7 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
         
         <dt>Source:</dt>
-        <dd>World Bank</dd>
+        <dd>Commission on Human Rights and Administrative Justice</dd>
         
 
         
@@ -1083,7 +1087,7 @@ data-event-label="Change to Sources tab"
       <p>
         
         
-        This table provides metadata for the actual indicator available from Ghana statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from Ghanaian statistics, this table should be consulted for information on national methodology and other Ghanaian-specific metadata information.
+        This table provides metadata for the actual indicator available from Ghana statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from Ghana statistics, this table should be consulted for information on national methodology and other Ghana-specific metadata information.
       </p>
       <table class="table">
   
@@ -1104,88 +1108,69 @@ data-event-label="Change to Sources tab"
           
       
         
+      
+      
+      <tr>
+        <th scope="row">Goal </th>
+        <td>
           
+            <p>Goal 16: Promote peaceful and inclusive societies for sustainable development, provide access to justice for all and build effective, accountable and inclusive institutions at all levels</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
       
         
+      
+      
+      <tr>
+        <th scope="row">Target </th>
+        <td>
           
+            <p>Target 16.a: Strengthen relevant national institutions, including through international cooperation, for building capacity at all levels, in particular in developing countries, to prevent violence and combat terrorism and crime</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
       
         
+      
+      
+      <tr>
+        <th scope="row">Indicator </th>
+        <td>
           
+            <p>Indicator 16.a.1: Existence of independent national human rights institutions in compliance with the Paris Principles</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
       
         
-          
       
-        
-          
       
-        
+      <tr>
+        <th scope="row">Series </th>
+        <td>
           
+            <p>Human rights cases, by type (16.a.1)</p>
+<p>Human rights complaints (16.a.1)</p>
+
+          
+        </td>
+        </tr>
+        
       
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
+  
       
         
           
@@ -1224,10 +1209,169 @@ data-event-label="Change to Sources tab"
       
       
       <tr>
+        <th scope="row">Definition and concepts </th>
+        <td>
+          
+            <p><strong>Definition:</strong> </p>
+<p>This indicator, Existence of independent national human rights institutions in compliance with the Paris Principles measures the compliance of existing national human rights institutions with the Principles relating to the <a href="https://www.ohchr.org/en/instruments-mechanisms/instruments/principles-relating-status-national-institutions-paris&quot; \l &quot;:~:text=1.,and%20its%20sphere%20of%20competence.">Status of National Institutions (The Paris Principles)</a>. </p>
+<p><strong>Concepts:</strong></p>
+<p>A National Human Rights Institution (NHRI) is an independent administrative body set up by a State to promote and protect human rights. However, they operate and function independently from government. </p>
+<p>Core functions of NHRIs include complaint handling, human rights education and making recommendations on law reform. Effective NHRIs are an important link between government and civil society, in so far as they help bridge the 'protection gap' between the rights of individuals and the responsibilities of the State. </p>
+<p> An Independent NHRI is an institution with ‘A level’ accreditation status as benchmarked against the Paris Principles.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Unit of measure </th>
+        <td>
+          
+            <p>Number</p>
+<p>Percentage (%)</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+          
+      
+        
+          
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Data sources </th>
+        <td>
+          
+            <p>Commission on Human Rights and Administrative Justice (CHRAJ) Annual Report</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Data providers </th>
+        <td>
+          
+            <p>Commission on Human Rights and Administrative Justice (CHRAJ)</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Rationale </th>
+        <td>
+          
+            <p>The creation and fosterage of a NHRI indicates a State’s commitment to promote and protect the human rights provided in international human rights instruments. Compliance with the Paris Principles vest NHRIs with a broad mandate, competence and power to investigate, report on the national human rights situation, and publicize human rights through information and education. While NHRIs are essentially state funded, they are to maintain independence and pluralism. These fundamental functions that NHRIs play and their increasing participation in the international human rights fora make them important actors in the improvement of the human rights situation, including the elimination of discriminatory laws and the promotion and enforcement of non-discriminatory laws. At the national level reporting, the better the accreditation classification of the NHRI reflects that it is credible, legitimate, relevant and effective in promoting human rights at the national level.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Data availability and disaggregation </th>
+        <td>
+          
+            <p>This data is disaggregated by category.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+      
+      
+      <tr>
         <th scope="row">Metadata last updated </th>
         <td>
           
-            Oct 10, 2022
+            Nov 11, 2022
           
         </td>
         </tr>
@@ -1569,6 +1713,7 @@ data-event-label="Change to Sources tab"
   
   
   
+  
 </table>
 
     </article>
@@ -1652,6 +1797,7 @@ data-event-label="Change to Sources tab"
   
   
   
+  
       
         
       
@@ -1660,7 +1806,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            <p>World Bank</p>
+            <p>Commission on Human Rights and Administrative Justice</p>
 
           
         </td>
@@ -1686,20 +1832,7 @@ data-event-label="Change to Sources tab"
   
       
         
-      
-      
-      <tr>
-        <th scope="row">Earliest available data </th>
-        <td>
           
-            <p>2004</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
       
         
       
@@ -1730,8 +1863,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://data.worldbank.org/indicator/SI.POV.DDAY?locations=GB" target="_blank">
-                Poverty headcount ratio at $1.90 a day (2011 PPP) (% of population) <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://chraj.gov.gh/annual-reports/" target="_blank">
+                CHRAJ ANNUAL REPORT <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1749,19 +1882,7 @@ data-event-label="Change to Sources tab"
   
       
         
-      
-      
-      <tr>
-        <th scope="row">Release date </th>
-        <td>
           
-            May 28, 2020
-          
-        </td>
-        </tr>
-        
-      
-  
       
         
       
@@ -1786,7 +1907,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            <p>Non-official</p>
+            <p>Official</p>
 
           
         </td>
@@ -1802,7 +1923,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            <p>Research@WorldBank.org</p>
+            <p>info@chraj.gov.gh</p>
 
           
         </td>
@@ -1988,12 +2109,12 @@ data-event-label="Change to Sources tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/assets/js/sdg.js?v=20221031201927'></script>
+<script src='/assets/js/sdg.js?v=20221113183002'></script>
 <!-- Add any custom javascript here. -->
 
     
     
-    <script src="/assets/js/custom.js?v=20221031201927"></script><script>
+    <script src="/assets/js/custom.js?v=20221113183002"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

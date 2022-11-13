@@ -138,7 +138,7 @@ var translations = {
         
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20221031201927">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20221113183002">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -146,7 +146,7 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20221031201927">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20221113183002">
         
 
         
@@ -222,6 +222,8 @@ data-event-label="high"
         aria-haspopup="true">
         <button data-target="menu-mobile" aria-expanded="false">Menu</button>
         <ul class="nav navbar-nav menu-target contrast-switcher" id="menu-mobile"><li class="nav-link ">
+    <a href="/">Frontpage</a>
+</li><li class="nav-link ">
     <a href="/goals">Goals</a>
 </li><li class="nav-link ">
     <a href="/reporting-status">Reporting Status</a>
@@ -296,6 +298,8 @@ data-event-label="high"
 </div>
 
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
+    <a href="/">Frontpage</a>
+</li><li class="nav-link ">
     <a href="/goals">Goals</a>
 </li><li class="nav-link ">
     <a href="/reporting-status">Reporting Status</a>
@@ -502,7 +506,7 @@ data-event-label="high"
   data-country="Ghana"
   data-charttitle="Degree of integrated water resources management"
   data-charttitles="[]"
-  data-measurementunit="Percent"
+  data-measurementunit="Percentage (%)"
   data-xaxislabel=""
   data-showdata="true"
   data-graphtype="line"
@@ -579,18 +583,6 @@ data-event-label="high"
         <tr>
           
           
-          <td>2019</td>
-          
-          
-          
-          <td class="table-value">51</td>
-          
-          
-        </tr>
-        
-        <tr>
-          
-          
           <td>2021</td>
           
           
@@ -606,13 +598,13 @@ data-event-label="high"
 
   <div id="datatableFooter">
     
-    <p>Source: World Bank</p>
+    <p>Source: Water Resources Commission Of Ghana (WRC)</p>
     
     
     <p>Geographical Area: </p>
     
     
-    <p>Unit of Measurement: Percent</p>
+    <p>Unit of Measurement: Percentage (%)</p>
     
     
     <p>Footnote: </p>
@@ -965,7 +957,7 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
         
         <dt>Source:</dt>
-        <dd>World Bank</dd>
+        <dd>Water Resources Commission Of Ghana (WRC)</dd>
         
 
         
@@ -1033,7 +1025,7 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
         
         <dt>Source:</dt>
-        <dd>World Bank</dd>
+        <dd>Water Resources Commission Of Ghana (WRC)</dd>
         
 
         
@@ -1127,7 +1119,7 @@ data-event-label="Change to Sources tab"
       <p>
         
         
-        This table provides metadata for the actual indicator available from Ghana statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from Ghanaian statistics, this table should be consulted for information on national methodology and other Ghanaian-specific metadata information.
+        This table provides metadata for the actual indicator available from Ghana statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from Ghana statistics, this table should be consulted for information on national methodology and other Ghana-specific metadata information.
       </p>
       <table class="table">
   
@@ -1202,20 +1194,7 @@ data-event-label="Change to Sources tab"
           
       
         
-      
-      
-      <tr>
-        <th scope="row">Related indicators </th>
-        <td>
           
-            <p>1.4.1, 1.4.2, 2.3.1, 2.3.2, 4.7.1, 5.5.1, 5.5.2, 6.6.1, 6.a.1, 6.b.1, 7.1.1, 7.1.2, 8.5.1, 8.5.2, 10.2.1, 11.3.1, 11.3.2, 13.2.1, 13.2.2, 15.9.1, 16.3.1, 16.3.2, 16.5.1, 16.5.2, 16.7.1, 16.7.2</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
       
         
           
@@ -1251,17 +1230,14 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definition and concepts </th>
         <td>
           
-            <p>Definition:</p>
-<p>Indicator 6.5.1 is ‘degree of integrated water resources management implementation’. It measures the stages of development and implementation of Integrated Water Resources Management (IWRM), on a scale of 0 to 100, in six categories (see Rationale section). The indicator score is calculated from a country survey with 33 questions, with each question scored on the same scale of 0-100.</p>
-<p>The definition of IWRM is based on an internationally agreed definition, and is universally applicable. IWRM was officially established in 1992 and is defined as “a process which promotes the coordinated development and management of water, land and related resources in order to maximise economic and social welfare in an equitable manner without compromising the sustainability of vital ecosystems.” (GWP 2010).</p>
-<p>The method builds on official UN IWRM status reporting, from 2008 and 2012, of the Johannesburg Plan of Implementation from the UN World Summit for Sustainable Development (1992).</p>
-<p>Concepts:</p>
+            <p><strong>Definition:</strong></p>
+<p>It measures the stages of development and implementation of <a href="https://www.un.org/waterforlifedecade/iwrm.shtml">Integrated Water Resources Management (IWRM)</a>.</p>
+<p><strong>Concepts:</strong></p>
 <p>The concept of IWRM is measured in 4 main sections, each representing key dimension of IWRM:</p>
 <p>1. Enabling environment: this includes the policies, laws, plans and strategies which create the ‘enabling environment’ for IWRM.</p>
 <p>2. Institutions and participation: includes the range and roles of political, social, economic and administrative institutions that help to support the implementation of IWRM.</p>
 <p>3. Management Instruments: The tools and activities that enable decision-makers and users to make rational and informed choices between alternative actions.</p>
 <p>4. Financing: Budgeting and financing made available and used for water resources development and management from various sources.</p>
-<p>The indicator is based on a national survey structured around these four main sections. Each section is split into two parts: questions concerning the ‘National level’ and ‘Other levels’ respectively. ‘Other levels’ includes sub-national (including provinces/states for federated countries), basin level, and the transboundary level as appropriate. These two parts address the wording of Target 6.5 ‘implement [IWRM] at all levels …’.</p>
 
           
         </td>
@@ -1277,35 +1253,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Unit of measure </th>
         <td>
           
-            <p>Percent</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-      
-      
-      <tr>
-        <th scope="row">Data collection calendar </th>
-        <td>
-          
-            <p>Bi-annually</p>
+            <p>Percentage (%)</p>
 
           
         </td>
@@ -1324,10 +1272,10 @@ data-event-label="Change to Sources tab"
       
       
       <tr>
-        <th scope="row">Data compilers </th>
+        <th scope="row">Data sources </th>
         <td>
           
-            <p>Ghana Statistical Service</p>
+            <p>Integrated Water Resources Management (IWRM) Data Portal</p>
 
           
         </td>
@@ -1335,6 +1283,34 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Data providers </th>
+        <td>
+          
+            <p>United Nations Environment Programme (UNEP) -  DHI</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+          
       
         
           
@@ -1350,12 +1326,6 @@ data-event-label="Change to Sources tab"
         <td>
           
             <p>The indicator provides a direct progress measurement of the first part of Target 6.5 “…implement integrated water resources management at all levels …”. The indicator score provides an easy and understandable way of measuring progress towards the target, with ‘0’ interpreted as no implementation of IWRM, and ‘100’ interpreted as IWRM being fully implemented.</p>
-<p> </p>
-<p>To further aid interpretation and comparison, the indicator results can be categorized as follows: </p>
-<table><tr><td><p>Degree of implementation</p></td><td><p>Score range</p></td><td><p>General interpretation for overall IWRM score</p></td></tr><tr><td><p>Very high</p></td><td><p>91 - 100</p></td><td><p>Vast majority of IWRM elements are fully implemented, with objectives consistently achieved, and plans and programmes periodically assessed and revised.</p></td></tr><tr><td><p>High</p></td><td><p>71 - 90</p></td><td><p>IWRM objectives of plans and programmes are generally met, and geographic coverage and stakeholder engagement is generally good.</p></td></tr><tr><td><p>Medium-high</p></td><td><p>51 - 70</p></td><td><p>Capacity to implement elements of IWRM is generally adequate, and elements are generally being implemented under long-term programmes.</p></td></tr><tr><td><p>Medium-low</p></td><td><p>31 - 50</p></td><td><p>Elements of IWRM are generally institutionalized, and implementation is underway.</p></td></tr><tr><td><p>Low</p></td><td><p>11 - 30</p></td><td><p>Implementation of elements of IWRM has generally begun, but with limited uptake across the country, and potentially low engagement of stakeholder groups.</p></td></tr><tr><td><p>Very low</p></td><td><p>0 - 10</p></td><td><p>Development of elements of IWRM has generally not begun, or has stalled.</p></td></tr></table>
-<p>The concept of the survey is that it provides sufficient information to be of real value to the countries in determining their progress towards the target, and through this, various aspects of IWRM. A balance has been sought between providing sufficient information to cover the core principles of IWRM, and thus providing a robust indicator value, and not overburdening countries with unnecessary reporting requirements. </p>
-<p>Countries are encouraged to provide additional information on each question, which may help to qualify their choice of score, and/or put that score into their national context. </p>
-<p>Indicator 6.5.1 is supported by indicator 6.5.2 “Proportion of transboundary basin area with an operational arrangement for water cooperation”, which directly addresses the portion of Target 6.5 “…, including through transboundary cooperation as appropriate.”.</p>
 
           
         </td>
@@ -1384,6 +1354,22 @@ data-event-label="Change to Sources tab"
       
         
           
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Data availability and disaggregation </th>
+        <td>
+          
+            <p>There is no available disaggregation for this indicator.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
       
         
           
@@ -1404,7 +1390,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            Oct 10, 2022
+            Nov 13, 2022
           
         </td>
         </tr>
@@ -1746,6 +1732,7 @@ data-event-label="Change to Sources tab"
   
   
   
+  
 </table>
 
     </article>
@@ -1829,6 +1816,7 @@ data-event-label="Change to Sources tab"
   
   
   
+  
       
         
       
@@ -1837,7 +1825,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            <p>World Bank</p>
+            <p>Water Resources Commission Of Ghana (WRC)</p>
 
           
         </td>
@@ -1869,7 +1857,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            <p>2004</p>
+            <p>2017</p>
 
           
         </td>
@@ -1907,8 +1895,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://data.worldbank.org/indicator/SI.POV.DDAY?locations=GB" target="_blank">
-                Poverty headcount ratio at $1.90 a day (2011 PPP) (% of population) <span class="visuallyhidden">opens in a new window</span>
+              <a href="http://iwrmdataportal.unepdhi.org/country-reports" target="_blank">
+                Integrated Water Resources Management (IWRM) Data Portal <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1926,35 +1914,10 @@ data-event-label="Change to Sources tab"
   
       
         
-      
-      
-      <tr>
-        <th scope="row">Release date </th>
-        <td>
           
-            May 28, 2020
-          
-        </td>
-        </tr>
-        
-      
-  
       
         
-      
-      
-      <tr>
-        <th scope="row">Next release </th>
-        <td>
           
-            <p>TBA</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
       
         
       
@@ -1963,7 +1926,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            <p>Non-official</p>
+            <p>Official</p>
 
           
         </td>
@@ -1979,7 +1942,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            <p>Research@WorldBank.org</p>
+            <p>water-decade@un.org</p>
 
           
         </td>
@@ -2165,12 +2128,12 @@ data-event-label="Change to Sources tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/assets/js/sdg.js?v=20221031201927'></script>
+<script src='/assets/js/sdg.js?v=20221113183002'></script>
 <!-- Add any custom javascript here. -->
 
     
     
-    <script src="/assets/js/custom.js?v=20221031201927"></script><script>
+    <script src="/assets/js/custom.js?v=20221113183002"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

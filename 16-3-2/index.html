@@ -138,7 +138,7 @@ var translations = {
         
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20221031201927">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20221113183002">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -146,7 +146,7 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20221031201927">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20221113183002">
         
 
         
@@ -222,6 +222,8 @@ data-event-label="high"
         aria-haspopup="true">
         <button data-target="menu-mobile" aria-expanded="false">Menu</button>
         <ul class="nav navbar-nav menu-target contrast-switcher" id="menu-mobile"><li class="nav-link ">
+    <a href="/">Frontpage</a>
+</li><li class="nav-link ">
     <a href="/goals">Goals</a>
 </li><li class="nav-link ">
     <a href="/reporting-status">Reporting Status</a>
@@ -296,6 +298,8 @@ data-event-label="high"
 </div>
 
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
+    <a href="/">Frontpage</a>
+</li><li class="nav-link ">
     <a href="/goals">Goals</a>
 </li><li class="nav-link ">
     <a href="/reporting-status">Reporting Status</a>
@@ -502,7 +506,7 @@ data-event-label="high"
   data-country="Ghana"
   data-charttitle="Unsentenced detainees as a proportion of overall prison population"
   data-charttitles="[]"
-  data-measurementunit="Percent"
+  data-measurementunit="Percentage (%)"
   data-xaxislabel=""
   data-showdata="true"
   data-graphtype="line"
@@ -654,13 +658,13 @@ data-event-label="high"
 
   <div id="datatableFooter">
     
-    <p>Source: World Bank</p>
+    <p>Source: Ghana Prisons Service</p>
     
     
     <p>Geographical Area: </p>
     
     
-    <p>Unit of Measurement: Percent</p>
+    <p>Unit of Measurement: Percentage (%)</p>
     
     
     <p>Footnote: </p>
@@ -1013,7 +1017,7 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
         
         <dt>Source:</dt>
-        <dd>World Bank</dd>
+        <dd>Ghana Prisons Service</dd>
         
 
         
@@ -1081,7 +1085,7 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
         
         <dt>Source:</dt>
-        <dd>World Bank</dd>
+        <dd>Ghana Prisons Service</dd>
         
 
         
@@ -1175,7 +1179,7 @@ data-event-label="Change to Sources tab"
       <p>
         
         
-        This table provides metadata for the actual indicator available from Ghana statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from Ghanaian statistics, this table should be consulted for information on national methodology and other Ghanaian-specific metadata information.
+        This table provides metadata for the actual indicator available from Ghana statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from Ghana statistics, this table should be consulted for information on national methodology and other Ghana-specific metadata information.
       </p>
       <table class="table">
   
@@ -1256,20 +1260,7 @@ data-event-label="Change to Sources tab"
           
       
         
-      
-      
-      <tr>
-        <th scope="row">Organisation </th>
-        <td>
           
-            <p>Ghana Prisons Service</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
       
         
           
@@ -1318,7 +1309,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Unit of measure </th>
         <td>
           
-            <p>Percent (%)</p>
+            <p>Percentage (%)</p>
 
           
         </td>
@@ -1340,7 +1331,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data sources </th>
         <td>
           
-            <p>Ghana Prison Service Annual Report 2019</p>
+            <p>Ghana Prisons Service Annual Report, 2019</p>
 
           
         </td>
@@ -1353,20 +1344,7 @@ data-event-label="Change to Sources tab"
           
       
         
-      
-      
-      <tr>
-        <th scope="row">Data collection calendar </th>
-        <td>
           
-            <p>Annual</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
       
         
           
@@ -1388,20 +1366,7 @@ data-event-label="Change to Sources tab"
   
       
         
-      
-      
-      <tr>
-        <th scope="row">Data compilers </th>
-        <td>
           
-            <p>Ghana Statistical Service (GSS)</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
       
         
           
@@ -1460,6 +1425,22 @@ data-event-label="Change to Sources tab"
           
       
         
+      
+      
+      <tr>
+        <th scope="row">Data availability and disaggregation </th>
+        <td>
+          
+            <p>There is no available disaggregation for this indicator.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
           
       
         
@@ -1478,7 +1459,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            Oct 10, 2022
+            Nov 11, 2022
           
         </td>
         </tr>
@@ -1820,6 +1801,7 @@ data-event-label="Change to Sources tab"
   
   
   
+  
 </table>
 
     </article>
@@ -1903,6 +1885,7 @@ data-event-label="Change to Sources tab"
   
   
   
+  
       
         
       
@@ -1911,7 +1894,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            <p>World Bank</p>
+            <p>Ghana Prisons Service</p>
 
           
         </td>
@@ -1937,20 +1920,7 @@ data-event-label="Change to Sources tab"
   
       
         
-      
-      
-      <tr>
-        <th scope="row">Earliest available data </th>
-        <td>
           
-            <p>2004</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
       
         
       
@@ -1981,8 +1951,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://data.worldbank.org/indicator/SI.POV.DDAY?locations=GB" target="_blank">
-                Poverty headcount ratio at $1.90 a day (2011 PPP) (% of population) <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://ghanaprisons.gov.gh/news/downloads.cits" target="_blank">
+                Ghana Prisons Service Annual Report <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -2000,19 +1970,7 @@ data-event-label="Change to Sources tab"
   
       
         
-      
-      
-      <tr>
-        <th scope="row">Release date </th>
-        <td>
           
-            May 28, 2020
-          
-        </td>
-        </tr>
-        
-      
-  
       
         
       
@@ -2037,7 +1995,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            <p>Non-official</p>
+            <p>Official</p>
 
           
         </td>
@@ -2053,7 +2011,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            <p>Research@WorldBank.org</p>
+            <p>info@ghanaprisons.gov.gh</p>
 
           
         </td>
@@ -2239,12 +2197,12 @@ data-event-label="Change to Sources tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/assets/js/sdg.js?v=20221031201927'></script>
+<script src='/assets/js/sdg.js?v=20221113183002'></script>
 <!-- Add any custom javascript here. -->
 
     
     
-    <script src="/assets/js/custom.js?v=20221031201927"></script><script>
+    <script src="/assets/js/custom.js?v=20221113183002"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

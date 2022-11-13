@@ -138,7 +138,7 @@ var translations = {
         
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20221031201927">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20221113183002">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -146,7 +146,7 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20221031201927">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20221113183002">
         
 
         
@@ -222,6 +222,8 @@ data-event-label="high"
         aria-haspopup="true">
         <button data-target="menu-mobile" aria-expanded="false">Menu</button>
         <ul class="nav navbar-nav menu-target contrast-switcher" id="menu-mobile"><li class="nav-link ">
+    <a href="/">Frontpage</a>
+</li><li class="nav-link ">
     <a href="/goals">Goals</a>
 </li><li class="nav-link ">
     <a href="/reporting-status">Reporting Status</a>
@@ -296,6 +298,8 @@ data-event-label="high"
 </div>
 
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
+    <a href="/">Frontpage</a>
+</li><li class="nav-link ">
     <a href="/goals">Goals</a>
 </li><li class="nav-link ">
     <a href="/reporting-status">Reporting Status</a>
@@ -562,7 +566,7 @@ data-event-label="high"
 
   <div id="datatableFooter">
     
-    <p>Source: World Bank</p>
+    <p>Source: Ministry of Railways Development (MRD)</p>
     
     
     <p>Geographical Area: </p>
@@ -921,7 +925,7 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
         
         <dt>Source:</dt>
-        <dd>World Bank</dd>
+        <dd>Ministry of Railways Development (MRD)</dd>
         
 
         
@@ -989,7 +993,7 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
         
         <dt>Source:</dt>
-        <dd>World Bank</dd>
+        <dd>Ministry of Railways Development (MRD)</dd>
         
 
         
@@ -1083,7 +1087,7 @@ data-event-label="Change to Sources tab"
       <p>
         
         
-        This table provides metadata for the actual indicator available from Ghana statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from Ghanaian statistics, this table should be consulted for information on national methodology and other Ghanaian-specific metadata information.
+        This table provides metadata for the actual indicator available from Ghana statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from Ghana statistics, this table should be consulted for information on national methodology and other Ghana-specific metadata information.
       </p>
       <table class="table">
   
@@ -1110,7 +1114,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Goal </th>
         <td>
           
-            <h1> <a href="https://sustainabledevelopment-ghana.github.io/industry-innovation-and-infrastructure">Goal 9: Build resilient infrastructure, promote inclusive and sustainable industrialization and foster innovation</a></h1>
+            <p>Goal 9: Build resilient infrastructure, promote inclusive and sustainable industrialization and foster innovation</p>
 
           
         </td>
@@ -1126,7 +1130,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Target </th>
         <td>
           
-            <p>Target 9.1: Develop quality, reliable, sustainable and resilient infrastructure, including regional and trans-border infrastructure, to support economic development and human well-being, with a focus on affordable and equitable access for all</p>
+            <p>Target 9.1: Develop quality, reliable, sustainable and resilient infrastructure, including regional and transborder infrastructure, to support economic development and human well-being, with a focus on affordable and equitable access for all</p>
 
           
         </td>
@@ -1142,7 +1146,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator </th>
         <td>
           
-            <h2>Indicator 9.1.2: Passenger and freight volumes, by mode of transport</h2>
+            <p>Indicator 9.1.2: Passenger and freight volumes, by mode of transport</p>
 
           
         </td>
@@ -1150,30 +1154,19 @@ data-event-label="Change to Sources tab"
         
       
   
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
       
         
       
       
       <tr>
-        <th scope="row">Organisation </th>
+        <th scope="row">Series </th>
         <td>
           
-            <p>1) Ghana Airport Company Limited/Ghana Railway Company Limited/Ghana Ports and Habour Authority/Volta Lake Transport Company/Metro Mass Transit Limited</p>
-<p>2) Ghana Railway Company Limited</p>
-<p>3) Ghana Ports and Habour Authority</p>
-<p>4) Ministry of Transport</p>
+            <p>Air transport, domestic passengers carried</p>
+<p>Air transport, international passengers carried</p>
+<p>Freight volume (tonne kilometres) [9.1.2]</p>
+<p>Number of containers by marine transport</p>
+<p>Passenger volume (passenger kilometres) [9.1.2]</p>
 
           
         </td>
@@ -1181,6 +1174,18 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
       
         
           
@@ -1210,8 +1215,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definition and concepts </th>
         <td>
           
-            <p>Passenger and freight volumes for air transport, rail transport, marine water transport, inland water transport and urban transport</p>
-<p><strong>Definition:</strong></p>
+            <p><strong>Definition:</strong></p>
 <p>Passenger and freight volumes for air transport, rail transport, marine water transport, inland water transport and urban transport<strong> </strong>are respectively measured in passenger-km and tonne-km, and broken down by mode of transport. For the purposes of monitoring this indicator, passenger-km data are split between aviation, road (broken down between passenger cars, buses and motorcycles) and rail, and tonne-km are split between aviation, road, rail and inland waterways. </p>
 <p>As maritime data are not widely available, only tonnes (rather than tonne-km) data at the regional level have been shared.</p>
 
@@ -1229,7 +1233,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Unit of measure </th>
         <td>
           
-            <p>Number of people(in thousands)/metric tonnes (in thousands)</p>
+            <p>Number </p>
+<p>Tonnes (in thousands)</p>
 
           
         </td>
@@ -1251,9 +1256,9 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data sources </th>
         <td>
           
-            <p>1) Annual Progress Report, Ghana Airports Company Limited, 2020</p>
-<p>2) Annual Progress Report. MRD 2020</p>
-<p>3) <em>Annual Progress Report. MoT, 2020</em></p>
+            <p>Ghana Airports Company Limited (GACL) Annual Progress Report,  2020</p>
+<p>Ministry of Railways Development (MRD) Annual Progress Report, 2021</p>
+<p>Ministry of Transport<em> </em>(MoT)<em> </em>Annual Progress Report,<em> </em>2021</p>
 
           
         </td>
@@ -1264,22 +1269,6 @@ data-event-label="Change to Sources tab"
       
         
           
-      
-        
-      
-      
-      <tr>
-        <th scope="row">Data collection calendar </th>
-        <td>
-          
-            <p>Annual</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
       
         
           
@@ -1291,10 +1280,12 @@ data-event-label="Change to Sources tab"
       
       
       <tr>
-        <th scope="row">Data compilers </th>
+        <th scope="row">Data providers </th>
         <td>
           
-            <p>Ghana statistical service</p>
+            <p>Ghana Airport Company Limited (GACL)</p>
+<p>Ministry of Railways Development (MRD)</p>
+<p>Ministry of Transport (MoT)</p>
 
           
         </td>
@@ -1302,6 +1293,9 @@ data-event-label="Change to Sources tab"
         
       
   
+      
+        
+          
       
         
           
@@ -1316,12 +1310,44 @@ data-event-label="Change to Sources tab"
         <th scope="row">Rationale </th>
         <td>
           
-            <p>Develop quality, reliable, sustainable and resilient infrastructure, including regional and trans-border infrastructure, to support economic development and human well-being, with a focus on affordable and equitable access for all. Trans-border infrastructure development is best captured by passenger and freight volumes moved by Member States and Regions. A growth in passenger and freight volumes shows a robust infrastructure development happening in States and Regions along with the resultant socio-economic benefit. Air Transport is particularly important not only for the economic and job benefits but also because it is one of the only mode of transport that can be relied on during emergencies and disease outbreaks to reach food, medicines, medical personnel, vaccines and other supplies speedily to the affected persons in the affected areas. In addition, tracking how the non-road share of freight volumes, and the public transport share of passenger volumes, changes over time allows insights into the overall sustainability of the global transport system.</p>
-<p>Aviation:</p>
-<p>Informed decision-making is the foundation upon which successful businesses are built. In a fast-growing industry like aviation, planners and investors require the most comprehensive, up-to-date, and reliable data. ICAO’s aviation data/statistics programme is to provide accurate, reliable and consistent aviation data so that States, international organizations, aviation industry, tourism and other stakeholders can make better projections. The UN recognized ICAO as the central agency responsible for the collection, analysis, publication, standardization, improvement and dissemination of statistics pertaining to civil aviation.</p>
-<p>Maritime:</p>
-<p>The volume of international maritime freight and container port traffic movements provide an overall indication of the importance of port infrastructure for trade and development and may be relied upon to infer the quality and adequacy of seaports and their hinterland connections. Maritime transport is the dominant mode of international freight transport when flows are measured in volume terms. Behind the global and regional headline estimates, individual contributions vary by region and type of cargo, reflecting, among other factors, differences in countries’ economic structures, composition of trade, urbanization, levels of development, extent of integration into global trading networks, degree of participation in global supply chains, and the quality of transport infrastructure.</p>
-<p>World container port traffic reflects the importance of containerized trade and countries’ participation in global liner shipping networks and globalized manufacturing production processes.</p>
+            <p>Transborder infrastructure development is best captured by passenger and freight volumes moved by Member States and Regions. A growth in passenger and freight volumes shows a robust infrastructure development happening in States and Regions along with the resultant socio-economic benefit. Air Transport is particularly important not only for the economic and job benefits but also because it is one of the only mode of transport that can be relied on during emergencies and disease outbreaks to reach food, medicines, medical personnel, vaccines and other supplies speedily to the affected persons in the affected areas. In addition, tracking how the non-road share of freight volumes, and the public transport share of passenger volumes, changes over time allows insights into the overall sustainability of the global transport system. The volume of international maritime freight and container port traffic movements provide an overall indication of the importance of port infrastructure for trade and development and may be relied upon to infer the quality and adequacy of seaports and their hinterland connections. Maritime transport is the dominant mode of international freight transport when flows are measured in volume terms. </p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Data availability and disaggregation </th>
+        <td>
+          
+            <p>This data is disaggregated by mode of transport.</p>
 
           
         </td>
@@ -1337,10 +1363,10 @@ data-event-label="Change to Sources tab"
       
       
       <tr>
-        <th scope="row">Method of computation </th>
+        <th scope="row">References and Documentation </th>
         <td>
           
-            <p>(1.) sum of number of passengers, (2.) sum of freight volume</p>
+            <p><a href="http://bit.ly/3tmsXub&quot; \t &quot;_blank">bit.ly/3tmsXub</a></p>
 
           
         </td>
@@ -1348,27 +1374,6 @@ data-event-label="Change to Sources tab"
         
       
   
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
       
         
           
@@ -1383,7 +1388,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            Oct 10, 2022
+            Nov 13, 2022
           
         </td>
         </tr>
@@ -1725,6 +1730,7 @@ data-event-label="Change to Sources tab"
   
   
   
+  
 </table>
 
     </article>
@@ -1742,7 +1748,10 @@ data-event-label="Change to Sources tab"
     
     <div class="col-md-6">
       
+        <h4>Source 1</h4>
+      
       <table class="table">
+  
   
   
   
@@ -1816,7 +1825,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            <p>World Bank</p>
+            <p>Ministry of Railways Development (MRD)</p>
 
           
         </td>
@@ -1848,7 +1857,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            <p>2004</p>
+            <p>2016</p>
 
           
         </td>
@@ -1886,8 +1895,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://data.worldbank.org/indicator/SI.POV.DDAY?locations=GB" target="_blank">
-                Poverty headcount ratio at $1.90 a day (2011 PPP) (% of population) <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://www.mrd.gov.gh/downloads/MoRD_2021_Annual_Progress_Report.pdf" target="_blank">
+                Ministry of Railways Development (MRD) Annual Progress Report, 2022 <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1905,35 +1914,10 @@ data-event-label="Change to Sources tab"
   
       
         
-      
-      
-      <tr>
-        <th scope="row">Release date </th>
-        <td>
           
-            May 28, 2020
-          
-        </td>
-        </tr>
-        
-      
-  
       
         
-      
-      
-      <tr>
-        <th scope="row">Next release </th>
-        <td>
           
-            <p>TBA</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
       
         
       
@@ -1942,7 +1926,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            <p>Non-official</p>
+            <p>Official</p>
 
           
         </td>
@@ -1958,7 +1942,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            <p>Research@WorldBank.org</p>
+            <p>development@mrd.gov.gh</p>
 
           
         </td>
@@ -1981,6 +1965,266 @@ data-event-label="Change to Sources tab"
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</table>
+
+    </div>
+    
+    
+    
+    <div class="col-md-6">
+      
+        <h4>Source 2</h4>
+      
+      <table class="table">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            <p>Ministry of Railways Development (MRD)</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Periodicity </th>
+        <td>
+          
+            <p>Annual</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+          
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Geographical coverage </th>
+        <td>
+          
+            <p>Ghana</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Link to data source </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://mofep.gov.gh/sites/default/files/pbb-estimates/2021/2021-PBB-MoT.pdf" target="_blank">
+                Ministry of Transport (MoT) Annual Progress Report, 2021 <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      
+  
+      
+        
+          
+      
+        
+          
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Statistical classification </th>
+        <td>
+          
+            <p>Official</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Contact details </th>
+        <td>
+          
+            <p>info@mot.gov.gh</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+          
   
   
   
@@ -2144,12 +2388,12 @@ data-event-label="Change to Sources tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/assets/js/sdg.js?v=20221031201927'></script>
+<script src='/assets/js/sdg.js?v=20221113183002'></script>
 <!-- Add any custom javascript here. -->
 
     
     
-    <script src="/assets/js/custom.js?v=20221031201927"></script><script>
+    <script src="/assets/js/custom.js?v=20221113183002"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

@@ -138,7 +138,7 @@ var translations = {
         
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20221031201927">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20221113183002">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -146,7 +146,7 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20221031201927">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20221113183002">
         
 
         
@@ -222,6 +222,8 @@ data-event-label="high"
         aria-haspopup="true">
         <button data-target="menu-mobile" aria-expanded="false">Menu</button>
         <ul class="nav navbar-nav menu-target contrast-switcher" id="menu-mobile"><li class="nav-link ">
+    <a href="/">Frontpage</a>
+</li><li class="nav-link ">
     <a href="/goals">Goals</a>
 </li><li class="nav-link ">
     <a href="/reporting-status">Reporting Status</a>
@@ -296,6 +298,8 @@ data-event-label="high"
 </div>
 
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
+    <a href="/">Frontpage</a>
+</li><li class="nav-link ">
     <a href="/goals">Goals</a>
 </li><li class="nav-link ">
     <a href="/reporting-status">Reporting Status</a>
@@ -502,7 +506,7 @@ data-event-label="high"
   data-country="Ghana"
   data-charttitle="Adolescent birth rate (aged 10–14 years; aged 15–19 years) per 1,000 women in that age group"
   data-charttitles="[]"
-  data-measurementunit="Percent"
+  data-measurementunit="Percentage (%)"
   data-xaxislabel=""
   data-showdata="true"
   data-graphtype="line"
@@ -642,13 +646,13 @@ data-event-label="high"
 
   <div id="datatableFooter">
     
-    <p>Source: Ghana Statistical Service</p>
+    <p>Source: Ghana Statistical Service (GSS)</p>
     
     
     <p>Geographical Area: </p>
     
     
-    <p>Unit of Measurement: Percent</p>
+    <p>Unit of Measurement: Percentage (%)</p>
     
     
     <p>Footnote: </p>
@@ -1001,7 +1005,7 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
         
         <dt>Source:</dt>
-        <dd>Ghana Statistical Service</dd>
+        <dd>Ghana Statistical Service (GSS)</dd>
         
 
         
@@ -1069,7 +1073,7 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
         
         <dt>Source:</dt>
-        <dd>Ghana Statistical Service</dd>
+        <dd>Ghana Statistical Service (GSS)</dd>
         
 
         
@@ -1163,7 +1167,7 @@ data-event-label="Change to Sources tab"
       <p>
         
         
-        This table provides metadata for the actual indicator available from Ghana statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from Ghanaian statistics, this table should be consulted for information on national methodology and other Ghanaian-specific metadata information.
+        This table provides metadata for the actual indicator available from Ghana statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from Ghana statistics, this table should be consulted for information on national methodology and other Ghana-specific metadata information.
       </p>
       <table class="table">
   
@@ -1238,39 +1242,13 @@ data-event-label="Change to Sources tab"
           
       
         
-      
-      
-      <tr>
-        <th scope="row">Related indicators </th>
-        <td>
           
-            <p>Indicator is linked to Target 5.6 (Ensure universal access to sexual and reproductive health and reproductive rights as agreed in accordance with the Programme of Action of the International Conference on Population and Development and the Beijing Platform for Action and the outcome documents of their review conferences) because reductions in adolescent childbearing that are brought about by increasing access to sexual and reproductive health-care services are also reflective of improvements in sexual and reproductive health and the exercise of reproductive rights per se. This indicator is linked to Target 17.19 (By 2030 build on existing initiatives to develop measurements of progress on sustainable development that complement gross domestic product and support statistical capacity-building in developing countries) because the estimates of the adolescent birth rate are based in part on birth registration and census data. Strengthened civil registration and vital statistics systems reaching universal coverage of birth registration and conducting at least one census every 10 years are directly relevant for measuring progress on target 3.7</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
       
         
           
       
         
-      
-      
-      <tr>
-        <th scope="row">Organisation </th>
-        <td>
           
-            <p>Ghana Health Service</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
       
         
           
@@ -1300,8 +1278,10 @@ data-event-label="Change to Sources tab"
         <th scope="row">Definition and concepts </th>
         <td>
           
-            <p>Definition: Annual number of births to females aged 10-14 or 15-19 years per 1,000 females in the respective age group. </p>
-<p>Concepts: The adolescent birth rate represents the level of childbearing among females in the particular age group. The adolescent birth rate among women aged 15-19 years is also referred to as the age-specific fertility rate for women aged 15-19</p>
+            <p><strong>Definition:</strong></p>
+<p> Annual number of births to females aged 10-14 or 15-19 years per 1,000 females in the respective age group. </p>
+<p><strong>Concepts: </strong></p>
+<p>The adolescent birth rate represents the level of childbearing among females in the particular age group. The adolescent birth rate among women aged 15-19 years is also referred to as the age-specific fertility rate for women aged 15-19</p>
 
           
         </td>
@@ -1326,8 +1306,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data sources </th>
         <td>
           
-            <p>Ghana Demographic and Health Survey </p>
-<p>Multiple Indicator Cluster Survey 2017</p>
+            <p>Ghana Demographic and Health Survey (GDHS)</p>
+<p>Ghana Multiple Indicator Cluster Survey (MICS), 2017</p>
 
           
         </td>
@@ -1352,8 +1332,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data providers </th>
         <td>
           
-            <p>Ghana Health Service</p>
-<p>Ghana Statistical Service</p>
+            <p>Ghana Statistical Service (GSS)</p>
 
           
         </td>
@@ -1363,20 +1342,7 @@ data-event-label="Change to Sources tab"
   
       
         
-      
-      
-      <tr>
-        <th scope="row">Data compilers </th>
-        <td>
           
-            <p>Ghana Statistical Service</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
       
         
           
@@ -1391,7 +1357,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Rationale </th>
         <td>
           
-            <p>Reducing adolescent fertility and addressing the multiple factors underlying it are essential for improving sexual and reproductive health and the social and economic well-being of adolescents. There is substantial agreement in the literature that women who become pregnant and give birth very early in their reproductive lives are subject to higher risks of complications or even death during pregnancy and birth and their children are also more vulnerable. Therefore, preventing births very early in a woman’s life is an important measure to improve maternal health and reduce infant mortality. Furthermore, women having children at an early age experience reduced opportunities for socioeconomic advancement, particularly because young mothers are less likely to complete their education and, if they need to work, may find it especially difficult to combine family and work responsibilities. The adolescent birth rate also provides indirect evidence on access to pertinent health services since young people, and in particular unmarried adolescent women, often experience difficulties in access to sexual and reproductive health services.</p>
+            <p>Reducing adolescent fertility and addressing the multiple factors underlying it are essential for improving sexual and reproductive health and the social and economic well-being of adolescents. Therefore, preventing births very early in a woman’s life is an important measure to improve maternal health and reduce infant mortality. Furthermore, women having children at an early age experience reduced opportunities for socioeconomic advancement, particularly because young mothers are less likely to complete their education and, if they need to work, may find it especially difficult to combine family and work responsibilities. The adolescent birth rate also provides indirect evidence on access to pertinent health services since young people, and in particular unmarried adolescent women, often experience difficulties in access to sexual and reproductive health services.</p>
 
           
         </td>
@@ -1404,20 +1370,7 @@ data-event-label="Change to Sources tab"
           
       
         
-      
-      
-      <tr>
-        <th scope="row">Method of computation </th>
-        <td>
           
-            <p>The adolescent birth rate is computed as a ratio. The numerator is the number of live births to women aged 15-19 years, and the denominator an estimate of exposure to childbearing by women aged 15-19 years. The computation is the same for the age group 10-14 years. The numerator and the denominator are calculated differently for civil registration, survey and census data. Computation formula: Adolescent Birth Rate (15-19) = (number of births to women ages 15-19/mid-year population of women ages 15-19) * 1,000 In the case of civil registration data, the numerator is the registered number of live births born to women aged 15-19 years during a given year, and the denominator is the estimated or enumerated population of women aged 15-19 years. In the case of survey data, the numerator is the number of live births obtained from retrospective birth histories of the interviewed women who were 15-19 years of age at the time of the births during a reference period before the interview, and the denominator is person-years lived between the ages of 15 and 19 years by the interviewed women during the same reference period. The reported observation year corresponds to the middle of the reference period. For some surveys without data on retrospective birth histories, computation of the adolescent birth rate is based on the date of last birth or the number of births in the 12 months preceding the survey. With census data, the adolescent birth rate is computed on the basis of the date of last birth or the number of births in the 12 months preceding the enumeration. The census provides both the numerator and the denominator for the rates. In some cases, the rates based on censuses are adjusted for underregistration based on indirect methods of estimation. For some countries with no other reliable data, the own-children method of indirect estimation provides estimates of the adolescent birth rate for a number of years before the census. Last updated: 2022-03-31 Whenever data are available, adolescent fertility at ages 10-14 years can also be computed</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
       
         
           
@@ -1441,7 +1394,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data availability and disaggregation </th>
         <td>
           
-            <p>The data has no disaggregation</p>
+            <p>There is no available disaggregation for this indicator.</p>
 
           
         </td>
@@ -1473,13 +1426,16 @@ data-event-label="Change to Sources tab"
           
       
         
+          
+      
+        
       
       
       <tr>
         <th scope="row">Metadata last updated </th>
         <td>
           
-            Oct 10, 2022
+            Nov 11, 2022
           
         </td>
         </tr>
@@ -1821,6 +1777,7 @@ data-event-label="Change to Sources tab"
   
   
   
+  
 </table>
 
     </article>
@@ -1838,7 +1795,10 @@ data-event-label="Change to Sources tab"
     
     <div class="col-md-6">
       
+        <h4>Source 1</h4>
+      
       <table class="table">
+  
   
   
   
@@ -1912,7 +1872,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            <p>Ghana Statistical Service</p>
+            <p>Ghana Statistical Service (GSS)</p>
 
           
         </td>
@@ -1922,20 +1882,7 @@ data-event-label="Change to Sources tab"
   
       
         
-      
-      
-      <tr>
-        <th scope="row">Periodicity </th>
-        <td>
           
-            <p>Annual</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
       
         
       
@@ -1944,7 +1891,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            <p>1988</p>
+            <p>1993</p>
 
           
         </td>
@@ -2001,19 +1948,7 @@ data-event-label="Change to Sources tab"
   
       
         
-      
-      
-      <tr>
-        <th scope="row">Release date </th>
-        <td>
           
-            Jan 01, 1970
-          
-        </td>
-        </tr>
-        
-      
-  
       
         
       
@@ -2077,6 +2012,266 @@ data-event-label="Change to Sources tab"
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</table>
+
+    </div>
+    
+    
+    
+    <div class="col-md-6">
+      
+        <h4>Source 2</h4>
+      
+      <table class="table">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Organisation </th>
+        <td>
+          
+            <p>Ghana Statistical Service (GSS)</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+          
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Earliest available data </th>
+        <td>
+          
+            <p>1993</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Geographical coverage </th>
+        <td>
+          
+            <p>Ghana</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Link to data source </th>
+        <td>
+          
+            
+            
+            
+            
+
+            
+              <a href="https://www.statsghana.gov.gh/gssmain/fileUpload/pressrelease/MICS%20SFR%20final_compressed.pdf" target="_blank">
+                Multiple Indicator Cluster Survey, 2018 <span class="visuallyhidden">opens in a new window</span>
+              </a>
+            
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      
+  
+      
+        
+          
+      
+        
+          
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Statistical classification </th>
+        <td>
+          
+            <p>Official</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Contact details </th>
+        <td>
+          
+            <p>info@statsghana.gov.gh</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+          
   
   
   
@@ -2240,12 +2435,12 @@ data-event-label="Change to Sources tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/assets/js/sdg.js?v=20221031201927'></script>
+<script src='/assets/js/sdg.js?v=20221113183002'></script>
 <!-- Add any custom javascript here. -->
 
     
     
-    <script src="/assets/js/custom.js?v=20221031201927"></script><script>
+    <script src="/assets/js/custom.js?v=20221113183002"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

@@ -138,7 +138,7 @@ var translations = {
         
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20221031201927">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20221113183002">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -146,7 +146,7 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20221031201927">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20221113183002">
         
 
         
@@ -222,6 +222,8 @@ data-event-label="high"
         aria-haspopup="true">
         <button data-target="menu-mobile" aria-expanded="false">Menu</button>
         <ul class="nav navbar-nav menu-target contrast-switcher" id="menu-mobile"><li class="nav-link ">
+    <a href="/">Frontpage</a>
+</li><li class="nav-link ">
     <a href="/goals">Goals</a>
 </li><li class="nav-link ">
     <a href="/reporting-status">Reporting Status</a>
@@ -296,6 +298,8 @@ data-event-label="high"
 </div>
 
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
+    <a href="/">Frontpage</a>
+</li><li class="nav-link ">
     <a href="/goals">Goals</a>
 </li><li class="nav-link ">
     <a href="/reporting-status">Reporting Status</a>
@@ -502,7 +506,7 @@ data-event-label="high"
   data-country="Ghana"
   data-charttitle="Growth rates of household expenditure or income per capita among the bottom 40 per cent of the population and the total population"
   data-charttitles="[{&quot;series&quot;:&quot;Expenditure share of the bottom 40 percent of the population&quot;,&quot;title&quot;:&quot;Expenditure share of the bottom 40 percent of the population&quot;}]"
-  data-measurementunit="Percent"
+  data-measurementunit="Percentage (%)"
   data-xaxislabel=""
   data-showdata="true"
   data-graphtype="line"
@@ -594,13 +598,13 @@ data-event-label="high"
 
   <div id="datatableFooter">
     
-    <p>Source: World Bank</p>
+    <p>Source: Ghana Statistical Service (GSS)</p>
     
     
     <p>Geographical Area: </p>
     
     
-    <p>Unit of Measurement: Percent</p>
+    <p>Unit of Measurement: Percentage (%)</p>
     
     
     <p>Footnote: </p>
@@ -953,7 +957,7 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
         
         <dt>Source:</dt>
-        <dd>World Bank</dd>
+        <dd>Ghana Statistical Service (GSS)</dd>
         
 
         
@@ -1021,7 +1025,7 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
         
         <dt>Source:</dt>
-        <dd>World Bank</dd>
+        <dd>Ghana Statistical Service (GSS)</dd>
         
 
         
@@ -1115,7 +1119,7 @@ data-event-label="Change to Sources tab"
       <p>
         
         
-        This table provides metadata for the actual indicator available from Ghana statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from Ghanaian statistics, this table should be consulted for information on national methodology and other Ghanaian-specific metadata information.
+        This table provides metadata for the actual indicator available from Ghana statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from Ghana statistics, this table should be consulted for information on national methodology and other Ghana-specific metadata information.
       </p>
       <table class="table">
   
@@ -1196,7 +1200,9 @@ data-event-label="Change to Sources tab"
         <th scope="row">Related indicators </th>
         <td>
           
-            <p>1.1.1, 1.2.1, 10.2.1</p>
+            <p>1.1.1</p>
+<p>1.2.1</p>
+<p>10.2.1</p>
 
           
         </td>
@@ -1209,20 +1215,7 @@ data-event-label="Change to Sources tab"
           
       
         
-      
-      
-      <tr>
-        <th scope="row">Organisation </th>
-        <td>
           
-            <p>Ghana Statistical Service</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
       
         
           
@@ -1253,9 +1246,11 @@ data-event-label="Change to Sources tab"
         <td>
           
             <p><strong>Definition:</strong></p>
-<p>The growth rate in the welfare aggregate of bottom 40% is computed as the annualized average growth rate in per capita real consumption or income of the bottom 40% of the income distribution in a country from household surveys over a roughly 5-year period. The national average growth rate in the welfare aggregate is computed as the annualized average growth rate in per capita real consumption or income of the total population in a country from household surveys over a roughly 5-year period.</p>
+<p>The growth rate in the welfare aggregate of bottom 40 per cent is computed as the annual average growth rate in per capita real consumption or income of the bottom 40 per cent of the income distribution in a country from household surveys over a roughly 5-year period. </p>
+<p>The national average growth rate in the welfare aggregate is computed as the annual average growth rate in per capita real consumption or income of the total population in a country from household surveys over a roughly 5-year period.</p>
 <p><strong>Concepts:</strong></p>
-<p>Promoting shared prosperity is defined as fostering income growth of the bottom 40 percent of the welfare distribution in every country and is measured by calculating the annualized growth of mean per capita real income or consumption of the bottom 40 percent. The choice of the bottom 40 percent as the target population is one of practical compromise. The bottom 40 percent differs across countries depending on the welfare distribution, and it can change over time within a country. Because boosting shared prosperity is a country-specific goal, there is no numerical target defined globally.</p>
+<p>Promoting shared prosperity is defined as fostering income growth of the bottom 40 per cent of the welfare distribution in every country and is measured by calculating the annualized growth of mean per capita real income or consumption of the bottom 40 per cent. </p>
+<p>The choice of the bottom 40 per cent as the target population is one of practical compromise.  Because boosting shared prosperity is a country-specific goal, there is no numerical target defined globally.</p>
 
           
         </td>
@@ -1271,7 +1266,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Unit of measure </th>
         <td>
           
-            <p>Percent</p>
+            <p>Percentage (%)</p>
 
           
         </td>
@@ -1293,7 +1288,57 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data sources </th>
         <td>
           
-            <p>GLSS Round 7, 2019</p>
+            <p>Ghana Living Standards Survey (GLSS) Round 7, 2017</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Data providers </th>
+        <td>
+          
+            <p>Ghana Statistical Service (GSS)</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
+          
+      
+        
+          
+      
+        
+          
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Rationale </th>
+        <td>
+          
+            <p>Improvements in shared prosperity require both a growing economy and a consideration of equity. Shared prosperity explicitly recognizes that while growth is necessary for improving economic welfare in a society, progress is measured by how those gains are shared with its poorest members. Moreover, in an inclusive society it is not sufficient to raise everyone above an absolute minimum standard of living; it must ensure that economic growth increases prosperity among the poor over time.The decision to measure shared prosperity based on income or consumption was not taken to ignore the many other dimensions of welfare. It is motivated by the need for an indicator that is easy to understand, communicate, and measure—though measurement challenges exist. </p>
 
           
         </td>
@@ -1324,28 +1369,20 @@ data-event-label="Change to Sources tab"
           
       
         
-          
       
-        
-          
       
-        
+      <tr>
+        <th scope="row">Data availability and disaggregation </th>
+        <td>
           
+            <p>There is no available disaggregation for this indicator. </p>
+
+          
+        </td>
+        </tr>
+        
       
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
-      
-        
-          
+  
       
         
           
@@ -1366,7 +1403,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            Oct 10, 2022
+            Nov 09, 2022
           
         </td>
         </tr>
@@ -1708,6 +1745,7 @@ data-event-label="Change to Sources tab"
   
   
   
+  
 </table>
 
     </article>
@@ -1791,6 +1829,7 @@ data-event-label="Change to Sources tab"
   
   
   
+  
       
         
       
@@ -1799,7 +1838,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            <p>World Bank</p>
+            <p>Ghana Statistical Service (GSS)</p>
 
           
         </td>
@@ -1831,7 +1870,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            <p>2004</p>
+            <p>2013</p>
 
           
         </td>
@@ -1869,8 +1908,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://data.worldbank.org/indicator/SI.POV.DDAY?locations=GB" target="_blank">
-                Poverty headcount ratio at $1.90 a day (2011 PPP) (% of population) <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://www.statsghana.gov.gh/gssmain/fileUpload/pressrelease/GLSS7%20MAIN%20REPORT_FINAL.pdf" target="_blank">
+                Ghana Living Standards Survey (GLSS) <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1894,7 +1933,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Release date </th>
         <td>
           
-            May 28, 2020
+            Jun 01, 2019
           
         </td>
         </tr>
@@ -1903,20 +1942,7 @@ data-event-label="Change to Sources tab"
   
       
         
-      
-      
-      <tr>
-        <th scope="row">Next release </th>
-        <td>
           
-            <p>TBA</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
       
         
       
@@ -1925,7 +1951,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            <p>Non-official</p>
+            <p>Official</p>
 
           
         </td>
@@ -1941,7 +1967,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            <p>Research@WorldBank.org</p>
+            <p>info@statsghana.gov.gh</p>
 
           
         </td>
@@ -2127,12 +2153,12 @@ data-event-label="Change to Sources tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/assets/js/sdg.js?v=20221031201927'></script>
+<script src='/assets/js/sdg.js?v=20221113183002'></script>
 <!-- Add any custom javascript here. -->
 
     
     
-    <script src="/assets/js/custom.js?v=20221031201927"></script><script>
+    <script src="/assets/js/custom.js?v=20221113183002"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

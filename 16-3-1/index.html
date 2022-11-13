@@ -138,7 +138,7 @@ var translations = {
         
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20221031201927">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20221113183002">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -146,7 +146,7 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20221031201927">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20221113183002">
         
 
         
@@ -222,6 +222,8 @@ data-event-label="high"
         aria-haspopup="true">
         <button data-target="menu-mobile" aria-expanded="false">Menu</button>
         <ul class="nav navbar-nav menu-target contrast-switcher" id="menu-mobile"><li class="nav-link ">
+    <a href="/">Frontpage</a>
+</li><li class="nav-link ">
     <a href="/goals">Goals</a>
 </li><li class="nav-link ">
     <a href="/reporting-status">Reporting Status</a>
@@ -296,6 +298,8 @@ data-event-label="high"
 </div>
 
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
+    <a href="/">Frontpage</a>
+</li><li class="nav-link ">
     <a href="/goals">Goals</a>
 </li><li class="nav-link ">
     <a href="/reporting-status">Reporting Status</a>
@@ -502,10 +506,10 @@ data-event-label="high"
   data-country="Ghana"
   data-charttitle="Proportion of victims of violence in the previous 12 months who reported their victimization to competent authorities or other officially recognized conflict resolution mechanisms"
   data-charttitles="[]"
-  data-measurementunit="Percent"
+  data-measurementunit="Percentage (%)"
   data-xaxislabel=""
   data-showdata="true"
-  data-graphtype="line"
+  data-graphtype="bar"
   data-graphtypes="null"
   data-geocoderegex=""
   data-showmap="false"
@@ -594,13 +598,13 @@ data-event-label="high"
 
   <div id="datatableFooter">
     
-    <p>Source: World Bank</p>
+    <p>Source: Ghana Statistical Service (GSS)</p>
     
     
     <p>Geographical Area: </p>
     
     
-    <p>Unit of Measurement: Percent</p>
+    <p>Unit of Measurement: Percentage (%)</p>
     
     
     <p>Footnote: </p>
@@ -905,39 +909,32 @@ opensdg.chartConfigAlter(function(config, info) {
 </script>
 
 <script>
-// For line charts, add the vertical line hover functionality.
 opensdg.chartConfigAlter(function(config, info) {
+  if (info.stackedDisaggregation) {
     var overrides = {
-        options: {
-            tooltips: {
-                intersect: false,
-                axis: 'x',
-            },
-        },
-        plugins: [{
-            beforeDatasetsDraw: function(chart) {
-                if (chart.tooltip._active && chart.tooltip._active.length) {
-                    var activePoint = chart.tooltip._active[0],
-                        ctx = chart.ctx,
-                        x = activePoint.tooltipPosition().x,
-                        topY = chart.scales['y-axis-0'].top,
-                        bottomY = chart.scales['y-axis-0'].bottom;
-
-                    // draw line
-                    ctx.save();
-                    ctx.beginPath();
-                    ctx.moveTo(x, topY);
-                    ctx.lineTo(x, bottomY);
-                    ctx.lineWidth = 2;
-                    ctx.strokeStyle = '#757575';
-                    ctx.stroke();
-                    ctx.restore();
-                }
-            }
-        }],
+      options: {
+        scales: {
+          xAxes: [{ stacked: true }],
+          yAxes: [{ stacked: true }],
+        }
+      }
     };
+    // If we have stackedDisaggregation, we need to group datasets into stacks.
+    config.data.datasets.forEach(function(dataset) {
+      var disaggregation = $.extend({}, dataset.disaggregation);
+      // We're going to "stringify" each combination of disaggregations in order
+      // to place them in their own "stacks". To place "stacked" disaggregations
+      // into the same stack, we set them as "samestack" before stringifying.
+      // Note that the string "samestack" is completely arbitrary.
+      if (typeof disaggregation[info.stackedDisaggregation] !== 'undefined') {
+        disaggregation[info.stackedDisaggregation] = 'samestack';
+      }
+      // Use the disaggregation as a unique id for each stack.
+      dataset.stack = JSON.stringify(disaggregation);
+    });
     // Add these overrides onto the normal config, and return it.
     $.extend(true, config, overrides);
+  }
 });
 </script>
 
@@ -953,7 +950,7 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
         
         <dt>Source:</dt>
-        <dd>World Bank</dd>
+        <dd>Ghana Statistical Service (GSS)</dd>
         
 
         
@@ -1021,7 +1018,7 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
         
         <dt>Source:</dt>
-        <dd>World Bank</dd>
+        <dd>Ghana Statistical Service (GSS)</dd>
         
 
         
@@ -1115,7 +1112,7 @@ data-event-label="Change to Sources tab"
       <p>
         
         
-        This table provides metadata for the actual indicator available from Ghana statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from Ghanaian statistics, this table should be consulted for information on national methodology and other Ghanaian-specific metadata information.
+        This table provides metadata for the actual indicator available from Ghana statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from Ghana statistics, this table should be consulted for information on national methodology and other Ghana-specific metadata information.
       </p>
       <table class="table">
   
@@ -1196,20 +1193,7 @@ data-event-label="Change to Sources tab"
           
       
         
-      
-      
-      <tr>
-        <th scope="row">Organisation </th>
-        <td>
           
-            <p>Ghana Statistical Service</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
       
         
           
@@ -1258,7 +1242,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Unit of measure </th>
         <td>
           
-            <p>Percent (%)</p>
+            <p>Percentage (%)</p>
 
           
         </td>
@@ -1280,9 +1264,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data sources </th>
         <td>
           
-            <p>Ghana Statistical Service (GSS)</p>
-<p>Ghana Living Standards Survey (GLSS) 6 (2012/13)</p>
-<p>Ghana Living Standards Survey (GLSS) 7 (2016/17)</p>
+            <p>Ghana Living Standards Survey (GLSS) Round 6, 2012/13</p>
+<p>Ghana Living Standards Survey (GLSS) Round 7, 2016/17</p>
 
           
         </td>
@@ -1317,20 +1300,7 @@ data-event-label="Change to Sources tab"
   
       
         
-      
-      
-      <tr>
-        <th scope="row">Data compilers </th>
-        <td>
           
-            <p>GSS</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
       
         
           
@@ -1345,7 +1315,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Rationale </th>
         <td>
           
-            <p>Reporting to competent authorities is the first step for crime victims to seek justice: if competent authorities are not alerted they are not in a condition to conduct proper investigations and administer justice. However, lack of trust and confidence in the ability of the police or other authorities to provide effective redress, or objective and subjective difficulties in accessing them, can influence negatively the reporting behaviour of crime victims. As such, reporting rates provide a direct measure of the confidence of victims of crime in the ability of the police or other authorities to provide assistance and bring perpetrators to justice. Reporting rates provide also a measure of the ‘dark figure’ of crime, that is the proportion of crimes not reported to the police. Trends in reporting rates of violent crime can be used to monitor public trust and confidence in competent authorities on the basis of actual behaviours and not perceptions.</p>
+            <p>Reporting to competent authorities is the first step for crime victims to seek justice. If competent authorities are not alerted they are not in a condition to conduct proper investigations and administer justice. However, lack of trust and confidence in the ability of the police or other authorities to provide effective redress, or objective and subjective difficulties in accessing them, can influence negatively the reporting behaviour of crime victims. As such, reporting rates provide a direct measure of the confidence of victims of crime in the ability of the police or other authorities to provide assistance and bring perpetrators to justice. Reporting rates provide also a measure of the ‘dark figure’ of crime, that is the proportion of crimes not reported to the police. Trends in reporting rates of violent crime can be used to monitor public trust and confidence in competent authorities on the basis of actual behaviours and not perceptions.</p>
 
           
         </td>
@@ -1364,7 +1334,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Method of computation </th>
         <td>
           
-            <p>Number of victims of violent crime in the previous 12 months who reported their victimization to competent authorities or other officially recognized conflict resolution mechanisms, divided by the number of all victims of violent crime in the previous 12 months (also called the ‘crime reporting rate’) Both the number of victims of violent crime as well as the number of all victims of violent crime are measured through sample surveys of the general population, most often dedicated crime victimization surveys</p>
+            <p>Number of victims of violent crime in the previous 12 months who reported their victimization to competent authorities or other officially recognized conflict resolution mechanisms, divided by the number of all victims of violent crime in the previous 12 months (also called the ‘crime reporting rate’) multiplied by 100.</p>
 
           
         </td>
@@ -1387,6 +1357,22 @@ data-event-label="Change to Sources tab"
       
         
           
+      
+        
+      
+      
+      <tr>
+        <th scope="row">Data availability and disaggregation </th>
+        <td>
+          
+            <p>This data is disaggregated by rural and urban areas.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
       
         
           
@@ -1407,7 +1393,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            Oct 10, 2022
+            Nov 11, 2022
           
         </td>
         </tr>
@@ -1749,6 +1735,7 @@ data-event-label="Change to Sources tab"
   
   
   
+  
 </table>
 
     </article>
@@ -1832,6 +1819,7 @@ data-event-label="Change to Sources tab"
   
   
   
+  
       
         
       
@@ -1840,7 +1828,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            <p>World Bank</p>
+            <p>Ghana Statistical Service (GSS)</p>
 
           
         </td>
@@ -1872,7 +1860,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Earliest available data </th>
         <td>
           
-            <p>2004</p>
+            <p>2013</p>
 
           
         </td>
@@ -1910,8 +1898,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://data.worldbank.org/indicator/SI.POV.DDAY?locations=GB" target="_blank">
-                Poverty headcount ratio at $1.90 a day (2011 PPP) (% of population) <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://www2.statsghana.gov.gh/nada/index.php/catalog#_r=1664470556419&collection=&country=&dtype=&from=1960&page=1&ps=&sid=&sk=glss&sort_by=rank&sort_order=desc&to=2015&topic=&view=s&vk=" target="_blank">
+                Ghana Living Standards Survey <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1929,19 +1917,7 @@ data-event-label="Change to Sources tab"
   
       
         
-      
-      
-      <tr>
-        <th scope="row">Release date </th>
-        <td>
           
-            May 28, 2020
-          
-        </td>
-        </tr>
-        
-      
-  
       
         
       
@@ -1966,7 +1942,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            <p>Non-official</p>
+            <p>Official</p>
 
           
         </td>
@@ -1982,7 +1958,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            <p>Research@WorldBank.org</p>
+            <p>info@statsghana.gov.gh</p>
 
           
         </td>
@@ -2168,12 +2144,12 @@ data-event-label="Change to Sources tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/assets/js/sdg.js?v=20221031201927'></script>
+<script src='/assets/js/sdg.js?v=20221113183002'></script>
 <!-- Add any custom javascript here. -->
 
     
     
-    <script src="/assets/js/custom.js?v=20221031201927"></script><script>
+    <script src="/assets/js/custom.js?v=20221113183002"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>

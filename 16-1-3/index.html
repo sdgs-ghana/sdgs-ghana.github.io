@@ -138,7 +138,7 @@ var translations = {
         
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/assets/css/style.css?v=20221031201927">
+        <link rel="stylesheet" href="/assets/css/style.css?v=20221113183002">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -146,7 +146,7 @@ var translations = {
         <link rel="stylesheet" href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'  crossorigin=""/>
         <link rel="stylesheet" href="https://bowercdn.net/c/leaflet.zoomhome-latest/dist/leaflet.zoomhome.css"  crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css" crossorigin="">
-        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20221031201927">
+        <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.min.css" crossorigin=""/><link rel="stylesheet" href="/assets/css/custom.css?v=20221113183002">
         
 
         
@@ -222,6 +222,8 @@ data-event-label="high"
         aria-haspopup="true">
         <button data-target="menu-mobile" aria-expanded="false">Menu</button>
         <ul class="nav navbar-nav menu-target contrast-switcher" id="menu-mobile"><li class="nav-link ">
+    <a href="/">Frontpage</a>
+</li><li class="nav-link ">
     <a href="/goals">Goals</a>
 </li><li class="nav-link ">
     <a href="/reporting-status">Reporting Status</a>
@@ -296,6 +298,8 @@ data-event-label="high"
 </div>
 
       <ul class="nav navbar-nav menu-target contrast-switcher" id="menu"><li class="nav-link ">
+    <a href="/">Frontpage</a>
+</li><li class="nav-link ">
     <a href="/goals">Goals</a>
 </li><li class="nav-link ">
     <a href="/reporting-status">Reporting Status</a>
@@ -502,7 +506,7 @@ data-event-label="high"
   data-country="Ghana"
   data-charttitle="Proportion of population subjected to (a) physical violence, (b) psychological violence and (c) sexual violence in the previous 12 months"
   data-charttitles="[]"
-  data-measurementunit="Percent"
+  data-measurementunit="Percentage (%)"
   data-xaxislabel=""
   data-showdata="true"
   data-graphtype="bar"
@@ -562,13 +566,13 @@ data-event-label="high"
 
   <div id="datatableFooter">
     
-    <p>Source: World Bank</p>
+    <p>Source: Institute of Development Studies (IDS), Ghana Statistical Services (GSS) and Associates (2016)</p>
     
     
     <p>Geographical Area: </p>
     
     
-    <p>Unit of Measurement: Percent</p>
+    <p>Unit of Measurement: Percentage (%)</p>
     
     
     <p>Footnote: </p>
@@ -914,7 +918,7 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
         
         <dt>Source:</dt>
-        <dd>World Bank</dd>
+        <dd>Institute of Development Studies (IDS), Ghana Statistical Services (GSS) and Associates (2016)</dd>
         
 
         
@@ -982,7 +986,7 @@ opensdg.chartConfigAlter(function(config, info) {
     <dl>
         
         <dt>Source:</dt>
-        <dd>World Bank</dd>
+        <dd>Institute of Development Studies (IDS), Ghana Statistical Services (GSS) and Associates (2016)</dd>
         
 
         
@@ -1076,7 +1080,7 @@ data-event-label="Change to Sources tab"
       <p>
         
         
-        This table provides metadata for the actual indicator available from Ghana statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from Ghanaian statistics, this table should be consulted for information on national methodology and other Ghanaian-specific metadata information.
+        This table provides metadata for the actual indicator available from Ghana statistics closest to the corresponding global SDG indicator. Please note that even when the global SDG indicator is fully available from Ghana statistics, this table should be consulted for information on national methodology and other Ghana-specific metadata information.
       </p>
       <table class="table">
   
@@ -1135,7 +1139,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Indicator </th>
         <td>
           
-            <p>Indicator 16.1.3: Proportion of population subjected to physical, psychological or sexual violence in the previous 12 months</p>
+            <p>Indicator 16.1.3: Proportion of population subjected to (a) physical violence, (b) psychological violence or (c) sexual violence in the previous 12 months</p>
 
           
         </td>
@@ -1143,21 +1147,19 @@ data-event-label="Change to Sources tab"
         
       
   
-      
-        
-          
-      
-        
-          
       
         
       
       
       <tr>
-        <th scope="row">Related indicators </th>
+        <th scope="row">Series </th>
         <td>
           
-            <p>16.2, 16.3, 16.a, 5.2</p>
+            <p>Proportion of population subjected to economic violence in the previous 12 months [16.1.3]</p>
+<p>Proportion of population subjected to physical violence in the previous 12 months [16.1.3]</p>
+<p>Proportion of population subjected to psychological violence in the previous 12 months [16.1.3]</p>
+<p>Proportion of population ubjected to sexual violence in the previous 12 months [16.1.3]</p>
+<p>Proportion of population subjected to social violence in the previous 12 moths [16.1.3]</p>
 
           
         </td>
@@ -1170,21 +1172,13 @@ data-event-label="Change to Sources tab"
           
       
         
-      
-      
-      <tr>
-        <th scope="row">Organisation </th>
-        <td>
           
-            <p>Institute of Development Studies</p>
-<p>Ghana Statistical Service</p>
-
-          
-        </td>
-        </tr>
+      
         
+          
       
-  
+        
+          
       
         
           
@@ -1215,14 +1209,10 @@ data-event-label="Change to Sources tab"
         <td>
           
             <p><strong>Definition:</strong></p>
-<p>The total number of persons who have been victim of physical, psychological or sexual violence in the previous 12 months, as a share of the total population.</p>
+<p>The total number of persons who have been victim of physical, psychological or sexual violence in the previous 12 months, as a share of the total population. This indicator measures the prevalence of victimization from physical, psychological or sexual violence.</p>
+<p> </p>
 <p><strong>Concepts:</strong></p>
-<p>This indicator measures the prevalence of victimization from physical, psychological or sexual violence</p>
-<p>Physical violence: This concept is equivalent to the concept of physical assault, as defined in the International Classification of Crime for Statistical Purposes (ICCS): the intentional or reckless application of physical force inflicted upon the body of a person. This includes serious and minor bodily injuries and serious and minor physical force. According to the ICCS, these are defined as:</p>
-<p>Serious bodily injury, at minimum, includes gunshot or bullet wounds; knife or stab wounds; severed limbs; broken bones or teeth knocked out; internal injuries; being knocked unconscious; and other severe or critical injuries.</p>
-<p>Serious physical force, at minimum, includes being shot; stabbed or cut; hit by an object; hit by a thrown object; poisoning and other applications of force with the potential to cause serious bodily injury.</p>
-<p>Minor bodily injury, at minimum, includes bruises, cuts, scratches, chipped teeth, swelling, black eye and other minor injuries.</p>
-<p>Minor physical force, at minimum, includes hitting, slapping, pushing, tripping, knocking down and other applications of force with the potential to cause minor bodily injury.</p>
+<p>Physical violence: This concept is equivalent to the concept of physical assault, as defined in the <a href="https://unstats.un.org/unsd/statcom/doc15/BG-ICCS-UNODC.pdf">International Classification of Crime for Statistical Purposes (ICCS)</a>: the intentional or reckless application of physical force inflicted upon the body of a person. This includes serious and minor bodily injuries and serious and minor physical force. </p>
 <p>Sexual violence (ICCS): Unwanted sexual act, attempt to obtain a sexual act, or contact or communication with unwanted sexual attention without valid consent or with consent as a result of intimidation, force, fraud, coercion, threat, deception, use of drugs or alcohol, or abuse of power or of a position of vulnerability. This includes rape and other forms of sexual assault.</p>
 <p>Psychological violence: There is as yet no consensus at the international level of the precise definition of psychological violence and there is as yet no generally well-established methodology to measure psychological violence.</p>
 
@@ -1240,7 +1230,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Unit of measure </th>
         <td>
           
-            <p>Percent (%)</p>
+            <p>Percentage (%)</p>
 
           
         </td>
@@ -1262,7 +1252,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data sources </th>
         <td>
           
-            <p>Institute of Development Studies, GSS and Associates, 2016</p>
+            <p>Domestic Violence in Ghana - Incidence, Attitudes, Determinants and Consequences, 2016</p>
 
           
         </td>
@@ -1287,7 +1277,8 @@ data-event-label="Change to Sources tab"
         <th scope="row">Data providers </th>
         <td>
           
-            <p>Ghana Statistical Service (GSS)</p>
+            <p>Institute of Development Studies (IDS}</p>
+<p>Ghana Statistical Service (GSS) and Associates</p>
 
           
         </td>
@@ -1297,20 +1288,7 @@ data-event-label="Change to Sources tab"
   
       
         
-      
-      
-      <tr>
-        <th scope="row">Data compilers </th>
-        <td>
           
-            <p>Ghana Statistical Service (GSS)</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
       
         
           
@@ -1325,7 +1303,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Rationale </th>
         <td>
           
-            <p>This indicator measures the prevalence of victimization from physical, sexual (and, possibly, psychological) violence. It is globally relevant as violence in various forms occurs in all regions and countries of the world. Given that acts of violence are heavily underreported to the authorities, this indicator needs to be based on data collected through sample surveys of the adult population.</p>
+            <p>This indicator measures the prevalence of victimization from physical, sexual (and, possibly, psychological) violence. Given that acts of violence are heavily under-reported to the authorities, this indicator needs to be based on data collected through sample surveys of the adult population.</p>
 
           
         </td>
@@ -1369,6 +1347,22 @@ data-event-label="Change to Sources tab"
           
       
         
+      
+      
+      <tr>
+        <th scope="row">Data availability and disaggregation </th>
+        <td>
+          
+            <p>This data is disaggregated by sex.</p>
+
+          
+        </td>
+        </tr>
+        
+      
+  
+      
+        
           
       
         
@@ -1387,7 +1381,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Metadata last updated </th>
         <td>
           
-            Oct 10, 2022
+            Nov 11, 2022
           
         </td>
         </tr>
@@ -1729,6 +1723,7 @@ data-event-label="Change to Sources tab"
   
   
   
+  
 </table>
 
     </article>
@@ -1812,6 +1807,7 @@ data-event-label="Change to Sources tab"
   
   
   
+  
       
         
       
@@ -1820,7 +1816,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Organisation </th>
         <td>
           
-            <p>World Bank</p>
+            <p>Institute of Development Studies (IDS), Ghana Statistical Services (GSS) and Associates (2016)</p>
 
           
         </td>
@@ -1830,36 +1826,10 @@ data-event-label="Change to Sources tab"
   
       
         
-      
-      
-      <tr>
-        <th scope="row">Periodicity </th>
-        <td>
           
-            <p>Annual</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
       
         
-      
-      
-      <tr>
-        <th scope="row">Earliest available data </th>
-        <td>
           
-            <p>2004</p>
-
-          
-        </td>
-        </tr>
-        
-      
-  
       
         
       
@@ -1890,8 +1860,8 @@ data-event-label="Change to Sources tab"
             
 
             
-              <a href="https://data.worldbank.org/indicator/SI.POV.DDAY?locations=GB" target="_blank">
-                Poverty headcount ratio at $1.90 a day (2011 PPP) (% of population) <span class="visuallyhidden">opens in a new window</span>
+              <a href="https://www2.statsghana.gov.gh/docfiles/publications/DV_Ghana_Report_FINAL.pdf" target="_blank">
+                Domestic Violence in Ghana - Incidence, Attitudes, Determinants and Consequences <span class="visuallyhidden">opens in a new window</span>
               </a>
             
 
@@ -1909,19 +1879,7 @@ data-event-label="Change to Sources tab"
   
       
         
-      
-      
-      <tr>
-        <th scope="row">Release date </th>
-        <td>
           
-            May 28, 2020
-          
-        </td>
-        </tr>
-        
-      
-  
       
         
       
@@ -1946,7 +1904,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Statistical classification </th>
         <td>
           
-            <p>Non-official</p>
+            <p>Official</p>
 
           
         </td>
@@ -1962,7 +1920,7 @@ data-event-label="Change to Sources tab"
         <th scope="row">Contact details </th>
         <td>
           
-            <p>Research@WorldBank.org</p>
+            <p>ids@ids.ac.uk</p>
 
           
         </td>
@@ -2148,12 +2106,12 @@ data-event-label="Change to Sources tab"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/assets/js/sdg.js?v=20221031201927'></script>
+<script src='/assets/js/sdg.js?v=20221113183002'></script>
 <!-- Add any custom javascript here. -->
 
     
     
-    <script src="/assets/js/custom.js?v=20221031201927"></script><script>
+    <script src="/assets/js/custom.js?v=20221113183002"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
